@@ -1,0 +1,106 @@
+\documentclass[a4paper,12pt, titlepage]{book}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,textcomp, graphicx}
+\graphicspath{{images/}}
+\usepackage[french]{babel}
+\usepackage{cmap}
+\usepackage{enumitem} % pour gérer l'apparence des listes
+\usepackage{float} % pour placer les images à  l'endroit où elles sont définies dans le code LaTeX
+\usepackage{hyperref}
+\usepackage{listings} % pour afficher du code source
+\usepackage[svgnames]{xcolor} % pour utiliser les couleurs
+\usepackage[hang, small, labelfont=bf, up, textfont=it, up]{caption}
+\usepackage{titling}
+\usepackage{pdftexcmds}
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.85,vscale=0.85,centering}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Page de garde %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+\begin{center}
+\hspace*{0mm}\vfill
+\includegraphics[width=1\textwidth]{greenspector_pres.jpg}\\
+\vfill\hspace*{0mm}
+
+\vfill
+{\large Khalil Boulkenafet}\\[0.2cm]
+{\large Rapport de stage ingénieur}\\[0.5cm]
+
+% Titre
+\rule{\linewidth}{0.5mm} \\[0.4cm]
+{ \huge \bfseries Développement et étude d'un dispositif de mesure physique pour l'outil GREENSPECTOR \\[0.4cm] }
+\rule{\linewidth}{0.5mm} \\[1.8cm]
+
+% Encadrants
+\begin{minipage}{0.4\textwidth}
+  \begin{flushleft} \large
+    \emph{Tuteur école:}\\
+    M. Jean-Yves \textsc{Martin}\\
+  \end{flushleft}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+  \begin{flushright} \large
+    \emph{Encadrants entreprise :} \\
+    M. Thierry \textsc{Leboucq}\\
+    M. Olivier \textsc{Philippot}
+  \end{flushright}
+\end{minipage}
+
+% Logos 
+\begin{figure}[b]
+\centering
+  \begin{minipage}{0.3\textwidth}
+  	\centering
+    		\includegraphics[width=1\textwidth]{ecnlogo.png}
+  \end{minipage}
+  \begin{minipage}{0.3\textwidth}
+  	\centering
+    		\includegraphics[width=1\textwidth]{greenspector_logo.jpg}
+  \end{minipage}
+\end{figure}
+
+\vfill
+
+\end{center}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{arabic}
+\chapter*{Remerciements}
+Je tiens à remercier \textsc{Abdou}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
