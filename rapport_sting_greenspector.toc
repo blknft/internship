@@ -11,5 +11,5 @@
 \contentsline {subsubsection}{\numberline {2.2.1}R\'ef\'erentiel de r\`egles et de mesures}{7}{subsubsection.0.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}Moteur d'analyse}{7}{subsubsection.0.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.3}Interface utilisateur}{7}{subsubsection.0.2.2.3}
-\contentsline {chapter}{\numberline {A}Dashboard : exemple d'analyse du site de l'\'Ecole Centrale de Nantes}{8}{appendix.A}
+\contentsline {chapter}{\numberline {A}Tableau de bord : exemple d'analyse du site de l'\'Ecole Centrale de Nantes}{8}{appendix.A}
 \contentsline {chapter}{Bibliographie}{9}{appendix*.8}

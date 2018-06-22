@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.31)  22 JUN 2018 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.31)  22 JUN 2018 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -772,9 +772,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 224.
  (./rapport_sting_greenspector.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 224.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 224.
-Package rerunfilecheck Info: File `rapport_sting_greenspector.out' has not chan
-ged.
-(rerunfilecheck)             Checksum: 18B62BE36FEF3E398580D8326ADDEA4D;940.
+
+
+Package rerunfilecheck Warning: File `rapport_sting_greenspector.out' has chang
+ed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `rapport_sting_greenspector.out':
+(rerunfilecheck)             Before: 18B62BE36FEF3E398580D8326ADDEA4D;940
+(rerunfilecheck)             After:  738837DD4879F572DF9303C8A18ACAAE;946.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 224.
  ) 
 Here is how much of TeX's memory you used:
@@ -795,7 +805,7 @@ lm/lmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr8.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/loc
 al/texlive/2018/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive
 /2018/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on rapport_sting_greenspector.pdf (10 pages, 299614 bytes).
+Output written on rapport_sting_greenspector.pdf (10 pages, 299616 bytes).
 PDF statistics:
  207 PDF objects out of 1000 (max. 8388607)
  175 compressed objects within 2 object streams
