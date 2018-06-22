@@ -1,0 +1,15 @@
+\babel@toc {french}{}
+\contentsline {chapter}{Remerciements}{1}{chapter*.2}
+\contentsline {chapter}{Introduction}{4}{chapter*.5}
+\contentsline {chapter}{Pr\'esentation de l'entreprise}{5}{chapter*.6}
+\contentsline {chapter}{Cadre g\'en\'eral}{6}{chapter*.7}
+\contentsline {section}{\numberline {1}\'Eco-conception logicielle}{6}{section.0.1}
+\contentsline {paragraph}{Exemples d'application}{6}{section.0.1}
+\contentsline {section}{\numberline {2}Pr\'esentation de l'outil \emph {Greenspector}{}}{7}{section.0.2}
+\contentsline {subsection}{\numberline {2.1}Architecture}{7}{subsection.0.2.1}
+\contentsline {subsection}{\numberline {2.2}Intelligence}{7}{subsection.0.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}R\'ef\'erentiel de r\`egles et de mesures}{7}{subsubsection.0.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Moteur d'analyse}{7}{subsubsection.0.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Interface utilisateur}{7}{subsubsection.0.2.2.3}
+\contentsline {chapter}{\numberline {A}Dashboard : exemple d'analyse du site de l'\'Ecole Centrale de Nantes}{8}{appendix.A}
+\contentsline {chapter}{Bibliographie}{9}{appendix*.8}

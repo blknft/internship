@@ -12,14 +12,22 @@
 \usepackage[svgnames]{xcolor} % pour utiliser les couleurs
 \usepackage[hang, small, labelfont=bf, up, textfont=it, up]{caption}
 \usepackage{titling}
+\usepackage[official]{eurosym}
 \usepackage{pdftexcmds}
 \usepackage[a4paper]{geometry}
 \geometry{hscale=0.85,vscale=0.85,centering}
 \setcounter{secnumdepth}{3} % profondeur pour la num√©rotation
 \setcounter{tocdepth}{3} % profondeur pour la table des mati√®res
+\usepackage[nottoc, notlof, notlot]{tocbibind}
+\usepackage[newlinetospace]{titlesec}
 
 \renewcommand{\thesection}{\arabic{section}} 
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}} 
+
+\addto\captionsfrench{\renewcommand{\chaptername}{}}
+\newcommand{\logiciel}{\emph{Greenspector}}
+\newcommand{\entreprise}{\textsc{Greenspector}}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,11 +44,11 @@
 
 \vfill
 {\large Khalil Boulkenafet}\\[0.2cm]
-{\large Rapport de stage ingéieur}\\[0.5cm]
+{\large Rapport de stage ingénieur}\\[0.5cm]
 
 % Titre
 \rule{\linewidth}{0.5mm} \\[0.4cm]
-{ \huge \bfseries Développement et étude d'un dispositif de mesure physique pour l'outil GREENSPECTOR \\[0.4cm] }
+{ \huge \bfseries Étude et développement d'un dispositif de mesure physique, étude de faisabilité pour l'outil GREENSPECTOR \\[0.4cm] }
 \rule{\linewidth}{0.5mm} \\[1.8cm]
 
 % Encadrants
@@ -78,7 +86,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagenumbering{arabic}
-\section{Remerciements}
+\chapter*{Remerciements}
+\label{chap:Remerciements}
+\addcontentsline{toc}{chapter}{Remerciements}
+
 Je tiens à remercier \textsc{Abdou}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,17 +97,133 @@ Je tiens à remercier \textsc{Abdou}.
 \strut
 \newpage
 \tableofcontents
+\listoffigures
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\section{Introduction}
+\chapter*{Introduction}
+\label{chap:Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\setcounter{footnote}{0}
+
+
+Les technologies de l'information et des communications (TIC) ont permis de réduire l'impact environnemental de nombreux secteurs d'activités et cela de diverses manières (dématérialisation, smart grids, gestion des ressources et de la production...). L'usage croissant de ces technologies implique cependant une empreinte écologique conséquente \cite{syntec}, entre la consommation de ressources des équipements (matières premières, consommation d'énergie \footnote{En 2015, en France, 12\% de la consommation électrique du pays provient du numérique, d'après une étude de l'association négaWatt. \cite{negawatt} }, recyclage difficile et coûteux) et la pollution (gaz à effet de serre, pollution liée à l'extraction des métaux). \cite{congresecoinfo}
+
+Dans le contexte actuel de réchauffement climatique et de raréfaction des énergies fossiles et métaux rares, la réduction des impacts environnementaux des appareils et services du numérique représente un enjeu de taille.
+
+\bigskip La \emph{conception responsable} (ou éco-conception) des services numériques est un des leviers d'action possibles, et présente un potentiel très important. Elle encourage la modération et la sobriété dans la conception des TIC. Selon le Benchmark Green IT 2017 \cite{greenit2017}, elle permettrait d'utiliser << de l'ordre de 2 à 100 fois moins de ressources informatiques [...] à tous les niveaux du système d'information  >>.  
+
+\textsc{Greenspector} est la première solution outillée pour l'éco-conception des logiciels. Intégrée dans les outils du développeur, elle permet aux DSI de mesurer et contrôler la consommation de ressources des logiciels qu'elles produisent ou réceptionnent. Ces informations rendent alors possibles des gains d'autonomie des appareils mobiles et objets connectés, des gains de performance des applications et des économies dans les datacenters. 
+
+\bigskip Ce stage chez \textsc{Greenspector} a permis d'aborder plusieurs sujets : développement d'une fonctionnalité de l'outil, mise en place de tests unitaires, comparaisons des mesures physique et logicielle de consommation d'énergie, investigations pour étendre la portée de l'outil. J'ai suivi une démarche générale de recherche et développement, tout en étant intégré dans le quotidien de l'équipe.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\chapter*{Présentation de l'entreprise}
+\label{chap:Greenspector}
+\addcontentsline{toc}{chapter}{Présentation de l'entreprise}
+\setcounter{footnote}{0}
+En novembre 2010, Thierry \textsc{Leboucq} et Martin \textsc{Dargent} crééent \textsc{KaliTerre}, entreprise spécialisée dans les missions de conseil et formation en RSE et Green IT \footnote{La démarche \emph{Green IT} vise à réduire l’empreinte écologique, économique et sociale des technologies de l’information et de la communication. Elle est rattachée aux Directions des Systèmes d'Information. \cite{greenitdef} }, notamment auprès de l'ADEME \footnote{ADEME : Agence de l'environnement et de la maîtrise de l'énergie.}, Nantes Métropole, et le Ministère de la Culture et la Communication. Martin \textsc{Dargent} quitte \textsc{KaliTerre} en 2011 — il en reste actionnaire et partenaire — et deux nouveaux associés, Thomas \textsc{Corvaisier} et Olivier \textsc{Philippot}, rejoignent l'entreprise en tant que co-gérants en 2013.
+
+\bigskip Entre 2010 et 2014, \textsc{KaliTerre} finance sur fonds propres ses projets de R\&D sur l'éco-conception, en participant à divers projets de recherche français et européens. Ces projets débouchent sur la création d'une suite logicielle, \emph{Greenspector}, permettant de mesurer la consommation énergétique des applications et détecter les objets consommateurs dans le code source des logiciels. Des propositions de corrections pour les développeurs complémentent ces mesures et analyses. 
+
+En 2016 l'entreprise devient \textsc{Greenspector} et lance la commercialisation de sa solution, soutenue à hauteur de 300 000 \euro{} par le fonds d'investissement breton \textsc{Nestadio Capital}. \emph{Greenspector} s'adresse principalement aux compagnies de services du numériques, aux acteurs de l'industrie mobile ainsi qu'aux grands comptes qui produisent ou achètent du logiciel.
+
+\paragraph*{Partenariats et distinctions}  
+\begin{itemize}[noitemsep]
+\item \logiciel{} est la première solution logicielle labellisée par le European Code of Conduct fot Datacenters.
+\item \entreprise{} est partenaire du projet \textsc{WebEnergyArchive} \footnote{\url{https://wea.greencodelab.org}}, une première << étiquette énergétique >> pour les sites webs.
+\item L'entreprise a fondé le \textsc{Green Code Lab}, la communauté française des logiciels éco-conçus \footnote{Le \textsc{Green Code Lab} est notamment auteur du livre Green Patterns \cite{greenpatterns}, manuel d'éco-conception logicielle à destination des développeurs}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\chapter*{Cadre général}
+\label{chap:Cadre général}
+\addcontentsline{toc}{chapter}{Cadre général}
+\setcounter{footnote}{0}
+
+\section{Éco-conception logicielle}
+En dépit de leur caractère immatériel, les logiciels ont besoin d'équipements informatiques pour fonctionner (ordinateurs, écrans, serveurs...). L'analyse du cycle de vie (ACV) de ces équipements révèle que toutes les étapes présentent une empreinte écologique conséquente. Indirectement, les logiciels ont donc un impact écologique non négligeable.
+
+Ils représentent même une des principales causes d'obsolescence des équipements. En effet, les besoins des logiciels en ressources matérielles (mémoire vive, puissance, espace disque) ne cessent d'augmenter \footnote{Par exemple, chaque version de la paire Windows-Office requiert le double de ressources par rapport à la version précédente. Ainsi, écrire un simple texte avec Windows 7 et Office 2010 requiert 70 fois plus de mémoire vive qu'avec Windows 98 et Office 97 ! }. Contrôler et diminuer les besoins en ressources des logiciels constitue la première étape naturelle d'une réduction efficace de l'empreinte écologique des équipements matériels. 
+
+\bigskip L'éco-conception appliquée au logiciels est une démarche d'optimisation des logiciels dès leur conception, dans le but de :
+\begin{itemize}[noitemsep]
+\item diminuer la consommation énergétique du logiciel pendant sa phase d'utilisation 
+\item améliorer la performance des applications et sites web ainsi que l'autonomie des appareils mobiles pour une meilleure expérience utilisateur
+\item allonger la durée de vie des équipements informatiques
+\end{itemize}
+Elle consiste dans l'application de bonnes pratiques de développement, et cherche l'équilibre entre diminution du besoin en ressources et maintien de la performance tout en répondant au besoin des utilisateurs. Quelques exemples de bonnes pratiques :
+\begin{itemize}[noitemsep]
+\item optimiser le code source pour réduire les ressources nécessaires
+\item évaluer et comparer les librairies
+\item optimiser les fonctionnalités en se débarrassant du superflu
+\item augmenter la scalabilité des applications et du matériel
+\item mesurer précisément la consommation des applications et sites web
+\item optimiser l'architecture
+\end{itemize}
+
+\paragraph{Exemples d'application} Un audit d'une application Android réalisé par \entreprise{} a conduit des corrections dans le code source, permettant un \textbf{gain de 69\% sur la consommation énergétique} de l'application et une \textbf{augmentation de 8h d'autonomie} du mobile. 
+
+L'utilisation de l'outil \logiciel{} pendant le développement d'une application de gestion de congés pour 80 000 salariés a permis d'améliorer la performance et l'expérience utilisateur en \textbf{divisant le temps de réponse par 3}.
+
+
+\section{Présentation de l'outil \logiciel{}}
+L'objectif de \logiciel{} est de mettre à disposition des développeurs en informatique un outil pertinent, facile d'utilisation et intégré dans leurs environnements, pour les aider à coder des applications et sites webs optimisés.
+
+La description suivante concerne la version 2.0.0 sortie au cours de mon stage en juin 2018.
+\subsection{Architecture}
+
+
+
+\subsection{Intelligence}
+\subsubsection{Référentiel de règles et de mesures}
+\logiciel{} utilise un référentiel de règles divisé en deux \footnote{On pouvait précédemment compter un troisième domaine, le domaine code pour l'analyse statique du code source des logiciels, applications et sites web. Mais l'analyse de code a été abandonnée par \entreprise .} domaines principaux :
+\begin{itemize}[noitemsep]
+\item le domaine réseau pour l'analyse dynamique des requêtes et de leur contenu
+\item le domaine ressources pour l'analyse de la mesure dynamique de la consommation de ressources (énergie, CPU, mémoire...) sur une plateforme côté client \footnote{La mesure de plateformes PC a également été abandonnée, tandis que le développement de la mesure des objets connectés est en cours.} (mobile) ou côté serveur. 
+\end{itemize}
+
+Ce référentiel de règles est construit en s'appuyant sur une démarche continue de recherche, de développement et de veille sur les bonnes pratiques d'éco-conception logicielle. 
+
+On associe à ces règles des indicateurs issus de comparaisons – énergie, mémoire, performance, temps de correction – entre du code \emph{vert} (respectant la règle) et du code \emph{gris} (enfreignant la règle). Ces indicateurs sont classés selon 4 niveaux de criticité :
+\begin{itemize}[noitemsep]
+\item bonne pratique
+\item mineur
+\item majeur
+\item critique
+\end{itemize}
+ce qui permet aux développeurs de prioriser les actions à mener.
+
+\subsubsection{Moteur d'analyse}
+L'analyse dynamique d'une application permet de distinguer les règles respectées des règles violées. Le moteur d'analyse dynamique examine les mesures effectuées pour une application  en fonction du référentiel de règles dynamiques.
+Une règle dynamique comprend :
+\begin{itemize}
+\item Une métrique. Par exemple, le nombre de requêtes HTTP échangées entre client en serveur. 
+\item Un ensemble de seuils permettant d'attribuer un \emph{éco-score} à la règle. 75\% du score maximal si on compte entre 5 et 10 requêtes, 100\%  pour moins de 5 requêtes, etc... 
+\end{itemize}
+
+\subsubsection{Interface utilisateur}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\newpage
+\chapter{Tableau de bord : exemple d'analyse du site de l'École Centrale de Nantes}
+\label{sec:dashboard_ecn}
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\bibliographystyle{unsrt}
+\bibliography{rapport.bib}
+
 \end{document}
+
+
 
 
 

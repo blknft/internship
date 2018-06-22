@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: rapport_sting_greenspector.aux
+The style file: unsrt.bst
+Database file #1: rapport.bib
+Warning--empty author and editor in syntec
+Warning--empty publisher in congresecoinfo
+Warning--empty journal in greenitdef
+Warning--empty year in greenitdef
+Warning--can't use both author and editor fields in greenpatterns
+You've used 6 entries,
+            1791 wiz_defined-function locations,
+            469 strings with 4107 characters,
+and the built_in function-call counts, 848 in all, are:
+= -- 65
+> -- 28
+< -- 0
++ -- 13
+- -- 7
+* -- 35
+:= -- 144
+add.period$ -- 16
+call.type$ -- 6
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 11
+duplicate$ -- 53
+empty$ -- 98
+format.name$ -- 7
+if$ -- 186
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 7
+newline$ -- 31
+num.names$ -- 5
+pop$ -- 32
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 14
+stack$ -- 0
+substring$ -- 0
+swap$ -- 5
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 5
+while$ -- 5
+width$ -- 7
+write$ -- 57
+(There were 5 warnings)

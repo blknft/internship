@@ -1,0 +1,32 @@
+\begin{thebibliography}{1}
+
+\bibitem{syntec}
+{\em Livre vert : {\'E}co-conception des logiciels et services num{\'e}riques}.
+\newblock Syntec Num{\'e}rique, 2013.
+
+\bibitem{negawatt}
+n{\'e}gaWatt.
+\newblock La r{\'e}volution num{\'e}rique fera-t-elle exploser nos
+  consommations d'{\'e}nergie ?
+\newblock {\em decrypterlenergie.org}, 2017.
+
+\bibitem{congresecoinfo}
+Francis Vivat.
+\newblock {\em Impacts environnementaux des TIC}.
+\newblock 2011.
+
+\bibitem{greenit2017}
+GreenIT.fr.
+\newblock Benchmark num{\'e}rique responsable.
+\newblock Technical report, Club Green IT, 2017.
+
+\bibitem{greenitdef}
+GreenIT.fr.
+\newblock D{\'e}finition.
+
+\bibitem{greenpatterns}
+Olivier Philippot, Fr{\'e}d{\'e}ric Bordage, and Thierry Leboucq.
+\newblock {\em Green Patterns, Manuel d'{\'e}co-conception des logiciels}.
+\newblock Green Code Lab, 2012.
+
+\end{thebibliography}
