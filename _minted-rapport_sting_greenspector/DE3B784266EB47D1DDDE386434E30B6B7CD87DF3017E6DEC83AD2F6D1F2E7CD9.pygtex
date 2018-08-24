@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{func} \PYG{p}{(}\PYG{n+nx}{j} \PYG{o}{*}\PYG{n+nx}{JobLauncher}\PYG{p}{)} \PYG{n+nx}{InitAPKJobExecutor}\PYG{p}{(}\PYG{n+nx}{job} \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{)} \PYG{n+nx}{APKJobExecutor} \PYG{p}{\PYGZob{}}
+	\PYG{o}{...}
+	\PYG{k}{return} \PYG{n+nx}{APKJobExecutor}\PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{EnableAssertions}\PYG{p}{:}  \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{GetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}enableAssertions\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{EnableScreenshots}\PYG{p}{:} \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{GetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}enableScreenshots\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{UsbHub}\PYG{p}{:}            \PYG{n+nx}{j}\PYG{p}{.}\PYG{n+nx}{config}\PYG{p}{.}\PYG{n+nx}{UsbHub}\PYG{p}{,}
+		\PYG{n+nx}{Iterations}\PYG{p}{:}        \PYG{n+nx}{job}\PYG{p}{.}\PYG{n+nx}{Iterations}\PYG{p}{,}
+		\PYG{n+nx}{TestTimeout}\PYG{p}{:}       \PYG{n+nx}{job}\PYG{p}{.}\PYG{n+nx}{TestTimeout}\PYG{p}{,}
+		\PYG{n+nx}{Modules}\PYG{p}{:} \PYG{n+nx}{APKJobExecutorModules}\PYG{p}{\PYGZob{}}
+			\PYG{o}{...}
+			\PYG{n+nx}{Hardware}\PYG{p}{:} \PYG{n+nx}{HardwareProbeModule}\PYG{p}{\PYGZob{}}
+				\PYG{n+nx}{Module}\PYG{p}{:} \PYG{n+nx}{Module}\PYG{p}{\PYGZob{}}
+					\PYG{n+nx}{Enabled}\PYG{p}{:} \PYG{n+nx}{job}\PYG{p}{.}\PYG{n+nx}{Modules}\PYG{p}{[}\PYG{l+s}{\PYGZdq{}hardware\PYGZus{}probe\PYGZdq{}}\PYG{p}{],}
+				\PYG{p}{\PYGZcb{},}
+				\PYG{n+nx}{measureLauncher}\PYG{p}{:} \PYG{n+nx}{j}\PYG{p}{.}\PYG{n+nx}{measureLauncher}\PYG{p}{,}
+			\PYG{p}{\PYGZcb{},}
+		\PYG{p}{\PYGZcb{},}
+		\PYG{n+nx}{WorkingDirectory}\PYG{p}{:} \PYG{n+nx}{job}\PYG{p}{.}\PYG{n+nx}{WorkingDirectory}\PYG{p}{,}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,37 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{func} \PYG{n+nx}{TestURLjob}\PYG{p}{(}\PYG{n+nx}{t} \PYG{o}{*}\PYG{n+nx}{testing}\PYG{p}{.}\PYG{n+nx}{T}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{t}\PYG{p}{.}\PYG{n+nx}{Parallel}\PYG{p}{()}
+
+	\PYG{c+c1}{// Job URL}
+	\PYG{n+nx}{deviceInstance} \PYG{o}{:=} \PYG{n+nx}{device}\PYG{p}{.}\PYG{n+nx}{NewMockedIosDevice}\PYG{p}{(}\PYG{n+nx}{device}\PYG{p}{.}\PYG{n+nx}{MockedIosDeviceConfig}\PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{DeviceName}\PYG{p}{:} \PYG{l+s}{\PYGZdq{}iPhone7\PYGZdq{}}\PYG{p}{,}
+	\PYG{p}{\PYGZcb{})}
+	\PYG{n+nx}{jobLauncher} \PYG{o}{:=} \PYG{o}{\PYGZam{}}\PYG{n+nx}{IosJobLauncher}\PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{device}\PYG{p}{:}          \PYG{n+nx}{deviceInstance}\PYG{p}{,}
+		\PYG{n+nx}{measureLauncher}\PYG{p}{:} \PYG{n+nx}{hardware}\PYG{p}{.}\PYG{n+nx}{NewMockedMeasureLauncher}\PYG{p}{(),}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n+nx}{modules} \PYG{o}{:=} \PYG{n+nb}{make}\PYG{p}{(}\PYG{k+kd}{map}\PYG{p}{[}\PYG{k+kt}{string}\PYG{p}{]}\PYG{k+kt}{bool}\PYG{p}{)}
+	\PYG{n+nx}{modules}\PYG{p}{[}\PYG{l+s}{\PYGZdq{}hardware\PYGZus{}probe\PYGZdq{}}\PYG{p}{]} \PYG{p}{=} \PYG{k+kc}{true}
+
+	\PYG{n+nx}{job} \PYG{o}{:=} \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{Mode}\PYG{p}{:} \PYG{l+s}{\PYGZdq{}url\PYGZdq{}}\PYG{p}{,}
+		\PYG{n+nx}{GreenspectorApp}\PYG{p}{:} \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{GreenspectorApp}\PYG{p}{\PYGZob{}}
+			\PYG{n+nx}{Name}\PYG{p}{:}    \PYG{l+s}{\PYGZdq{}ApplicationTest\PYGZdq{}}\PYG{p}{,}
+			\PYG{n+nx}{Version}\PYG{p}{:} \PYG{l+s}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{,}
+		\PYG{p}{\PYGZcb{},}
+		\PYG{n+nx}{Iterations}\PYG{p}{:} \PYG{l+m+mi}{5}\PYG{p}{,}
+		\PYG{n+nx}{URLS}\PYG{p}{:}       \PYG{p}{[]}\PYG{k+kt}{string}\PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZdq{}www.greenspector.com\PYGZdq{}}\PYG{p}{\PYGZcb{},}
+		\PYG{n+nx}{Modules}\PYG{p}{:}    \PYG{n+nx}{modules}\PYG{p}{,}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{n+nx}{jobResult}\PYG{p}{,} \PYG{n+nx}{err} \PYG{o}{:=} \PYG{n+nx}{jobLauncher}\PYG{p}{.}\PYG{n+nx}{LoadURLJob}\PYG{p}{(}\PYG{n+nx}{job}\PYG{p}{)}
+
+	\PYG{n+nx}{assert}\PYG{p}{.}\PYG{n+nx}{Equal}\PYG{p}{(}\PYG{n+nx}{t}\PYG{p}{,} \PYG{n+nx}{err}\PYG{p}{,} \PYG{k+kc}{nil}\PYG{p}{)}
+	\PYG{n+nx}{assert}\PYG{p}{.}\PYG{n+nx}{Equal}\PYG{p}{(}\PYG{n+nx}{t}\PYG{p}{,} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nx}{jobResult}\PYG{p}{.}\PYG{n+nx}{Results}\PYG{p}{),} \PYG{l+m+mi}{5}\PYG{p}{)}
+	\PYG{n+nx}{assert}\PYG{p}{.}\PYG{n+nx}{Equal}\PYG{p}{(}\PYG{n+nx}{t}\PYG{p}{,} \PYG{n+nx}{jobResult}\PYG{p}{.}\PYG{n+nx}{Results}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{].}\PYG{n+nx}{Application}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}ApplicationTest\PYGZdq{}}\PYG{p}{)}
+	\PYG{n+nx}{assert}\PYG{p}{.}\PYG{n+nx}{Equal}\PYG{p}{(}\PYG{n+nx}{t}\PYG{p}{,} \PYG{n+nx}{jobResult}\PYG{p}{.}\PYG{n+nx}{Results}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{].}\PYG{n+nx}{Version}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{)}
+	\PYG{n+nx}{assert}\PYG{p}{.}\PYG{n+nx}{Equal}\PYG{p}{(}\PYG{n+nx}{t}\PYG{p}{,} \PYG{n+nx}{jobResult}\PYG{p}{.}\PYG{n+nx}{Results}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{].}\PYG{n+nx}{Devicename}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}iPhone7\PYGZdq{}}\PYG{p}{)}
+	\PYG{n+nx}{assert}\PYG{p}{.}\PYG{n+nx}{Equal}\PYG{p}{(}\PYG{n+nx}{t}\PYG{p}{,} \PYG{n+nx}{jobResult}\PYG{p}{.}\PYG{n+nx}{Results}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{].}\PYG{n+nx}{Iterations}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}
+	\PYG{n+nx}{assert}\PYG{p}{.}\PYG{n+nx}{Equal}\PYG{p}{(}\PYG{n+nx}{t}\PYG{p}{,} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nx}{jobResult}\PYG{p}{.}\PYG{n+nx}{Results}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{].}\PYG{n+nx}{Measures}\PYG{p}{),} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

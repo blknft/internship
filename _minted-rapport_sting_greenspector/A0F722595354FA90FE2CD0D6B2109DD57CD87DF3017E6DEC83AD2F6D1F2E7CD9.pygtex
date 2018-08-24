@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{func} \PYG{p}{(}\PYG{n+nx}{e} \PYG{o}{*}\PYG{n+nx}{CommonAPKJobExecutor}\PYG{p}{)} \PYG{n+nx}{RunIterations}\PYG{p}{(}\PYG{n+nx}{instrumentation} \PYG{k+kt}{string}\PYG{p}{,} \PYG{n+nx}{arguments} \PYG{p}{[]}\PYG{k+kt}{string}\PYG{p}{)} \PYG{k+kt}{error} \PYG{p}{\PYGZob{}}
+   \PYG{n+nx}{firstIteration} \PYG{o}{:=} \PYG{k+kc}{true}
+   \PYG{k}{for} \PYG{n+nx}{iteration} \PYG{o}{:=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nx}{iteration} \PYG{p}{\PYGZlt{}} \PYG{n+nx}{e}\PYG{p}{.}\PYG{n+nx}{Iterations}\PYG{p}{;} \PYG{n+nx}{iteration}\PYG{o}{++} \PYG{p}{\PYGZob{}}
+     \PYG{n+nx}{logger}\PYG{p}{.}\PYG{n+nx}{Infoln}\PYG{p}{(}\PYG{n+nx}{fmt}\PYG{p}{.}\PYG{n+nx}{Sprintf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Running iteration \PYGZpc{}d/\PYGZpc{}d\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{iteration}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n+nx}{e}\PYG{p}{.}\PYG{n+nx}{Iterations}\PYG{p}{))}
+     \PYG{k}{if} \PYG{n+nx}{e}\PYG{p}{.}\PYG{n+nx}{Modules}\PYG{p}{.}\PYG{n+nx}{Hardware}\PYG{p}{.}\PYG{n+nx}{Enabled} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{logger}\PYG{p}{.}\PYG{n+nx}{Infoln}\PYG{p}{(}\PYG{n+nx}{fmt}\PYG{p}{.}\PYG{n+nx}{Sprintf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Starting hardware measurement module\PYGZdq{}}\PYG{p}{))}		
+	\PYG{k}{if} \PYG{n+nx}{err} \PYG{o}{:=} \PYG{n+nx}{e}\PYG{p}{.}\PYG{n+nx}{Modules}\PYG{p}{.}\PYG{n+nx}{Hardware}\PYG{p}{.}\PYG{n+nx}{measureLauncher}\PYG{p}{.}\PYG{n+nx}{Start}\PYG{p}{();} \PYG{n+nx}{err} \PYG{o}{!=} \PYG{k+kc}{nil} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n+nx}{err}
+	\PYG{p}{\PYGZcb{}}
+     \PYG{p}{\PYGZcb{}}
+
+     \PYG{o}{...}
+
+     \PYG{k}{if} \PYG{n+nx}{e}\PYG{p}{.}\PYG{n+nx}{Modules}\PYG{p}{.}\PYG{n+nx}{Hardware}\PYG{p}{.}\PYG{n+nx}{Enabled} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{logger}\PYG{p}{.}\PYG{n+nx}{Infoln}\PYG{p}{(}\PYG{n+nx}{fmt}\PYG{p}{.}\PYG{n+nx}{Sprintf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Stopping hardware measurement module\PYGZdq{}}\PYG{p}{))}
+	\PYG{k}{if} \PYG{n+nx}{err} \PYG{o}{:=} \PYG{n+nx}{e}\PYG{p}{.}\PYG{n+nx}{Modules}\PYG{p}{.}\PYG{n+nx}{Hardware}\PYG{p}{.}\PYG{n+nx}{measureLauncher}\PYG{p}{.}\PYG{n+nx}{Stop}\PYG{p}{();} \PYG{n+nx}{err} \PYG{o}{!=} \PYG{k+kc}{nil} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n+nx}{err}
+	\PYG{p}{\PYGZcb{}}
+     \PYG{p}{\PYGZcb{}}
+
+     \PYG{n+nx}{e}\PYG{p}{.}\PYG{n+nx}{retrieveResults}\PYG{p}{(}\PYG{k+kc}{false}\PYG{p}{)}
+     \PYG{o}{...}
+   \PYG{p}{\PYGZcb{}}
+
+   \PYG{o}{...}
+
+   \PYG{k}{return} \PYG{k+kc}{nil}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

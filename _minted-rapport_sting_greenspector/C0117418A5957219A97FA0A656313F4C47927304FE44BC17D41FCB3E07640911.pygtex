@@ -1,0 +1,78 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+
+\PYG{n+nv}{DEVICE\PYGZus{}URL}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}1}
+\PYG{n+nv}{URL}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}2}
+\PYG{n+nv}{JSON\PYGZus{}HEADER}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}H \PYGZdq{}Content\PYGZhy{}Type:application/json\PYGZdq{}\PYGZsq{}}
+
+clear\PYGZus{}history\PYGZus{}cache\PYG{o}{()} \PYG{o}{\PYGZob{}}
+  \PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}Suppression de l\PYGZsq{}historique et des caches\PYGZdq{}}
+  \PYG{n+nv}{SETTINGS\PYGZus{}SESSION\PYGZus{}ID}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}\PYGZdq{}desiredCapabilities\PYGZdq{}:\PYGZob{}\PYGZdq{}bundleId\PYGZdq{}:\PYGZdq{}com.apple.Preferences\PYGZdq{}\PYGZcb{}\PYGZcb{}\PYGZsq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.sessionId\PYGZsq{}}\PYG{k}{)}
+
+  \PYG{n+nv}{SCROLL1}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}fromX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}fromY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}600\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}80\PYGZbs{}\PYGZdq{},}
+\PYG{l+s+s2}{  \PYGZbs{}\PYGZdq{}duration\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}0.2\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/wda/dragfromtoforduration\PYG{k}{)}
+
+  \PYG{n+nv}{SCROLL2}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}fromX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}fromY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}600\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}80\PYGZbs{}\PYGZdq{},}
+\PYG{l+s+s2}{  \PYGZbs{}\PYGZdq{}duration\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}0.2\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/wda/dragfromtoforduration\PYG{k}{)}
+
+  \PYG{n+nv}{SCROLL3}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}fromX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}fromY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}600\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}300\PYGZbs{}\PYGZdq{},}
+\PYG{l+s+s2}{  \PYGZbs{}\PYGZdq{}duration\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}0.2\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/wda/dragfromtoforduration\PYG{k}{)}
+
+  \PYG{n+nv}{SAFARI\PYGZus{}ELEMENT}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}\PYGZdq{}using\PYGZdq{}:\PYGZdq{}link text\PYGZdq{},\PYGZdq{}value\PYGZdq{}:\PYGZdq{}name=Safari\PYGZdq{}\PYGZcb{}\PYGZsq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/elements \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.value | to\PYGZus{}entries[1] | \PYGZob{}\PYGZdq{}value\PYGZdq{}: .value.ELEMENT\PYGZcb{}\PYGZsq{}} \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.value\PYGZsq{}}\PYG{k}{)}
+
+  \PYG{n+nv}{SAFARI}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/element/\PYG{n+nv}{\PYGZdl{}SAFARI\PYGZus{}ELEMENT}/click\PYG{k}{)}
+
+  \PYG{n+nv}{SCROLL1}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}fromX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}fromY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}600\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}50\PYGZbs{}\PYGZdq{},}
+\PYG{l+s+s2}{  \PYGZbs{}\PYGZdq{}duration\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}0.2\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/wda/dragfromtoforduration\PYG{k}{)}
+
+  \PYG{n+nv}{CLEAR\PYGZus{}ELEMENT}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}\PYGZdq{}using\PYGZdq{}:\PYGZdq{}link text\PYGZdq{},\PYGZdq{}value\PYGZdq{}:\PYGZdq{}name=Clear History and Website Data\PYGZdq{}\PYGZcb{}\PYGZsq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/elements \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.value | to\PYGZus{}entries[0] | \PYGZob{}\PYGZdq{}value\PYGZdq{}: .value.ELEMENT\PYGZcb{}\PYGZsq{}} \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.value\PYGZsq{}}\PYG{k}{)}
+
+  \PYG{n+nv}{CLEAR}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/element/\PYG{n+nv}{\PYGZdl{}CLEAR\PYGZus{}ELEMENT}/click\PYG{k}{)}
+
+  \PYG{n+nv}{CONF\PYGZus{}ELEMENT}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}\PYGZdq{}using\PYGZdq{}:\PYGZdq{}link text\PYGZdq{},\PYGZdq{}value\PYGZdq{}:\PYGZdq{}name=Clear History and Data\PYGZdq{}\PYGZcb{}\PYGZsq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/elements \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.value | to\PYGZus{}entries[0] | \PYGZob{}\PYGZdq{}value\PYGZdq{}: .value.ELEMENT\PYGZcb{}\PYGZsq{}} \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.value\PYGZsq{}}\PYG{k}{)}
+
+  \PYG{n+nv}{CONF}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}/element/\PYG{n+nv}{\PYGZdl{}CONF\PYGZus{}ELEMENT}/click\PYG{k}{)}
+  sleep \PYG{l+m}{1}
+
+  \PYG{n+nv}{CLOSE}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X DELETE \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SETTINGS\PYGZus{}SESSION\PYGZus{}ID}\PYG{k}{)}
+
+  \PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}Terminé\PYGZdq{}}
+\PYG{o}{\PYGZcb{}}
+
+
+clear\PYGZus{}history\PYGZus{}cache
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Reference step\PYGZsq{}}\PYG{p}{;}
+sleep \PYG{l+m}{10}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Launching Safari\PYGZsq{}}\PYG{p}{;}
+\PYG{n+nv}{SESSION\PYGZus{}ID}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}\PYGZdq{}desiredCapabilities\PYGZdq{}:\PYGZob{}\PYGZdq{}bundleId\PYGZdq{}:\PYGZdq{}com.apple.mobilesafari\PYGZdq{}\PYGZcb{}\PYGZcb{}\PYGZsq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.sessionId\PYGZsq{}}\PYG{k}{)}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Loading \PYGZsq{}} \PYG{n+nv}{\PYGZdl{}URL}\PYG{p}{;}
+\PYG{n+nv}{URL\PYGZus{}ELEMENT}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}\PYGZdq{}using\PYGZdq{}:\PYGZdq{}link text\PYGZdq{},\PYGZdq{}value\PYGZdq{}:\PYGZdq{}name=URL\PYGZdq{}\PYGZcb{}\PYGZsq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}/elements \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.value | to\PYGZus{}entries[0] | \PYGZob{}\PYGZdq{}value\PYGZdq{}: .value.ELEMENT\PYGZcb{}\PYGZsq{}} \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.value\PYGZsq{}}\PYG{k}{)}
+\PYG{n+nv}{ACCES\PYGZus{}URL}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}\PYGZdq{}value\PYGZdq{}:[\PYGZdq{}\PYGZsq{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}URL}\PYG{l+s+s2}{\PYGZbs{}n\PYGZdq{}}\PYG{l+s+s1}{\PYGZsq{}\PYGZdq{}]\PYGZcb{}\PYGZsq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}/element/\PYG{n+nv}{\PYGZdl{}URL\PYGZus{}ELEMENT}/value\PYG{k}{)}
+sleep \PYG{l+m}{10}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Foreground idle\PYGZsq{}}\PYG{p}{;}
+sleep \PYG{l+m}{10}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Scroll\PYGZsq{}}\PYG{p}{;}
+sleep \PYG{l+m}{5}
+\PYG{n+nv}{SCROLL1}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}fromX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}fromY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}500\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}80\PYGZbs{}\PYGZdq{},}
+\PYG{l+s+s2}{\PYGZbs{}\PYGZdq{}duration\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}0.2\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}/wda/dragfromtoforduration\PYG{k}{)}
+\PYG{n+nv}{SCROLL2}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}fromX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}fromY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}500\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}80\PYGZbs{}\PYGZdq{},}
+\PYG{l+s+s2}{\PYGZbs{}\PYGZdq{}duration\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}0.2\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}/wda/dragfromtoforduration\PYG{k}{)}
+\PYG{n+nv}{SCROLL3}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}fromX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}fromY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}500\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}300\PYGZbs{}\PYGZdq{},}
+\PYG{l+s+s2}{\PYGZbs{}\PYGZdq{}duration\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}0.2\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}/wda/dragfromtoforduration\PYG{k}{)}
+sleep \PYG{l+m}{5}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Background idle\PYGZsq{}}\PYG{p}{;}
+\PYG{n+nv}{IDLE\PYGZus{}BACK}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/wda/homescreen\PYG{k}{)}
+sleep \PYG{l+m}{10}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Closing Safari\PYGZsq{}}
+\PYG{n+nv}{CLOSE}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X DELETE \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}\PYG{k}{)}
+
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Done\PYGZsq{}}
+\end{Verbatim}

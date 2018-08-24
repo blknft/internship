@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nx}{device}
+
+\PYG{k+kn}{import} \PYG{l+s}{\PYGZdq{}gitlab.kali/kaliterre/go\PYGZhy{}testapi/common\PYGZdq{}}
+
+\PYG{k+kd}{type} \PYG{n+nx}{Device} \PYG{k+kd}{interface} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{openApp}\PYG{p}{(}\PYG{n+nx}{bundleId} \PYG{k+kt}{string}\PYG{p}{)} \PYG{p}{(}\PYG{k+kt}{string}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)}
+	\PYG{n+nx}{killApp}\PYG{p}{(}\PYG{n+nx}{sessionId} \PYG{k+kt}{string}\PYG{p}{)} \PYG{k+kt}{error}
+	\PYG{n+nx}{scroll}\PYG{p}{(}\PYG{n+nx}{sessionId} \PYG{k+kt}{string}\PYG{p}{,} \PYG{n+nx}{fromY} \PYG{k+kt}{int}\PYG{p}{,} \PYG{n+nx}{toY} \PYG{k+kt}{int}\PYG{p}{)} \PYG{k+kt}{error}
+	\PYG{n+nx}{findElementByName}\PYG{p}{(}\PYG{n+nx}{sessionId} \PYG{k+kt}{string}\PYG{p}{,} \PYG{n+nx}{name} \PYG{k+kt}{string}\PYG{p}{)} \PYG{p}{(}\PYG{k+kt}{string}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)}
+	\PYG{n+nx}{clickOnElement}\PYG{p}{(}\PYG{n+nx}{sessionId} \PYG{k+kt}{string}\PYG{p}{,} \PYG{n+nx}{elementId} \PYG{k+kt}{string}\PYG{p}{)} \PYG{k+kt}{error}
+	\PYG{n+nx}{typeInElement}\PYG{p}{(}\PYG{n+nx}{sessionId} \PYG{k+kt}{string}\PYG{p}{,} \PYG{n+nx}{elementId} \PYG{k+kt}{string}\PYG{p}{,} \PYG{n+nx}{content} \PYG{k+kt}{string}\PYG{p}{)} \PYG{k+kt}{error}
+	\PYG{n+nx}{homeScreen}\PYG{p}{()} \PYG{k+kt}{error}
+	\PYG{n+nx}{getDefaultSession}\PYG{p}{()} \PYG{p}{(}\PYG{k+kt}{string}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)}
+
+	\PYG{n+nx}{LaunchAgent}\PYG{p}{()} \PYG{k+kt}{error}
+	\PYG{n+nx}{ClearWebData}\PYG{p}{()} \PYG{k+kt}{error}
+	\PYG{n+nx}{CloseSafariTabAndKillApp}\PYG{p}{()} \PYG{k+kt}{error}
+	\PYG{n+nx}{RunWebBenchmark}\PYG{p}{(}\PYG{n+nx}{websiteURL} \PYG{k+kt}{string}\PYG{p}{)} \PYG{p}{(}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{Steps}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)}
+	\PYG{n+nx}{RunAppBenchmark}\PYG{p}{(}\PYG{n+nx}{path} \PYG{k+kt}{string}\PYG{p}{)} \PYG{p}{(}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{Steps}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)}
+	\PYG{n+nx}{InstallApp}\PYG{p}{(}\PYG{n+nx}{path} \PYG{k+kt}{string}\PYG{p}{,} \PYG{n+nx}{bundleId} \PYG{k+kt}{string}\PYG{p}{)} \PYG{k+kt}{error}
+	\PYG{n+nx}{UninstallApp}\PYG{p}{(}\PYG{n+nx}{bundleId} \PYG{k+kt}{string}\PYG{p}{)} \PYG{k+kt}{error}
+	\PYG{n+nx}{GetDeviceName}\PYG{p}{()} \PYG{k+kt}{string}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

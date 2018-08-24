@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+// Installer une app et la lancer en debug
+ios\PYGZhy{}deploy \PYGZhy{}\PYGZhy{}debug \PYGZhy{}\PYGZhy{}bundle my.app
+
+// Installer et lancer d une application puis quitter le debugger
+ios\PYGZhy{}deploy \PYGZhy{}\PYGZhy{}justlaunch \PYGZhy{}\PYGZhy{}debug \PYGZhy{}\PYGZhy{}bundle my.app
+
+// Télécharger les fichiers de l app
+ios\PYGZhy{}deploy \PYGZhy{}\PYGZhy{}bundle\PYGZus{}id \PYGZlt{}bundle.id\PYGZgt{} \PYGZhy{}\PYGZhy{}download \PYGZhy{}\PYGZhy{}to MyDestinationFolder
+
+// Lister les fichiers d une app
+ios\PYGZhy{}deploy \PYGZhy{}\PYGZhy{}bundle\PYGZus{}id \PYGZlt{}bundle.id\PYGZgt{} \PYGZhy{}\PYGZhy{}list
+
+// Désinstaller puis réinstaller et lancer
+ios\PYGZhy{}deploy \PYGZhy{}\PYGZhy{}uninstall \PYGZhy{}\PYGZhy{}debug \PYGZhy{}\PYGZhy{}bundle my.app
+
+// Vérifier l existence d un package
+ios\PYGZhy{}deploy \PYGZhy{}\PYGZhy{}exists \PYGZhy{}\PYGZhy{}bundle\PYGZus{}id com.apple.mobilemail
+
+// Désinstaller une app
+ios\PYGZhy{}deploy \PYGZhy{}\PYGZhy{}uninstall\PYGZus{}only \PYGZhy{}\PYGZhy{}bundle\PYGZus{}id my.bundle.id
+
+// Lister les app installées sur l appareil
+ios\PYGZhy{}deploy \PYGZhy{}\PYGZhy{}list\PYGZus{}bundle\PYGZus{}id
+\end{Verbatim}

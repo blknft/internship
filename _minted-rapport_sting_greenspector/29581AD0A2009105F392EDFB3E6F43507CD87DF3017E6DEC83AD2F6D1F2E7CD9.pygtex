@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{type} \PYG{n+nx}{JobLauncher} \PYG{k+kd}{interface} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{LoadURLJob}\PYG{p}{(}\PYG{n+nx}{job} \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{)} \PYG{p}{(}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{JobResult}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)}
+	\PYG{n+nx}{LoadAppJob}\PYG{p}{(}\PYG{n+nx}{job} \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{)} \PYG{p}{(}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{JobResult}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

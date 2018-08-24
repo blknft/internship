@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{type} \PYG{n+nx}{HardwareMeasureLauncher} \PYG{k+kd}{struct} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{config}                 \PYG{n+nx}{HardwareMeasureLauncherConfig}
+	\PYG{n+nx}{controller}             \PYG{n+nx}{controller}\PYG{p}{.}\PYG{n+nx}{Controller}
+	\PYG{n+nx}{stopped}                \PYG{k+kd}{chan} \PYG{p}{(}\PYG{k+kt}{bool}\PYG{p}{)}
+	\PYG{n+nx}{stopMeasure}            \PYG{k+kd}{chan} \PYG{p}{(}\PYG{k+kt}{bool}\PYG{p}{)}
+	\PYG{n+nx}{hardwareMeasureResults} \PYG{p}{[]}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{MeasureTick}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

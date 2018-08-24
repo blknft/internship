@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+curl \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/wda/homescreen
+
+curl \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYG{l+s+se}{\PYGZbs{}Ê}
+\PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}desiredCapabilities\PYGZbs{}\PYGZdq{}:\PYGZob{}\PYGZbs{}\PYGZdq{}bundleId\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}com.apple.mobilesafari\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZcb{}\PYGZdq{}} \PYG{l+s+se}{\PYGZbs{}}
+\PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session
+
+curl \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYG{l+s+se}{\PYGZbs{}}
+\PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}using\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}link text\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}value\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}name=URL\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZdq{}} \PYG{l+s+se}{\PYGZbs{}}
+\PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}/elements
+
+curl \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}/element/5/click
+
+curl \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYG{l+s+se}{\PYGZbs{}}
+\PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}value\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}e\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}c\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}n\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}.\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}f\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}r\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}\PYGZbs{}\PYGZbs{}n\PYGZbs{}\PYGZdq{}]\PYGZcb{}\PYGZdq{}} \PYG{l+s+se}{\PYGZbs{}}
+\PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}/element/5/value
+
+curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYG{l+s+se}{\PYGZbs{}}
+\PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZbs{}\PYGZdq{}fromX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}fromY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}500\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toX\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}100\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}toY\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}80\PYGZbs{}\PYGZdq{},}
+\PYG{l+s+s2}{\PYGZbs{}\PYGZdq{}duration\PYGZbs{}\PYGZdq{}:\PYGZbs{}\PYGZdq{}0.2\PYGZbs{}\PYGZdq{}\PYGZcb{}\PYGZdq{}} \PYG{l+s+se}{\PYGZbs{}}
+\PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}/wda/dragfromtoforduration
+
+curl \PYGZhy{}X DELETE \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}
+\end{Verbatim}

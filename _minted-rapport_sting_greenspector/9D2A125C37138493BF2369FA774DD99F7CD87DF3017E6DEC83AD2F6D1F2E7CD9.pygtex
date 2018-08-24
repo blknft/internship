@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{type} \PYG{n+nx}{IosDeviceConfig} \PYG{k+kd}{struct} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{DeviceName} \PYG{k+kt}{string}
+
+	\PYG{c+c1}{//Identifiant du device iOS (sert pour ios\PYGZhy{}deploy)}
+	\PYG{n+nx}{UDID} \PYG{k+kt}{string}
+
+	\PYG{c+c1}{//URL de l\PYGZsq{}appareil pour faire des requêtes}
+	\PYG{n+nx}{URL} \PYG{k+kt}{string}
+
+	\PYG{c+c1}{//Chemin d\PYGZsq{}accès à ios\PYGZhy{}deploy si pas dans le path}
+	\PYG{n+nx}{PathToIosDeploy} \PYG{k+kt}{string}
+
+	\PYG{c+c1}{//Chemin vers WebDriverAgent}
+	\PYG{n+nx}{PathToWDA} \PYG{k+kt}{string}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kd}{type} \PYG{n+nx}{IosDevice} \PYG{k+kd}{struct} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{Config} \PYG{n+nx}{IosDeviceConfig}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -7,7 +7,9 @@
 \usepackage{cmap}
 \usepackage{enumitem} % pour g√©rer l'apparence des listes
 \usepackage{float} % pour placer les images √†¬† l'endroit o√π elles sont d√©finies dans le code LaTeX
+\usepackage{tocbibind}
 \usepackage{hyperref}
+\usepackage{minted}
 \usepackage{listings} % pour afficher du code source
 \usepackage[svgnames]{xcolor} % pour utiliser les couleurs
 \usepackage[hang, small, labelfont=bf, up, textfont=it, up]{caption}
@@ -17,8 +19,8 @@
 \usepackage[a4paper]{geometry}
 \geometry{hscale=0.85,vscale=0.85,centering}
 \setcounter{secnumdepth}{3} % profondeur pour la num√©rotation
-\setcounter{tocdepth}{3} % profondeur pour la table des mati√®res
-\usepackage[nottoc, notlof, notlot]{tocbibind}
+\setcounter{tocdepth}{2} % profondeur pour la table des mati√®res
+%\usepackage[nottoc, notlof, notlot]{tocbibind}
 \usepackage[newlinetospace]{titlesec}
 
 \renewcommand{\thesection}{\arabic{section}} 
@@ -27,6 +29,8 @@
 \addto\captionsfrench{\renewcommand{\chaptername}{}}
 \newcommand{\logiciel}{\emph{Greenspector}}
 \newcommand{\entreprise}{\textsc{Greenspector}}
+\newcommand{\code}[1]{\texttt{#1}}
+\renewcommand{\theHsection}{\thepart.section.\thesection}
 
 
 
@@ -48,21 +52,21 @@
 
 % Titre
 \rule{\linewidth}{0.5mm} \\[0.4cm]
-{ \huge \bfseries Étude et développement d'un dispositif de mesure physique, étude de faisabilité pour l'outil GREENSPECTOR \\[0.4cm] }
+{ \huge \bfseries Étude et développement d'un dispositif de mesure physique, étude iOS pour l'outil GREENSPECTOR \\[0.4cm] }
 \rule{\linewidth}{0.5mm} \\[1.8cm]
 
 % Encadrants
 \begin{minipage}{0.4\textwidth}
   \begin{flushleft} \large
     \emph{Tuteur école:}\\
-    M. Jean-Yves \textsc{Martin}\\
+    Jean-Yves \textsc{Martin}\\
   \end{flushleft}
 \end{minipage}%
 \begin{minipage}{0.4\textwidth}
   \begin{flushright} \large
     \emph{Encadrants entreprise :} \\
-    M. Thierry \textsc{Leboucq}\\
-    M. Olivier \textsc{Philippot}
+    Thierry \textsc{Leboucq}\\
+    Olivier \textsc{Philippot}
   \end{flushright}
 \end{minipage}
 
@@ -113,7 +117,7 @@ Dans le contexte actuel de réchauffement climatique et de raréfaction des énergi
 
 \bigskip La \emph{conception responsable} (ou éco-conception) des services numériques est un des leviers d'action possibles, et présente un potentiel très important. Elle encourage la modération et la sobriété dans la conception des TIC. Selon le Benchmark Green IT 2017 \cite{greenit2017}, elle permettrait d'utiliser << de l'ordre de 2 à 100 fois moins de ressources informatiques [...] à tous les niveaux du système d'information  >>.  
 
-\textsc{Greenspector} est la première solution outillée pour l'éco-conception des logiciels. Intégrée dans les outils du développeur, elle permet aux DSI de mesurer et contrôler la consommation de ressources des logiciels qu'elles produisent ou réceptionnent. Ces informations rendent alors possibles des gains d'autonomie des appareils mobiles et objets connectés, des gains de performance des applications et des économies dans les datacenters. 
+\logiciel{} est la première solution outillée pour l'éco-conception des logiciels. Intégrée dans les outils du développeur, elle permet aux DSI de mesurer et contrôler la consommation de ressources des logiciels qu'elles produisent ou réceptionnent. Ces informations rendent alors possibles des gains d'autonomie des appareils mobiles et objets connectés, des gains de performance des applications et des économies dans les datacenters. 
 
 \bigskip Ce stage chez \textsc{Greenspector} a permis d'aborder plusieurs sujets : développement d'une fonctionnalité de l'outil, mise en place de tests unitaires, comparaisons des mesures physique et logicielle de consommation d'énergie, investigations pour étendre la portée de l'outil. J'ai suivi une démarche générale de recherche et développement, tout en étant intégré dans le quotidien de l'équipe.  
 
@@ -143,8 +147,9 @@ En 2016 l'entreprise devient \textsc{Greenspector} et lance la commercialisation
 \addcontentsline{toc}{chapter}{Cadre général}
 \setcounter{footnote}{0}
 
+
 \section{Éco-conception logicielle}
-En dépit de leur caractère immatériel, les logiciels ont besoin d'équipements informatiques pour fonctionner (ordinateurs, écrans, serveurs...). L'analyse du cycle de vie (ACV) de ces équipements révèle que toutes les étapes présentent une empreinte écologique conséquente. Indirectement, les logiciels ont donc un impact écologique non négligeable.
+En dépit de leur caractère immatériel, les logiciels ont besoin d'équipements informatiques pour fonctionner (ordinateurs, écrans, serveurs...). L'analyse du cycle de vie (ACV) de ces équipements révèle que toutes les étapes présentent une empreinte écologique conséquente. Indirectement, les logiciels ont donc un impact non négligeable.
 
 Ils représentent même une des principales causes d'obsolescence des équipements. En effet, les besoins des logiciels en ressources matérielles (mémoire vive, puissance, espace disque) ne cessent d'augmenter \footnote{Par exemple, chaque version de la paire Windows-Office requiert le double de ressources par rapport à la version précédente. Ainsi, écrire un simple texte avec Windows 7 et Office 2010 requiert 70 fois plus de mémoire vive qu'avec Windows 98 et Office 97 ! }. Contrôler et diminuer les besoins en ressources des logiciels constitue la première étape naturelle d'une réduction efficace de l'empreinte écologique des équipements matériels. 
 
@@ -169,12 +174,44 @@ Elle consiste dans l'application de bonnes pratiques de développement, et cherch
 L'utilisation de l'outil \logiciel{} pendant le développement d'une application de gestion de congés pour 80 000 salariés a permis d'améliorer la performance et l'expérience utilisateur en \textbf{divisant le temps de réponse par 3}.
 
 
+
+
+
+
 \section{Présentation de l'outil \logiciel{}}
 L'objectif de \logiciel{} est de mettre à disposition des développeurs en informatique un outil pertinent, facile d'utilisation et intégré dans leurs environnements, pour les aider à coder des applications et sites webs optimisés.
 
 La description suivante concerne la version 2.0.0 sortie au cours de mon stage en juin 2018.
 \subsection{Architecture}
+\logiciel{} permet de benchmarker une application par une analyse dynamique pendant son fonctionnement, grâce à des sondes mesurant l'énergie, la mémoire, le trafic réseau, etc...
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{architecture/Cloud.png}
+\caption{Architecture et flux (version Cloud)}
+\label{archicloud}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{architecture/On_Premises.png}
+\caption{Architecture et flux (version On premises)}
+\label{archionpremises}
+\end{figure}
+
+Les figures \ref{archicloud} et \ref{archionpremises} présentent un schéma de l'architecture et des flux de données pour une utilisation \textbf{cloud} ou \textbf{on premises}\footnote{Il existe également une configuration \textbf{cloud with power test bench} dans laquelle le client possède seulement un banc de test dans ses locaux.}. 
+
+Le serveur \logiciel{} (\emph{Core Server}) est au coeur de cette architecture ; il détient l'intelligence de l'outil. Le Core Server est relié à un serveur de supervision (\emph{Monitoring Server}) qui veille au bon fonctionnement de l'outil. Dans le cas d'une installation on premises (i.e. lorsque le Core Server est installé chez le client), un serveur de licence (\emph{Update Server}) vérifie la validité de la licence en cours et permet les mises à jour de \logiciel{}. 
+
+L'architecture présente également un banc de test (\emph{Power Test Cloud Server} en cloud ou \emph{Power Test Bench Server} on premises) comprenant les appareils sur lesquels les tests et les mesures sont effectués.
+
+\bigskip \logiciel{} s'intègre dans les environnements de développement, de test et d'intégration continue. Le développeur dispose sur son poste d'un accès à une interface web permettant de lancer des mesures et d'en visualiser les résultats. Au niveau des environnements de test et d'intégration continue, d'autres outils peuvent être utilisés :
+\begin{itemize}[noitemsep]
+\item des modules ou des API accompagnées de sondes (sonde Android) pour effectuer des mesures dynamiques en s'intégrant des les outils de test comme UIAutomator, Espresso, Xamarin
+\item des modules greffés dans des outils d'intégration continue comme Jenkins pour automatiser le lancement de mesures
+\end{itemize}
+
+L'utilisateur dispose également de modules indépendants utilisables en ligne de commande pour lancer des mesures, exécuter des tests standards et envoyer les résultats au serveur central \logiciel{}. L'utilisation en ligne de commande facilite l'intégration au sein de processus continus et automatisés. 
 
 
 \subsection{Intelligence}
@@ -200,11 +237,652 @@ ce qui permet aux développeurs de prioriser les actions à mener.
 L'analyse dynamique d'une application permet de distinguer les règles respectées des règles violées. Le moteur d'analyse dynamique examine les mesures effectuées pour une application  en fonction du référentiel de règles dynamiques.
 Une règle dynamique comprend :
 \begin{itemize}
-\item Une métrique. Par exemple, le nombre de requêtes HTTP échangées entre client en serveur. 
-\item Un ensemble de seuils permettant d'attribuer un \emph{éco-score} à la règle. 75\% du score maximal si on compte entre 5 et 10 requêtes, 100\%  pour moins de 5 requêtes, etc... 
+\item \textbf{Une métrique}. Par exemple, le nombre de requêtes HTTP échangées entre client et serveur. 
+\item \textbf{Un ensemble de seuils} permettant d'attribuer un \emph{éco-score} à la règle. 75\% du score maximal si on compte entre 5 et 10 requêtes, 100\%  pour moins de 5 requêtes, etc... 
 \end{itemize}
 
 \subsubsection{Interface utilisateur}
+\label{subsec:interface}
+Le \textbf{tableau de bord} (dashboard) de l'interface web \logiciel{} résume et présente à l'utilisateur l'ensemble des informations utiles issues de la mesure de son application ou site web. Les figures mentionnées dans cette section sont visibles dans l'annexe \ref{sec:dashboard_ecn}.
+
+\bigskip Dans la première vue du dashboard (fig. \ref{dashboard1}) on retrouve l'\emph{éco-score} global de l'application. Il s'agit d'une note entre 0 et 100 indiquant le niveau d'éco-conception de l'application, et correspond à la moyenne des éco-scores de chaque domaine (réseau et ressources). Ces scores spécifiques sont évalués en sommant les points obtenus pour chacune des règles associées au domaine. 
+
+La section \emph{Autonomie} fournit à l'utilisateur une estimation de l'impact de son application sur la batterie d'un smartphone (si l'application tourne en boucle sur le téléphone). Cette estimation est déduite des données de mesure ainsi que de la capacité de la batterie de l'appareil utilisé pour les tests.    
+
+\bigskip La figure \ref{dashboard2} présente un bilan des budgets \footnote{La fonctionnalité budgets a d'ailleurs fait l'objet d'une amélioration intéressante que j'ai pu suivre au cours de mon stage.} définis préalablement par l'utilisateur. Les budgets correspondent à des exigences concernant différents aspects (comme l'autonomie) que les développeurs doivent respecter pour une application plus \emph{green} ou plus performante.  
+
+La section \emph{Test details} renseigne sur la consommation de ressources de l'application. Elle permet de visualiser différentes métriques (décharge de la plateforme, mémoire, CPU, réseau...) au cours des différentes étapes des tests effectués. Il s'agit de tests standardisés fournis par l'outil \logiciel{}. Par exemple, les tests d'une page web (ayant permis de tester le site de l'école) comportent 5 étapes : référence, chargement de la page, inactivité avec navigateur au premier plan, défilement, inactivité avec navigateur en arrière plan. 
+
+\bigskip La figure \ref{dashboard3} présente enfin la section \emph{Règles} qui liste chacune des règles analysées en précisant :
+\begin{itemize}[noitemsep]
+\item le score obtenu (maximal si la règle est respectée)
+\item le gain potentiel de la règle (nombre de points à gagner pour arriver au score maximal)
+\item la priorité de correction, basée sur le gain potentiel
+\end{itemize}
+
+On dispose également d'un bilan des ressources consommées pendant le test.
+
+\bigskip L'interface utilisateur permet un suivi de l'évolution d'une application. Pour chaque valeur affichée sur le tableau de bord, la différence entre la valeur actuelle et celle de la précédente version est indiquée.
+
+\bigskip Les autres onglets (\textbf{Meter}, \textbf{Test results}, \textbf{Budgets}, \textbf{Evolution}) fournissent différentes précisions sur l'application et sa mesure. En particulier l'onglet \textbf{Meter} détaille l'ensemble des étapes de mesure à l'aide de graphiques. Tous les graphiques de mesure présentés dans ce rapport proviennent de cet onglet.
+
+\section{Travail demandé}
+\entreprise{} souhaitait approfondir certains sujets afin d'étendre la portée de son outil et diversifier son offre. J'ai donc été chargé de tâches de recherche et développement, dans le but de progresser le plus possible sur ces sujets avant que l'entreprise envisage un développement plus poussé et une commercialisation des fonctionnalités résultantes.
+
+\subsection{Dispositif de mesure physique de consommation d'énergie}
+L'équipe de développement a travaillé sur un prototype de mesure physique de consommation d'énergie pour les objets connectés. J'ai été chargé d'adapter ce prototype et d'implémenter la mesure physique sur mobiles Android (qui n'étaient mesurés jusque-là que par des sondes logicielles), puis de comparer les mesures physiques et logicielles. L'objectif de cette fonctionnalité est de proposer une solution de mesure supplémentaire aux clients, pour affiner leur vision sur la consommation de leurs applications. 
+
+\subsection{Étude et développement iOS}
+Avant mon arrivée, les mesures de \logiciel{} ne concernaient que les mobiles Android. La mesure des appareils iOS représente pour l'entreprise une opportunité intéressante pour étendre son marché cible. J'ai eu pour mission d'explorer différentes pistes pour évaluer la possibilité de porter les fonctionnalités de l'outil aux iPhones et iPads, puis d'implémenter le benchmark dans \logiciel{}.
+
+\subsection{Tâches supplémentaires}
+Il m'a également été demandé de travailler sur d'autres tâches moins conséquentes. Enfin j'ai été chargé de m'intégrer au processus de développement de l'équipe (outils et méthodes agiles...).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\chapter*{Dispositif de mesure physique de consommation d'énergie sur mobiles Android}
+\label{chap:hardware}
+\setcounter{footnote}{0}
+\addcontentsline{toc}{chapter}{Dispositif de mesure physique de consommation d'énergie sur mobiles Android}
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{chX.\the\value{section}}
+
+\section{Introduction : à propos de la mesure logicielle de consommation énergétique}
+
+À mon arrivée chez \entreprise{}, j'ai pu prendre connaissance des moyens mis en oeuvre pour mesurer la consommation d'énergie d'une application sur les appareils Android. 
+
+\bigskip Le principe de la mesure est basé sur des informations fournies par l'API Android ou accessibles dans les fichiers système de l'appareil. Chaque modèle présente des valeurs relatives à la batterie (charge restante, tension, courant...) mises à jour plus ou moins fréquemment (de quelques centaines de millisecondes à quelques dizaines de secondes). La sonde logicielle développée par \entreprise{} et installée sur le smartphone est chargée de récupérer et traiter la grandeur (ou métrique) la plus pertinente parmi celles qui sont accessibles. 
+
+La détermination de la grandeur la plus pertinente est effectuée dès la réception d'un nouveau modèle de téléphone, préalablement à l'installation d'une sonde. Il s'agit de trouver une métrique avec une fréquence de mise à jour satisfaisante (quelques centaines de millisecondes). Si les sondes existantes ne permettent pas le traitement, il est nécessaire d'en développer une nouvelle.
+
+La sonde traite alors la grandeur choisie dans le but de fournir une valeur de consommation d'énergie en milliampère-heure (mAh). Il s'agit d'une unité de charge qui quantifie la capacité d'une batterie. Par exemple si la sonde utilise une mesure de courant, la décharge de la batterie correspond à l'intégration de cette intensité sur l'intervalle de temps considéré \footnote{On intègre simplement en multipliant l'intensité par le temps car on suppose que la tension aux bornes de la batterie est constant.}. Si la sonde utilise la charge de la batterie, le traitement consiste à faire la différence entre deux valeurs consécutives pour obtenir la décharge sur l'intervalle de temps considéré. 
+
+S'ensuit un processus de calibration, qui consiste à décharger progressivement la batterie du mobile pour comparer les résultats de mesure de la sonde avec la capacité de la batterie. On vérifie typiquement que pour une décharge de 10\%, la sonde fournit effectivement une valeur correspondant à 10\% de la charge totale de la batterie\footnote{Dans de nombreux cas la calibration permet d'identifier un intervalle de niveau de batterie sur lequel la sonde est fiable (de 20\% à 80\% par exemple).}.
+
+\bigskip \entreprise{} souhaitait aller plus loin sur ce sujet. Pour ce faire, l'équipe de développement a mis au point un prototype de sonde physique dans le but de contrôler plus précisément la mesure de consommation d'énergie des mobiles de son banc de test. Ce sujet constitue la première tâche de mon stage. 
+
+
+\section{Cadre}
+\subsection{Présentation du prototype de sonde physique}
+\label{presentationmodulephy}
+\subsubsection{Matériel}
+La sonde physique développée par \entreprise{} est basée sur deux composants : 
+\begin{itemize}[noitemsep]
+\item Un \textbf{shunt INA219}\footnote{\url{https://www.adafruit.com/product/904}} (figure \ref{shuntphoto}) permettant de mesurer le courant avec une précision à 1\%.
+\item Une carte \textbf{Arduino Uno}\footnote{\url{https://store.arduino.cc/arduino-uno-rev3}} (figure \ref{arduinophoto}), programmée pour récupérer et traiter la donnée du courant mesuré par le shunt.
+\end{itemize} 
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{1\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{mesure_physique/ina219.jpg}
+\caption{Arduino INA219 High Side DC Current Sensor}
+\label{shuntphoto}
+\centering
+\includegraphics[width=0.7\textwidth]{mesure_physique/arduinoUno.jpg}
+\caption{Arduino Uno Rev3}
+\label{arduinophoto}
+\end{minipage}
+\end{figure}
+
+Le câblage est présenté sur la figure \ref{cablage}:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{mesure_physique/montage.png}
+\caption{Sonde physique : câblage des composants électroniques}
+\label{cablage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{mesure_physique/montageiot.png}
+\caption{Sonde physique : circuit pour la mesure d'un Raspberry Pi}
+\label{circuitiot}
+\end{figure}
+
+La figure \ref{circuitiot} montre le circuit complet pour la mesure physique d'un Raspberry Pi, alimenté en USB. Le shunt est inséré entre l'ordinateur et l'appareil au niveau du câble d'alimentation. Ce circuit fournit effectivement  des résultats, cependant il n'est pas pertinent pour la mesure sur mobile Android, l'appareil mesuré étant en charge pendant les tests. J'ai donc dû adapter le dispositif à la mesure sur mobile ; cette étape est détaillée dans la suite du rapport.
+
+\subsubsection{Programme \code{Arduino}}
+Le programme de la carte \textbf{Arduino Uno}, écrit à partir de la librairie \code{Adafruit\_INA219}, permet de lire une mesure du courant passant par le shunt à intervalle régulier (200ms). Ce courant est simplement intégré sur l'intervalle de mesure (en supposant une tension constante) pour obtenir la décharge, comme pour la mesure logicielle evoquée dans l'introduction de cette partie. 
+
+La mesure est initiée en écrivant l'octet correspondant au caractère \code{'a'} sur le port série. Le caractère \code{'b'} permet d'arrêter la mesure.
+
+\subsection{Projets impactés, langages de programmation}
+L'implémentation de la mesure physique a mis en jeu différents projets informatiques que j'ai dû prendre en main et modifier pour intégrer cette nouvelle fonctionnalité. Ces projets utilisent différents langages de programmation auxquels je me suis adapté.
+
+\subsubsection{\code{Arduino}}
+Le programme de la carte Arduino Uno présentée précédemment a été écrit en langage \code{Arduino}, très proche du \code{C}. 
+
+\subsubsection{\code{go-testapi}}
+Pour intégrer la fonctionnalité de mesure physique, j'ai travaillé sur le projet \code{go-testapi}, une API \code{go} développée par \entreprise{}. Cette API définit les structure et méthodes permettant de mener des tests et mesures sur mobiles Android. La majeure partie de mon travail sur cette tâche concerne \code{go-testapi}. 
+
+\subsubsection{\code{testrunner}}
+Le \code{testrunner} est un module  également codé en \code{go} qui permet à l'utilisateur de lancer des tests standards automatisés sur mobiles Android. Le but du \code{testrunner} est de fournir une interface en ligne de commande (CLI) pour utiliser l'API de test \code{go-testapi}.
+Son rôle est de faire la correspondance entre des paramètres en ligne de commande (issus de fichiers de configuration), et les fonctions de l'API pour lancer des tests (standard URL, standard APK, custom APK).
+
+\subsubsection{\code{test-bench-launcher-android}}
+\code{test-bench-launcher-android} est une application Android écrite en \code{Java}. Elle est notamment lancée par \code{go-testapi}, avec les arguments nécessaires à son fonctionnement. De plus, elle définit les scénarios des tests standards automatisés. Les méthodes permettant l'interaction avec l'écran du téléphone testé sont également contenues dans \code{test-bench-launcher-android}, et utilisent le framework de test \code{UIAutomator}. 
+
+\subsection{Spécification}
+Avant le début du développement de la fonctionnalité, une spécification m'a été fournie par le scrum master. La fonctionnalité doit répondre aux exigences suivantes :
+\begin{itemize}[noitemsep]
+\item La mesure logicielle est conservée et doit être réalisée en parallèle de la mesure physique
+\item Pour la sonde matérielle, on utilise une nouvelle métrique d'énergie nommée \code{AH\_HARD} (ampère-heure, hardware), par opposition à la métrique logicielle \code{AH\_PL} (ampère-heure, plateforme)
+\item On conserve la plateforme \code{iot} pour la mesure physique hors exécution des tests (fonctionnalité existante à mon arrivée). Pour la mesure avec exécution des tests, on utilise la plateforme mobile.
+\item Les fichiers de configuration du test runner doivent permettre d'activer et désactiver le dispositif de mesure matérielle
+\end{itemize}
+
+
+\section{Implémentation du module de mesure physique}
+Dans un premier temps, j'ai été chargé d'implémenter la mesure physique de sorte que l'on puisse effectuer une mesure pendant les tests automatisés, et remonter les résultats sur l'interface \logiciel{}.
+
+
+\subsection{\code{go-testapi}}
+\subsubsection{Package \code{hardware}}
+À mon arrivée, les structures et méthodes permettant la mesure physique étaient contenues dans le package \code{iot}. Je les ai déplacées dans un package \code{hardware} pour plus de cohérence.
+
+\bigskip Ce package contient un autre package nommé \code{controller} dans lequel on trouve une structure \code{SerialController} qui fait le lien entre le port série (carte \textbf{Arduino}) et le projet. Cette structure permet notamment de démarrer/stopper la mesure et lire les informations contenues sur le port série.
+\code{SerialController} implémente l'interface \code{controller}. On utilise une interface pour faciliter les tests automatisés. En effet, en créant un mock qui implémente l'interface on peut facilement imiter le comportement du \code{SerialController} et vérifier le fonctionnement du code dans lequel il intervient.
+
+\bigskip Dans le package \code{hardware} on retrouve également une structure \code{HardwareMeasureLauncher} (interface \code{MeasureLauncher}), présentée sur la figure \ref{hwmeasurelauncher}. Elle contient notamment les informations du dispositif de mesure grâce à un \code{controller}, et permet de stocker (dans \code{hardwareMeasureResults}) les résultats lus sur le port série. On reviendra sur le champ \code{config} dans la suite.
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{go}
+type HardwareMeasureLauncher struct {
+	config                 HardwareMeasureLauncherConfig
+	controller             controller.Controller
+	stopped                chan (bool)
+	stopMeasure            chan (bool)
+	hardwareMeasureResults []common.MeasureTick
+}
+\end{minted}
+\caption{Déclaration de la structure \code{hardwareMeasureLauncher}}
+\label{hwmeasurelauncher}
+\end{figure}
+
+\subsubsection{Implémentation du module}
+Pour implémenter la fonctionnalité, je me suis intéressé aux structures et méthodes qui lancent les tests sur le mobile. On trouve dans le package \code{android} une structure \code{JobLauncher}, associée aux différentes méthodes de lancement des tests. Il y a une méthode par mode : par exemple pour tester une page web, c'est la méthode \code{LaunchURLJob} de notre instance de \code{JobLauncher} qui est appelée.
+
+\bigskip Au sein de ces méthodes de test, un \code{executor} est initialisé et permet de mener les tests. La structure dont cet objet est l'instance dépend du type de test (par exemple, on utilise la structure \code{URLJobExecutor} lors d'un test de site web). Toutes ces structures "héritent" \footnote{En \code{go}, il n'y a pas vraiment de relation d'héritage. En réalité, les instances \code{executor} présentent un champ qui est une instance de \code{APKJobExecutor}. } de \code{APKJobExecutor} (figure \ref{apkjobexecutor}). 
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{go}
+type APKJobExecutor struct {
+	Iterations        int
+	TestTimeout       time.Duration
+	WorkingDirectory  string
+	EnableScreenshots bool
+	EnableAssertions  bool
+	Modules           APKJobExecutorModules
+	Results           common.JobResult
+	UsbHub            usbhub.UsbHub
+}
+\end{minted}
+\caption{Déclaration de la structure \code{APKJobExecutor}}
+\label{apkjobexecutor}
+\end{figure}
+
+J'ai créé une structure \code{HardwareProbeModule} contenant (en plus des attributs d'un module : activé/désactivé...) une instance de \code{MeasureLauncher}, et je l'ai ajoutée à la structure \code{APKJobExecutorModules}. Dans la méthode de \code{JobLauncher} qui initialise l'instance \code{executor}, j'ai ajouté l'initialisation du module de mesure physique. Le paramètre \code{job}, qui regroupe les besoins de l'utilisateur, permet d'activer ou non le module tandis que l'instance \code{j} de \code{JobLauncher} fournit l'instance de \code{MeasureLauncher} (figure \ref{initapkjobexecutor}).
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{go}
+func (j *JobLauncher) InitAPKJobExecutor(job common.Job) APKJobExecutor {
+	...
+	return APKJobExecutor{
+		EnableAssertions:  settings.GetBool("enableAssertions"),
+		EnableScreenshots: settings.GetBool("enableScreenshots"),
+		UsbHub:            j.config.UsbHub,
+		Iterations:        job.Iterations,
+		TestTimeout:       job.TestTimeout,
+		Modules: APKJobExecutorModules{
+			...
+			Hardware: HardwareProbeModule{
+				Module: Module{
+					Enabled: job.Modules["hardware_probe"],
+				},
+				measureLauncher: j.measureLauncher,
+			},
+		},
+		WorkingDirectory: job.WorkingDirectory,
+	}
+}
+\end{minted}
+\caption{Méthode \code{InitAPKJobExecutor}}
+\label{initapkjobexecutor}
+\end{figure}
+
+J'ai ensuite intégré la mesure physique au sein des méthodes des différents types d'\code{executor}. À chaque itération, si le module est activé, on démarre la mesure avant les tests et on l'arrête après. La figure \ref{runiterations} illustre cette intégration dans la méthode \code{RunIterations} de \code{CommonAPKJobExecutor}, la structure relative aux tests d'applications Android.
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single,breaklines]{go}
+func (e *CommonAPKJobExecutor) RunIterations(instrumentation string, arguments []string) error {
+   firstIteration := true
+   for iteration := 0; iteration < e.Iterations; iteration++ {
+     logger.Infoln(fmt.Sprintf("Running iteration %d/%d", iteration+1, e.Iterations))
+     if e.Modules.Hardware.Enabled {
+	logger.Infoln(fmt.Sprintf("Starting hardware measurement module"))		
+	if err := e.Modules.Hardware.measureLauncher.Start(); err != nil {
+		return err
+	}
+     }
+     
+     ...
+
+     if e.Modules.Hardware.Enabled {
+	logger.Infoln(fmt.Sprintf("Stopping hardware measurement module"))
+	if err := e.Modules.Hardware.measureLauncher.Stop(); err != nil {
+		return err
+	}
+     }
+
+     e.retrieveResults(false)
+     ...
+   }
+   
+   ...
+   
+   return nil
+}
+\end{minted}
+\caption{Intégration de la mesure physique dans la méthode \code{RunIterations}}
+\label{runiterations}
+\end{figure}
+
+\subsubsection{Récupération des résultats}
+\subsection{\code{testrunner}}
+
+
+\section{Adaptation du dispositif}
+Comme évoqué dans le paragraphe \ref{presentationmodulephy}, il a fallu adapter la sonde physique dans le but de mesurer la consommation d'énergie sur mobile. L'idée est de placer le shunt entre le téléphone et la batterie et de mesurer le courant sortant de cette dernière vers l'appareil.  
+
+Pour cette tâche, nous avons choisi d'utiliser un \textbf{Samsung Galaxy J3} car sa batterie est facilement accessible.
+
+\bigskip La figure \ref{connecteurs} présente les connecteurs que nous avons utilisés. Ces connecteurs établissent le contact entre les bornes de la batterie et les fils électriques d'un côté, ainsi qu'entre le téléphone et les fils de l'autre.
+
+Nous avons soudé les fils électriques à chaque borne des connecteurs. De chaque côté, les bornes + et - sont reliées au shunt, de sorte que ce dernier est placé entre la batterie et le téléphone. Chacune des bornes restantes du côté de la batterie relie la borne correspondante du côté du mobile grâce un fil, sans passer par le shunt.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{mesure_physique/connecteursbatt.png}
+\caption{Connecteurs batterie}
+\label{connecteurs}
+\end{figure}
+
+
+
+
+\section{Analyse des résultats} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\chapter*{Étude de faisabilité iOS}
+\label{chap:ios}
+\addcontentsline{toc}{chapter}{Étude de faisabilité iOS}
+\setcounter{footnote}{0}
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{chXX.\the\value{section}}
+
+
+\section{Introduction}
+Pour la seconde tâche majeure de mon stage, il m'a été demandé d'étudier la possibilité d'étendre la solution \logiciel{} aux appareils iOS. Cette fonctionnalité représente pour l'entreprise l'opportunité de cibler un marché plus large. Cependant l'équipe de développement sait que sa réalisation est plus difficile que pour les appareils Android et demande du temps.
+C'est pourquoi j'ai été chargé d'avancer le plus possible sur le sujet avant qu'il soit repris par l'équipe \entreprise{}.
+
+\section{Cadre}
+
+
+\subsection{Appareil}
+J'ai travaillé sur mon téléphone personnel (\textbf{iPhone 6s}) au début de l'étude, puis un \textbf{iPhone 7} (iOS 11.2) a été mis à ma disposition par l'entreprise pour la suite.
+
+Nous avions envisagé d'utiliser un appareil débridé (jailbroken) pour contourner les restrictions et sécurités d'Apple et accéder facilement aux informations intéressantes. Cependant, pour des raisons de stabilité \footnote{Chaque mise à jour du système d'exploitation iOS améliore sa sécurité. Pour mettre à jour un appareil débridé, il faut donc réussir à exploiter de nouvelles failles à chaque version, ce qui ne peut être garanti.}, nous avons abandonné cette idée.  
+
+\subsection{Sonde physique}
+Compte tenu de la difficulté présumée de récupérer des métriques logicielles sur iOS, il a été décidé au préalable que la sonde physique serait utilisée pour mesurer la consommation énergétique de l'appareil. 
+
+\subsection{Technologies utilisées}
+En plus des projets \textbf{go-testapi} et \textbf{test runner} (écrits en go), j'ai dû prendre en main l'environnement \textbf{Xcode} d'Apple ainsi que \textbf{Swift}, le langage de programmation également développé par Apple.
+
+
+\section{Tests automatisés}
+La première étape de l'étude a consisté dans l'automatisation des différentes étapes des tests standards automatisés\footnote{Voir la section sur l'\hyperref[subsec:interface]{interface graphique}}. J'avais pour objectif de trouver une solution pour interagir avec l'appareil, notamment lancer des applications à distance (Wi-Fi seulement) via le terminal ou un programme, le but final étant d'effectuer une mesure pendant l'éxecution des tests (benchmark).
+
+\subsection{Premiers essais : \code{libimobiledevice} et \code{ios-deploy}}
+Dans un premier temps j'ai cherché à lancer une application sur l'appareil en ligne de commande. J'ai essayé deux outils :  \code{ios-deploy} et \code{libimobiledevice}.
+
+\subsubsection{\code{ios-deploy}}
+\code{ios-deploy}\footnote{\url{https://github.com/ios-control/ios-deploy}} est un outil open source permettant de déployer et lancer des applications sur les appareils iOS en ligne de commande. L'outil présente des fonctionnalités intéressantes, dont quelques exemples sont présentés sur la figure \ref{exiosdeploy}. 
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{bash}
+// Installer une app et la lancer en debug
+ios-deploy --debug --bundle my.app
+
+// Installer et lancer d une application puis quitter le debugger
+ios-deploy --justlaunch --debug --bundle my.app
+
+// Télécharger les fichiers de l app
+ios-deploy --bundle_id <bundle.id> --download --to MyDestinationFolder
+
+// Lister les fichiers d une app
+ios-deploy --bundle_id <bundle.id> --list
+
+// Désinstaller puis réinstaller et lancer
+ios-deploy --uninstall --debug --bundle my.app
+
+// Vérifier l existence d un package
+ios-deploy --exists --bundle_id com.apple.mobilemail
+
+// Désinstaller une app
+ios-deploy --uninstall_only --bundle_id my.bundle.id
+
+// Lister les app installées sur l appareil
+ios-deploy --list_bundle_id
+\end{minted}
+\caption{Exemples d'utilisation de \code{ios-deploy}}
+\label{exiosdeploy}
+\end{figure}
+
+J'ai testé les possibilités offertes par l'outil, ce qui m'a permis d'évaluer son utilité pour la fonctionnalité.
+
+\paragraph{Avantages}
+\code{ios-deploy} présente quelques avantages utiles pour l'implémentation d'un benchmark iOS :
+\begin{itemize}[noitemsep]
+\item L'installation de l'outil est rendue très simple\footnote{Il est important de considérer cette problématique lors de la conception pour alléger au maximum l'installation de \logiciel{}. Les éventuels pré-requis demandés aux clients doivent être simples et peu contraignants.} grâce au node package manager : 
+
+\code{\$ npm install -g ios-deploy}
+\item L'outil permet d'installer/désinstaller l'application à tester à partir du fichier \code{.app} obtenu après compilation du projet Xcode. 
+\item La plupart des actions et commandes (pas toutes !) sont utilisables avec l'appareil connecté en Wi-Fi. 
+\end{itemize}
+
+\paragraph{Points blocants} Cependant, l'utilisation de \code{ios-deploy} est limitée : 
+\begin{itemize}[noitemsep]
+\item Le lancement d'une application est effectué en mode debug. Les applications natives ainsi que celles de l'AppStore ne possèdent pas cette propriété, et ne peuvent donc pas être lancées par l'outil. En particulier, cela rend la mesure de sites webs impossible puisqu'on ne peut pas ouvrir un navigateur.
+\item De plus, il n'est pas possible de lancer une application lorsque l'appareil est connecté en Wi-Fi.
+\end{itemize}
+
+\subsubsection{\code{libimobiledevice}}
+\code{libimobiledevice}\footnote{\url{www.libimobiledevice.org}} est une bibliothèque multiplatformes permettant de communiquer avec des appareils iOS (iPhone, iPod Touch, iPad, Apple TV). Elle permet notamment d’accéder aux fichiers système, de gérer les applications installées… \code{libimobiledevice} fonctionne avec les appareils sous iOS 10 (et versions antérieures).
+
+J'ai testé quelques fonctionnalités de cet outil pour comparer son utilisation à celle de \code{ios-deploy}.
+
+\paragraph{Avantage}
+La commande \code{idevicesyslog} permet d'afficher les logs de l'appareil en temps réel, ce qui peut être intéressant pour remonter des erreurs ou autres informations utiles aux tests.
+
+\paragraph{Points blocants}
+\code{libimobiledevice} comporte les mêmes points blocants que \code{ios-deploy}. 
+
+\bigskip J'ai choisi d'envisager l'utilisation de \code{ios-deploy} pour installer/désinstaller des applications, plus commode que \code{libimobiledevice} Cependant cet outil seul ne suffit pas pour implémenter la fonctionnalité.
+
+
+\subsection{Vers la solution : \code{WebDriverAgent}}
+Il manquait un moyen d'interagir avec l'appareil et mener les tests de façon automatisée. Mes recherches et mes collègues m'ont amené à m'intéresser l'outil d'automatisation de tests \code{Appium}\footnote{\url{https://github.com/appium/}}, qui permet effectivement de mener des tests automatisés sur appareils iOS (entre autres). J'ai entrepris d'étudier cet outil open source afin d'en comprendre le fonctionnement et l'adapter à mon problème. Pour les tests iOS,  \code{Appium} utilise l'outil \code{WebDriverAgent}.
+
+\subsubsection{\code{WebDriverAgent}}
+\code{WebDriverAgent}\footnote{\url{https://github.com/facebook/WebDriverAgent}} est un outil développé par \textsc{Facebook}. Il s'agit d'un serveur WebDriver pour iOS permettant de contrôler des appareils à distance. Il permet notamment de lancer des applications (y compris celles de l'App Store) et effectuer des actions sur l'écran (scroller, taper au clavier...), ce qui répond à notre besoin.
+
+\subsubsection{Fonctionnement}
+\label{fonctionnementwda}
+\code{WebDriverAgent} est lancé sur l'appareil depuis \textbf{Xcode} en mode test. Suite au lancement, le serveur fournit son URL (souvent \code{http://<IP\_TÉLÉPHONE>:8100} — voir fig. \ref{wdaserver}). Un certain nombre de routes définies dans le projet permettent au serveur de mener des actions sur le mobile (un clic par exemple) en fonction de la requête effectuée. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{wda/wda-server}
+\caption{\code{WebDriverAgent} : affichage de l'adresse du serveur dans la console}
+\label{wdaserver}
+\end{figure}
+
+Le serveur tourne sur le mobile (même verrouillé) tant que ce dernier est allumé et connecté en Wi-Fi.
+
+\subsubsection{Prise en main}
+J'ai pris en main \code{WebDriverAgent} à l'aide des exemples fournis sur github. J'ai écrit les premières requêtes en utilisant \code{cURL}, une interface en ligne de commande qui permet cela.  
+
+\bigskip L'écriture des requêtes met en jeu 3 variables : 
+\begin{itemize}[noitemsep]
+\item L'adresse du serveur évoquée dans la section \ref{fonctionnementwda} : \code{DEVICE\_URL} 
+\item L'entête qui permet de travailler avec des requêtes et réponses en JSON : \code{JSON\_HEADER='-H "Content-Type: application/json"'}
+\item Un identifiant de session \code{SESSION\_ID}, fourni au lancement d'une application. Par exemple : \code{D15E12F6-CA23-4CD4-89F9-E5C5EA6F4FAD}
+\end{itemize}
+
+\bigskip La figure \ref{exwda} présente des requêtes utiles que j'ai testées : 
+\begin{itemize}[noitemsep]
+\item Accéder à l'écran d'accueil
+\item Démarrer une session et lancer une application \footnote{Il est possible d'installer l'application avant de la lancer. Cependant le lancement est effectué directement après l'installation, ce qui empêche la réalisation de l'étape de référence.} (la réponse à cette requête fournit la variable \code{SESSION\_ID} utile pour les requêtes qui suivent) 
+\item Rechercher un élément sur l'écran à l'aide de son nom (la réponse à cette requête fournit l'identifiant de l'élément recherché permettant l'interaction avec ce dernier)
+\item Cliquer sur un élément 
+\item Taper du texte
+\item Défiler sur la page  
+\item Terminer une session et fermer l'application
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{bash}
+curl -X POST $JSON_HEADER -d "" $DEVICE_URL/wda/homescreen
+
+curl -X POST $JSON_HEADER \ 
+-d "{\"desiredCapabilities\":{\"bundleId\":\"com.apple.mobilesafari\"}}" \
+$DEVICE_URL/session
+
+curl -X POST $JSON_HEADER \
+-d "{\"using\":\"link text\",\"value\":\"name=URL\"}" \
+$DEVICE_URL/session/$SESSION_ID/elements
+
+curl -X POST $JSON_HEADER -d "" $DEVICE_URL/session/$SESSION_ID/element/5/click
+
+curl -X POST $JSON_HEADER \
+-d "{\"value\":\"e\",\"c\",\"n\",\".\",\"f\",\"r\",\"\\n\"]}" \
+$DEVICE_URL/session/$SESSION_ID/element/5/value
+
+curl --silent -X POST $JSON_HEADER \ 
+-d "{\"fromX\":\"100\",\"fromY\":\"500\",\"toX\":\"100\",\"toY\":\"80\",
+\"duration\":\"0.2\"}" \ 
+$DEVICE_URL/session/$SESSION_ID/wda/dragfromtoforduration
+
+curl -X DELETE $JSON_HEADER $DEVICE_URL/session/$SESSION_ID
+\end{minted}
+\caption{Exemples d'utilisation de \code{WebDriverAgent} grâce à \code{cURL}}
+\label{exwda}
+\end{figure}
+
+\subsection{Écriture de scripts de benchmark}
+\label{scriptsbenchmark}
+Après avoir pris en main ces commandes j'ai entrepris d'écrire des scripts de tests automatisés afin de mieux maîtriser l'enchaînement des différentes actions. Il s'agissait d'effectuer les bonnes requêtes avec les informations adéquates. Par exemple, pour fermer une application il faut effectuer la requête avec le bon identifiant de session, il faut donc s'assurer d'avoir accès à ce dernier en le récupérant lors du lancement. 
+Pour les étapes de test je me suis basé sur les tests existants sur Android. Les scripts sont présentés dans l'annexe \ref{sec:iosscripts}. 
+
+\subsubsection{Benchmark de site web}
+Le benchmark de site internet est divisé en 7 étapes, dont 5 sont mesurées : 
+\begin{itemize}[noitemsep]
+\item Effacement des données de navigation (caches, historique)
+\item Lancement du navigateur et \textbf{étape de référence} : le mobile est inactif sur l'accueil du navigateur pendant 20 secondes\footnote{Les scripts présentent des durées de 5 secondes pour  les rendre moins longs à tester.}
+\item Lancement et chargement du site à mesurer (\textbf{loading}) : 20 secondes 
+\item Inactivité au premier plan (\textbf{idle foreground}) : le mobile est inactif sur la page web pendant 20 secondes 
+\item Inactivité en arrière plan (\textbf{idle background}) : le mobile est inactif sur l'écran d'accueil (avec le navigateur en arrière plan) pendant 20 secondes
+\item Fermeture de l'onglet (sans cette action la page consultée se recharge lors du lancement du navigateur au test suivant) et fermeture du navigateur 
+\end{itemize}
+
+Les URLs du serveur \code{WebDriverAgent} et du site web mesuré sont passées en argument de ce script.
+
+\subsubsection{Benchmark d'application}
+Le benchmark d'application comporte 6 étapes\footnote{L'étape \textbf{idle foreground} n'a pas été écrite dans le script mais elle est présente dans l'implémentation finale.} : 
+\begin{itemize}[noitemsep]
+\item Installation de l'application grâce à \code{ios-deploy}
+\item \textbf{Étape de référence} sur l'écran d'accueil
+\item \textbf{Loading}
+\item \textbf{Idle background}
+\item Fermeture de l'application
+\item Désinstallation grâce à \code{ios-deploy}
+\end{itemize}
+
+Ici on passe en argument le chemin vers le fichier \code{.app} et l'identifiant de l'application (par exemple, pour le navigateur d'Apple : \code{com.mobilesafari}) en plus de l'URL du serveur \code{WebDriverAgent}.
+
+
+\bigskip Je me suis servi de ces scripts de benchmark comme base de travail pour l'implémentation de la fonctionnalité iOS dans \code{go-testapi} et \code{test runner}. 
+
+\section{Implémentation dans \code{go-testapi} et \code{testrunner}}
+\subsection{\code{go-testapi}}
+Pour implémenter la fonctionnalité iOS, j'ai principalement travaillé sur \code{go-testapi}. Pour cela j'ai créé au sein du projet un package \code{ios}, contenant tous les objets et méthodes utiles à la réalisation des tests et des mesures.
+
+\subsubsection{Package \code{device}}
+J'ai commencé par créer un package \code{device} avec une interface du même nom dans le package \code{ios}. Cette interface met en jeu les méthodes d'interaction avec l'appareil, présentées dans la figure \ref{devicemethods}. Les noms de méthodes commençant par une minuscule correspondent aux méthodes "utilitaires" privées et appelées par les autres méthodes.
+
+Ensuite, dans un autre fichier, j'ai créé les structures \code{IosDeviceConfig} (contenant les informations relatives à un appareil) et \code{IosDevice} (contenant une instance de \code{IosDeviceConfig}) qui implémente l'interface \code{Device} (déclaration fig. \ref{iosdevice}). Pour implémenter les méthodes de l'interface, j'ai adapté mes tests de \code{WebDriverAgent} en effectuant les différentes nécessaires en \code{go}, ce qui rend les interactions plus commodes. En effet, un appel de méthode est beaucoup plus simple et explicite qu'une ligne de commande \code{cURL}. 
+
+J'ai également également créé une version mockée de \code{IosDevice} pour en simuler le comportement lors de tests unitaires\footnote{L'utilisation de mocks pour les tests unitaires automatisés justifie la création d'une interface.}.
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{go}
+package device
+
+import "gitlab.kali/kaliterre/go-testapi/common"
+
+type Device interface {
+	openApp(bundleId string) (string, error)
+	killApp(sessionId string) error
+	scroll(sessionId string, fromY int, toY int) error
+	findElementByName(sessionId string, name string) (string, error)
+	clickOnElement(sessionId string, elementId string) error
+	typeInElement(sessionId string, elementId string, content string) error
+	homeScreen() error
+	getDefaultSession() (string, error)
+
+	LaunchAgent() error
+	ClearWebData() error
+	CloseSafariTabAndKillApp() error
+	RunWebBenchmark(websiteURL string) (common.Steps, error)
+	RunAppBenchmark(path string) (common.Steps, error)
+	InstallApp(path string, bundleId string) error
+	UninstallApp(bundleId string) error
+	GetDeviceName() string
+}
+\end{minted}
+\caption{Méthodes de l'interface \code{Device}}
+\label{devicemethods}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{go}
+type IosDeviceConfig struct {
+	DeviceName string
+
+	//Identifiant du device iOS (sert pour ios-deploy)
+	UDID string
+
+	//URL de l'appareil pour faire des requêtes
+	URL string
+
+	//Chemin d'accès à ios-deploy si pas dans le path
+	PathToIosDeploy string
+
+	//Chemin vers WebDriverAgent
+	PathToWDA string
+}
+
+type IosDevice struct {
+	Config IosDeviceConfig
+}
+\end{minted}
+\caption{Déclaration des structures \code{IosDeviceConfig} et \code{IosDevice}}
+\label{iosdevice}
+\end{figure}
+
+\subsubsection{Autres entités du package \code{ios}}
+\paragraph{Lancement des tests sur l'appareil}
+Pour lancer la procédure de test sur un appareil, j'ai créé une interface \code{JobLauncher} comportant deux méthodes (fig. \ref{joblauncherios}). Ces dernières sont destinées à mener toutes les actions de test et de mesures nécessaires selon le besoin de l'utilisateur (contenu dans l'objet \code{job}, qui présente notamment l'application à mesurer, le nombre d'itérations etc...) et renvoyer les résultats.
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{go}
+type JobLauncher interface {
+	LoadURLJob(job common.Job) (common.JobResult, error)
+	LoadAppJob(job common.Job) (common.JobResult, error)
+}
+\end{minted}
+\caption{Déclaration de l'interface \code{JobLauncher}}
+\label{joblauncherios}
+\end{figure}
+
+La structure \code{IosJobLauncher} — qui contient un \code{device} et un \code{measureLauncher} (pour déclencher la mesure physique) — implémente l'interface \code{JobLauncher}. L'algorithme général de l'implémentation des méthodes de \code{JobLauncher} se présente comme suit :
+\begin{itemize}[noitemsep]
+\item Lancement de \code{WebDriverAgent} sur l'appareil
+\item Démarrage de la mesure physique
+\item Déroulement des tests sur une ou plusieurs itérations\footnote{On note que dans le cas d'un benchmark d'application, l'installation et la désinstallation ne sont pas effectuées à chaque itération mais seulement avant et après l'exécution de tous les tests.} : voir la section \ref{scriptsbenchmark}
+\item Arrêt de la mesure physique
+\item Construction et renvoi des résultats
+\end{itemize}
+
+En plus des méthodes de l'interface, \code{IosJobLauncher} comprend des méthodes auxiliaires comme \code{buildResults} qui organise les résultats de mesure en fonction des étapes de test. C'est d'ailleurs l'utilité du type \code{common.Steps} renvoyé par les méthodes \code{RunWebBenchmark} et \code{RunAppBenchmark} de \code{Device} (fig. \ref{devicemethods}). Il consiste en un tableau de \code{common.Step}, comprenant le nom de l'étape de test ainsi que ses dates de début et de fin.
+
+\paragraph{Tests unitaires}
+Afin de tester un minimum le code, j'ai entrepris d'écrire des tests unitaires. J'ai créé deux méthodes de test : chacune d'elle permet de tester une méthode de \code{JobLauncher}. Pour cela j'ai créé, au sein de chaque méthode de test, une instance de  \code{IosJobLauncher} avec des mocks comme attributs (\code{device} et \code{measureLauncher}), ainsi qu'un \code{job}. Ensuite on compare les résultats du faux test avec les résultats attendus. La figure \ref{iostest} présente la méthode \code{TestURLjob} qui teste le lancement d'un benchmark web.
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{go}
+func TestURLjob(t *testing.T) {
+	t.Parallel()
+
+	// Job URL
+	deviceInstance := device.NewMockedIosDevice(device.MockedIosDeviceConfig{
+		DeviceName: "iPhone7",
+	})
+	jobLauncher := &IosJobLauncher{
+		device:          deviceInstance,
+		measureLauncher: hardware.NewMockedMeasureLauncher(),
+	}
+
+	modules := make(map[string]bool)
+	modules["hardware_probe"] = true
+
+	job := common.Job{
+		Mode: "url",
+		GreenspectorApp: common.GreenspectorApp{
+			Name:    "ApplicationTest",
+			Version: "2",
+		},
+		Iterations: 5,
+		URLS:       []string{"www.greenspector.com"},
+		Modules:    modules,
+	}
+	jobResult, err := jobLauncher.LoadURLJob(job)
+
+	assert.Equal(t, err, nil)
+	assert.Equal(t, len(jobResult.Results), 5)
+	assert.Equal(t, jobResult.Results[0].Application, "ApplicationTest")
+	assert.Equal(t, jobResult.Results[0].Version, "2")
+	assert.Equal(t, jobResult.Results[0].Devicename, "iPhone7")
+	assert.Equal(t, jobResult.Results[0].Iterations, 5)
+	assert.Equal(t, len(jobResult.Results[0].Measures), 1)
+}
+\end{minted}
+\caption{Une méthode de test unitaire pour \code{IosJobLauncher}}
+\label{iostest}
+\end{figure}
+
+\subsection{\code{testrunner}}
+
+J'ai ensuite travaillé sur \code{testrunner} pour créer les objets nécessaires au déroulement des tests. J'ai créé au sein du projet un package \code{ios} avec un unique fichier. Ce fichier contient une seule fonction \code{LaunchIosJob}, appelée par la fonction principale de \code{testrunner}. 
+
+\bigskip Le fonctionnement peut se résumer en 5 étapes :
+\begin{itemize}[noitemsep]
+\item Dans la fonction principale, on lit l'attribut \code{platform} du fichier de configuration \code{config.yml}. S'il s'agit de \code{ios}, la fonction principale appelle \code{LaunchIosJob}.
+\item Dans \code{LaunchIosJob}, on instancie un \code{device} et un \code{measureLauncher} grâce aux informations de \code{config.yml}. Ces instances permettent de créer une instance de \code{IosJobLauncher}. 
+\item Le fichier de configuration \code{job.yml} qui contient les informations relatives aux tests à mener permet d'instancier un \code{job}. 
+\item On appelle ensuite la bonne méthode de notre instance de \code{IosJobLauncher} selon le mode (\code{url} ou \code{app}).
+\item On récupère les résultats des tests pour mener la suite des actions (sauvegarde locale ou envoi sur l'interface web \logiciel{}).
+\end{itemize}
+
+\section{Ajout de métriques supplémentaires}
+Pour la suite de l'étude, j'ai été chargé de trouver des solutions pour remonter des métriques de performance (CPU, mémoire...) des appareils iOS pendant les tests.
+   
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,8 +891,144 @@ Une règle dynamique comprend :
 \chapter{Tableau de bord : exemple d'analyse du site de l'École Centrale de Nantes}
 \label{sec:dashboard_ecn}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{Interface/dashboard_vue_1.png}
+\caption{Tableau de bord. Vue 1}
+\label{dashboard1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{Interface/dashboard_vue_2.png}
+\caption{Tableau de bord. Vue 2}
+\label{dashboard2}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{Interface/dashboard_vue_3.png}
+\caption{Tableau de bord. Vue 3}
+\label{dashboard3}
+\end{figure}
+
+\newpage
+\chapter{Scripts de tests automatisés sur iOS}
+\label{sec:iosscripts}
+\renewcommand*{\theHsection}{anX.\the\value{section}}
+
+\section{Benchmark web}
+\begin{minted}[breaklines]{bash}
+#!/bin/bash
+
+DEVICE_URL=$1
+URL=$2
+JSON_HEADER='-H "Content-Type:application/json"'
+
+clear_history_cache() {
+  echo "Suppression de l'historique et des caches"
+  SETTINGS_SESSION_ID=$(curl --silent -g -X POST $JSON_HEADER -d '{"desiredCapabilities":{"bundleId":"com.apple.Preferences"}}' $DEVICE_URL/session | jq -r '.sessionId')
+  
+  SCROLL1=$(curl --silent -X POST $JSON_HEADER -d "{\"fromX\":\"100\",\"fromY\":\"600\",\"toX\":\"100\",\"toY\":\"80\",
+  \"duration\":\"0.2\"}" $DEVICE_URL/session/$SETTINGS_SESSION_ID/wda/dragfromtoforduration)
+  
+  SCROLL2=$(curl --silent -X POST $JSON_HEADER -d "{\"fromX\":\"100\",\"fromY\":\"600\",\"toX\":\"100\",\"toY\":\"80\",
+  \"duration\":\"0.2\"}" $DEVICE_URL/session/$SETTINGS_SESSION_ID/wda/dragfromtoforduration)
+  
+  SCROLL3=$(curl --silent -X POST $JSON_HEADER -d "{\"fromX\":\"100\",\"fromY\":\"600\",\"toX\":\"100\",\"toY\":\"300\",
+  \"duration\":\"0.2\"}" $DEVICE_URL/session/$SETTINGS_SESSION_ID/wda/dragfromtoforduration)
+  
+  SAFARI_ELEMENT=$(curl --silent -g -X POST $JSON_HEADER -d '{"using":"link text","value":"name=Safari"}' $DEVICE_URL/session/$SETTINGS_SESSION_ID/elements | jq -r '.value | to_entries[1] | {"value": .value.ELEMENT}' | jq -r '.value')
+  
+  SAFARI=$(curl --silent -g -X POST $JSON_HEADER -d "" $DEVICE_URL/session/$SETTINGS_SESSION_ID/element/$SAFARI_ELEMENT/click)
+  
+  SCROLL1=$(curl --silent -X POST $JSON_HEADER -d "{\"fromX\":\"100\",\"fromY\":\"600\",\"toX\":\"100\",\"toY\":\"50\",
+  \"duration\":\"0.2\"}" $DEVICE_URL/session/$SETTINGS_SESSION_ID/wda/dragfromtoforduration)
+  
+  CLEAR_ELEMENT=$(curl --silent -g -X POST $JSON_HEADER -d '{"using":"link text","value":"name=Clear History and Website Data"}' $DEVICE_URL/session/$SETTINGS_SESSION_ID/elements | jq -r '.value | to_entries[0] | {"value": .value.ELEMENT}' | jq -r '.value')
+  
+  CLEAR=$(curl --silent -g -X POST $JSON_HEADER -d "" $DEVICE_URL/session/$SETTINGS_SESSION_ID/element/$CLEAR_ELEMENT/click)
+  
+  CONF_ELEMENT=$(curl --silent -g -X POST $JSON_HEADER -d '{"using":"link text","value":"name=Clear History and Data"}' $DEVICE_URL/session/$SETTINGS_SESSION_ID/elements | jq -r '.value | to_entries[0] | {"value": .value.ELEMENT}' | jq -r '.value')
+  
+  CONF=$(curl --silent -g -X POST $JSON_HEADER -d "" $DEVICE_URL/session/$SETTINGS_SESSION_ID/element/$CONF_ELEMENT/click)
+  sleep 1
+  
+  CLOSE=$(curl --silent -X DELETE $JSON_HEADER $DEVICE_URL/session/$SETTINGS_SESSION_ID)
+  
+  echo "Terminé"
+}
 
 
+clear_history_cache
+
+echo 'Reference step';
+sleep 10
+
+echo 'Launching Safari';
+SESSION_ID=$(curl --silent -g -X POST $JSON_HEADER -d '{"desiredCapabilities":{"bundleId":"com.apple.mobilesafari"}}' $DEVICE_URL/session | jq -r '.sessionId')
+
+echo 'Loading ' $URL;
+URL_ELEMENT=$(curl --silent -g -X POST $JSON_HEADER -d '{"using":"link text","value":"name=URL"}' $DEVICE_URL/session/$SESSION_ID/elements | jq -r '.value | to_entries[0] | {"value": .value.ELEMENT}' | jq -r '.value')
+ACCES_URL=$(curl --silent -g -X POST $JSON_HEADER -d '{"value":["'"$URL\n"'"]}' $DEVICE_URL/session/$SESSION_ID/element/$URL_ELEMENT/value)
+sleep 10
+
+echo 'Foreground idle';
+sleep 10
+
+echo 'Scroll';
+sleep 5
+SCROLL1=$(curl --silent -X POST $JSON_HEADER -d "{\"fromX\":\"100\",\"fromY\":\"500\",\"toX\":\"100\",\"toY\":\"80\",
+\"duration\":\"0.2\"}" $DEVICE_URL/session/$SESSION_ID/wda/dragfromtoforduration)
+SCROLL2=$(curl --silent -X POST $JSON_HEADER -d "{\"fromX\":\"100\",\"fromY\":\"500\",\"toX\":\"100\",\"toY\":\"80\",
+\"duration\":\"0.2\"}" $DEVICE_URL/session/$SESSION_ID/wda/dragfromtoforduration)
+SCROLL3=$(curl --silent -X POST $JSON_HEADER -d "{\"fromX\":\"100\",\"fromY\":\"500\",\"toX\":\"100\",\"toY\":\"300\",
+\"duration\":\"0.2\"}" $DEVICE_URL/session/$SESSION_ID/wda/dragfromtoforduration)
+sleep 5
+
+echo 'Background idle';
+IDLE_BACK=$(curl --silent -X POST $JSON_HEADER -d "" $DEVICE_URL/wda/homescreen)
+sleep 10
+
+echo 'Closing Safari'
+CLOSE=$(curl --silent -X DELETE $JSON_HEADER $DEVICE_URL/session/$SESSION_ID)
+
+
+echo 'Done'
+\end{minted}
+
+\section{Benchmark d'application}
+\begin{minted}[breaklines]{bash}
+#!/bin/bash
+
+DEVICE_URL=$1
+APP=$2
+BUNDLE_ID=$3
+JSON_HEADER='-H "Content-Type:application/json"'
+
+
+echo 'Installation du package "'"$BUNDLE_ID"'"';
+ios-deploy -b $APP
+
+echo 'Reference'
+sleep 3
+
+echo 'Lancement'
+SESSION_ID=$(curl --silent -g -X POST $JSON_HEADER -d '{"desiredCapabilities":{"bundleId":"'"$BUNDLE_ID"'"}}' $DEVICE_URL/session | jq -r '.sessionId')
+sleep 5
+
+echo 'Idle en arrière plan';
+IDLE_BACK=$(curl --silent -X POST $JSON_HEADER -d "" $DEVICE_URL/wda/homescreen)
+sleep 5
+
+echo 'Fermeture'
+CLOSING=$(curl --silent -X DELETE $JSON_HEADER $DEVICE_URL/session/$SESSION_ID)
+
+echo 'Désinstallation du package "'"$BUNDLE_ID"'"';
+UNINSTALL=$(ios-deploy --uninstall_only --bundle_id $BUNDLE_ID)
+
+echo 'Terminé'
+\end{minted}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+
+\PYG{n+nv}{DEVICE\PYGZus{}URL}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}1}
+\PYG{n+nv}{APP}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}2}
+\PYG{n+nv}{BUNDLE\PYGZus{}ID}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}3}
+\PYG{n+nv}{JSON\PYGZus{}HEADER}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}H \PYGZdq{}Content\PYGZhy{}Type:application/json\PYGZdq{}\PYGZsq{}}
+
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Installation du package \PYGZdq{}\PYGZsq{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}BUNDLE\PYGZus{}ID}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s1}{\PYGZsq{}\PYGZdq{}\PYGZsq{}}\PYG{p}{;}
+ios\PYGZhy{}deploy \PYGZhy{}b \PYG{n+nv}{\PYGZdl{}APP}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Reference\PYGZsq{}}
+sleep \PYG{l+m}{3}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Lancement\PYGZsq{}}
+\PYG{n+nv}{SESSION\PYGZus{}ID}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}g \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}\PYGZdq{}desiredCapabilities\PYGZdq{}:\PYGZob{}\PYGZdq{}bundleId\PYGZdq{}:\PYGZdq{}\PYGZsq{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}BUNDLE\PYGZus{}ID}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s1}{\PYGZsq{}\PYGZdq{}\PYGZcb{}\PYGZcb{}\PYGZsq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session \PYG{p}{|} jq \PYGZhy{}r \PYG{l+s+s1}{\PYGZsq{}.sessionId\PYGZsq{}}\PYG{k}{)}
+sleep \PYG{l+m}{5}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Idle en arrière plan\PYGZsq{}}\PYG{p}{;}
+\PYG{n+nv}{IDLE\PYGZus{}BACK}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/wda/homescreen\PYG{k}{)}
+sleep \PYG{l+m}{5}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Fermeture\PYGZsq{}}
+\PYG{n+nv}{CLOSING}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}curl \PYGZhy{}\PYGZhy{}silent \PYGZhy{}X DELETE \PYG{n+nv}{\PYGZdl{}JSON\PYGZus{}HEADER} \PYG{n+nv}{\PYGZdl{}DEVICE\PYGZus{}URL}/session/\PYG{n+nv}{\PYGZdl{}SESSION\PYGZus{}ID}\PYG{k}{)}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Désinstallation du package \PYGZdq{}\PYGZsq{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}BUNDLE\PYGZus{}ID}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s1}{\PYGZsq{}\PYGZdq{}\PYGZsq{}}\PYG{p}{;}
+\PYG{n+nv}{UNINSTALL}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}ios\PYGZhy{}deploy \PYGZhy{}\PYGZhy{}uninstall\PYGZus{}only \PYGZhy{}\PYGZhy{}bundle\PYGZus{}id \PYG{n+nv}{\PYGZdl{}BUNDLE\PYGZus{}ID}\PYG{k}{)}
+
+\PYG{n+nb}{echo} \PYG{l+s+s1}{\PYGZsq{}Terminé\PYGZsq{}}
+\end{Verbatim}

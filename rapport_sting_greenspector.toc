@@ -1,15 +1,73 @@
 \babel@toc {french}{}
 \contentsline {chapter}{Remerciements}{1}{chapter*.2}
-\contentsline {chapter}{Introduction}{4}{chapter*.5}
-\contentsline {chapter}{Pr\'esentation de l'entreprise}{5}{chapter*.6}
-\contentsline {chapter}{Cadre g\'en\'eral}{6}{chapter*.7}
-\contentsline {section}{\numberline {1}\'Eco-conception logicielle}{6}{section.0.1}
-\contentsline {paragraph}{Exemples d'application}{6}{section.0.1}
-\contentsline {section}{\numberline {2}Pr\'esentation de l'outil \emph {Greenspector}{}}{7}{section.0.2}
-\contentsline {subsection}{\numberline {2.1}Architecture}{7}{subsection.0.2.1}
-\contentsline {subsection}{\numberline {2.2}Intelligence}{7}{subsection.0.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}R\'ef\'erentiel de r\`egles et de mesures}{7}{subsubsection.0.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Moteur d'analyse}{7}{subsubsection.0.2.2.2}
-\contentsline {subsubsection}{\numberline {2.2.3}Interface utilisateur}{7}{subsubsection.0.2.2.3}
-\contentsline {chapter}{\numberline {A}Tableau de bord : exemple d'analyse du site de l'\'Ecole Centrale de Nantes}{8}{appendix.A}
-\contentsline {chapter}{Bibliographie}{9}{appendix*.8}
+\contentsline {chapter}{Table des mati\`eres}{2}{chapter*.3}
+\contentsline {chapter}{Table des figures}{4}{chapter*.4}
+\contentsline {chapter}{Introduction}{5}{chapter*.5}
+\contentsline {chapter}{Pr\'esentation de l'entreprise}{6}{chapter*.6}
+\contentsline {chapter}{Cadre g\'en\'eral}{7}{chapter*.7}
+\contentsline {section}{\numberline {1}\'Eco-conception logicielle}{7}{section..section.1}
+\contentsline {paragraph}{Exemples d'application}{7}{section..section.1}
+\contentsline {section}{\numberline {2}Pr\'esentation de l'outil \emph {Greenspector}{}}{8}{section..section.2}
+\contentsline {subsection}{\numberline {2.1}Architecture}{8}{subsection..section.2.1}
+\contentsline {subsection}{\numberline {2.2}Intelligence}{10}{subsection..section.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}R\'ef\'erentiel de r\`egles et de mesures}{10}{subsubsection..section.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Moteur d'analyse}{10}{subsubsection..section.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Interface utilisateur}{10}{subsubsection..section.2.2.3}
+\contentsline {section}{\numberline {3}Travail demand\'e}{11}{section..section.3}
+\contentsline {subsection}{\numberline {3.1}Dispositif de mesure physique de consommation d'\'energie}{11}{subsection..section.3.1}
+\contentsline {subsection}{\numberline {3.2}\'Etude et d\'eveloppement iOS}{12}{subsection..section.3.2}
+\contentsline {subsection}{\numberline {3.3}T\^aches suppl\'ementaires}{12}{subsection..section.3.3}
+\contentsline {chapter}{Dispositif de mesure physique de consommation d'\'energie sur mobiles Android}{13}{chapter*.10}
+\contentsline {section}{\numberline {1}Introduction : \`a propos de la mesure logicielle de consommation \'energ\'etique}{13}{section.chX.1}
+\contentsline {section}{\numberline {2}Cadre}{14}{section.chX.2}
+\contentsline {subsection}{\numberline {2.1}Pr\'esentation du prototype de sonde physique}{14}{subsection.chX.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Mat\'eriel}{14}{subsubsection.chX.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Programme \texttt {Arduino}}{16}{subsubsection.chX.2.1.2}
+\contentsline {subsection}{\numberline {2.2}Projets impact\'es, langages de programmation}{17}{subsection.chX.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}\texttt {Arduino}}{17}{subsubsection.chX.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}\texttt {go-testapi}}{17}{subsubsection.chX.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}\texttt {testrunner}}{17}{subsubsection.chX.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.4}\texttt {test-bench-launcher-android}}{17}{subsubsection.chX.2.2.4}
+\contentsline {subsection}{\numberline {2.3}Sp\'ecification}{17}{subsection.chX.2.3}
+\contentsline {section}{\numberline {3}Impl\'ementation du module de mesure physique}{18}{section.chX.3}
+\contentsline {subsection}{\numberline {3.1}\texttt {go-testapi}}{18}{subsection.chX.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Package \texttt {hardware}}{18}{subsubsection.chX.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Impl\'ementation du module}{18}{subsubsection.chX.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}R\'ecup\'eration des r\'esultats}{20}{subsubsection.chX.3.1.3}
+\contentsline {subsection}{\numberline {3.2}\texttt {testrunner}}{20}{subsection.chX.3.2}
+\contentsline {section}{\numberline {4}Adaptation du dispositif}{20}{section.chX.4}
+\contentsline {section}{\numberline {5}Analyse des r\'esultats}{21}{section.chX.5}
+\contentsline {chapter}{\'Etude de faisabilit\'e iOS}{22}{chapter*.19}
+\contentsline {section}{\numberline {1}Introduction}{22}{section.chXX.1}
+\contentsline {section}{\numberline {2}Cadre}{22}{section.chXX.2}
+\contentsline {subsection}{\numberline {2.1}Appareil}{22}{subsection.chXX.2.1}
+\contentsline {subsection}{\numberline {2.2}Sonde physique}{22}{subsection.chXX.2.2}
+\contentsline {subsection}{\numberline {2.3}Technologies utilis\'ees}{22}{subsection.chXX.2.3}
+\contentsline {section}{\numberline {3}Tests automatis\'es}{22}{section.chXX.3}
+\contentsline {subsection}{\numberline {3.1}Premiers essais : \texttt {libimobiledevice} et \texttt {ios-deploy}}{23}{subsection.chXX.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}\texttt {ios-deploy}}{23}{subsubsection.chXX.3.1.1}
+\contentsline {paragraph}{Avantages}{23}{figure.caption.20}
+\contentsline {paragraph}{Points blocants}{24}{figure.caption.20}
+\contentsline {subsubsection}{\numberline {3.1.2}\texttt {libimobiledevice}}{24}{subsubsection.chXX.3.1.2}
+\contentsline {paragraph}{Avantage}{24}{subsubsection.chXX.3.1.2}
+\contentsline {paragraph}{Points blocants}{24}{subsubsection.chXX.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Vers la solution : \texttt {WebDriverAgent}}{24}{subsection.chXX.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}\texttt {WebDriverAgent}}{24}{subsubsection.chXX.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Fonctionnement}{25}{subsubsection.chXX.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Prise en main}{25}{subsubsection.chXX.3.2.3}
+\contentsline {subsection}{\numberline {3.3}\'Ecriture de scripts de benchmark}{26}{subsection.chXX.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Benchmark de site web}{26}{subsubsection.chXX.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Benchmark d'application}{27}{subsubsection.chXX.3.3.2}
+\contentsline {section}{\numberline {4}Impl\'ementation dans \texttt {go-testapi} et \texttt {testrunner}}{27}{section.chXX.4}
+\contentsline {subsection}{\numberline {4.1}\texttt {go-testapi}}{27}{subsection.chXX.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Package \texttt {device}}{27}{subsubsection.chXX.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Autres entit\'es du package \texttt {ios}}{29}{subsubsection.chXX.4.1.2}
+\contentsline {paragraph}{Lancement des tests sur l'appareil}{29}{subsubsection.chXX.4.1.2}
+\contentsline {paragraph}{Tests unitaires}{29}{figure.caption.25}
+\contentsline {subsection}{\numberline {4.2}\texttt {testrunner}}{30}{subsection.chXX.4.2}
+\contentsline {section}{\numberline {5}Ajout de m\'etriques suppl\'ementaires}{31}{section.chXX.5}
+\contentsline {chapter}{\numberline {A}Tableau de bord : exemple d'analyse du site de l'\'Ecole Centrale de Nantes}{32}{appendix.A}
+\contentsline {chapter}{\numberline {B}Scripts de tests automatis\'es sur iOS}{34}{appendix.B}
+\contentsline {section}{\numberline {1}Benchmark web}{34}{section.anX.1}
+\contentsline {section}{\numberline {2}Benchmark d'application}{36}{section.anX.2}
+\contentsline {chapter}{Bibliographie}{38}{appendix*.30}

@@ -1,2 +1,24 @@
 \babel@toc {french}{}
+\contentsline {figure}{\numberline {1}{\ignorespaces Architecture et flux (version Cloud)\relax }}{8}{figure.caption.8}
+\contentsline {figure}{\numberline {2}{\ignorespaces Architecture et flux (version On premises)\relax }}{9}{figure.caption.9}
+\contentsline {figure}{\numberline {3}{\ignorespaces Arduino INA219 High Side DC Current Sensor\relax }}{15}{figure.caption.11}
+\contentsline {figure}{\numberline {4}{\ignorespaces Arduino Uno Rev3\relax }}{15}{figure.caption.11}
+\contentsline {figure}{\numberline {5}{\ignorespaces Sonde physique : c\^ablage des composants \'electroniques\relax }}{16}{figure.caption.12}
+\contentsline {figure}{\numberline {6}{\ignorespaces Sonde physique : circuit pour la mesure d'un Raspberry Pi\relax }}{16}{figure.caption.13}
+\contentsline {figure}{\numberline {7}{\ignorespaces D\'eclaration de la structure \texttt {hardwareMeasureLauncher}\relax }}{18}{figure.caption.14}
+\contentsline {figure}{\numberline {8}{\ignorespaces D\'eclaration de la structure \texttt {APKJobExecutor}\relax }}{19}{figure.caption.15}
+\contentsline {figure}{\numberline {9}{\ignorespaces M\'ethode \texttt {InitAPKJobExecutor}\relax }}{19}{figure.caption.16}
+\contentsline {figure}{\numberline {10}{\ignorespaces Int\'egration de la mesure physique dans la m\'ethode \texttt {RunIterations}\relax }}{20}{figure.caption.17}
+\contentsline {figure}{\numberline {11}{\ignorespaces Connecteurs batterie\relax }}{21}{figure.caption.18}
+\contentsline {figure}{\numberline {12}{\ignorespaces Exemples d'utilisation de \texttt {ios-deploy}\relax }}{23}{figure.caption.20}
+\contentsline {figure}{\numberline {13}{\ignorespaces \texttt {WebDriverAgent} : affichage de l'adresse du serveur dans la console\relax }}{25}{figure.caption.21}
+\contentsline {figure}{\numberline {14}{\ignorespaces Exemples d'utilisation de \texttt {WebDriverAgent} gr\^ace \`a \texttt {cURL}\relax }}{26}{figure.caption.22}
+\contentsline {figure}{\numberline {15}{\ignorespaces M\'ethodes de l'interface \texttt {Device}\relax }}{28}{figure.caption.23}
+\contentsline {figure}{\numberline {16}{\ignorespaces D\'eclaration des structures \texttt {IosDeviceConfig} et \texttt {IosDevice}\relax }}{28}{figure.caption.24}
+\contentsline {figure}{\numberline {17}{\ignorespaces D\'eclaration de l'interface \texttt {JobLauncher}\relax }}{29}{figure.caption.25}
+\contentsline {figure}{\numberline {18}{\ignorespaces Une m\'ethode de test unitaire pour \texttt {IosJobLauncher}\relax }}{30}{figure.caption.26}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Tableau de bord. Vue 1\relax }}{32}{figure.caption.27}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Tableau de bord. Vue 2\relax }}{33}{figure.caption.28}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Tableau de bord. Vue 3\relax }}{33}{figure.caption.29}
 \addvspace {10\p@ }

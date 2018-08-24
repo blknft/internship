@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+curl \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON}\PYG{l+s+se}{\PYGZbs{}\PYGZus{}}HEADER \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}} \PYG{n+nv}{\PYGZdl{}DEVICE}\PYG{l+s+se}{\PYGZbs{}\PYGZus{}}URL/wda/homescreen
+
+curl \PYGZhy{}X POST \PYG{n+nv}{\PYGZdl{}JSON}\PYG{l+s+se}{\PYGZbs{}\PYGZus{}}HEADER \PYGZhy{}d \PYG{l+s+s2}{\PYGZdq{}\PYGZob{}\PYGZdq{}}desiredCapabilities\PYG{l+s+s2}{\PYGZdq{}:\PYGZob{}\PYGZdq{}}bundleId\PYG{l+s+s2}{\PYGZdq{}:\PYGZdq{}}com.apple.mobilesafari\PYG{l+s+s2}{\PYGZdq{}\PYGZcb{}\PYGZcb{}\PYGZdq{}} \PYG{l+s+se}{\PYGZbs{}}
+\PYG{n+nv}{\PYGZdl{}DEVICE}\PYG{l+s+se}{\PYGZbs{}\PYGZus{}}URL/session
+\end{Verbatim}

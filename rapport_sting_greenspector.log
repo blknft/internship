@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.31)  22 JUN 2018 16:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.31)  24 AUG 2018 15:52
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **rapport_sting_greenspector.tex
@@ -318,7 +318,14 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks20
 \@floatcapt=\box28
 )
-(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
@@ -433,25 +440,152 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip49
 )
+(/usr/local/texlive/2018/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2017/07/08 v1.3.1 fvextra - extensions and patches for fancyvr
+b
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count111
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count112
+\FV@InFile=\read1
+\FV@TabBox=\box29
+\c@FancyVerbLine=\count113
+\FV@StepNumber=\count114
+\FV@OutFile=\write3
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count115
+\output=\toks21
+\linenoprevgraf=\count116
+\linenumbersep=\dimen113
+\linenumberwidth=\dimen114
+\c@linenumber=\count117
+\c@pagewiselinenumber=\count118
+\c@LN@truepage=\count119
+\c@internallinenumber=\count120
+\c@internallinenumbers=\count121
+\quotelinenumbersep=\dimen115
+\bframerule=\dimen116
+\bframesep=\dimen117
+\bframebox=\box30
+LaTeX Info: Redefining \\ on input line 3056.
+)
+\c@FV@TrueTabGroupLevel=\count122
+\c@FV@TrueTabCounter=\count123
+\FV@TabBox@Group=\box31
+\FV@TmpLength=\skip50
+\c@FV@HighlightLinesStart=\count124
+\c@FV@HighlightLinesStop=\count125
+\FV@LoopCount=\count126
+\FV@NCharsBox=\box32
+\FV@BreakIndent=\dimen118
+\FV@BreakIndentNChars=\count127
+\FV@BreakSymbolSepLeft=\dimen119
+\FV@BreakSymbolSepLeftNChars=\count128
+\FV@BreakSymbolSepRight=\dimen120
+\FV@BreakSymbolSepRightNChars=\count129
+\FV@BreakSymbolIndentLeft=\dimen121
+\FV@BreakSymbolIndentLeftNChars=\count130
+\FV@BreakSymbolIndentRight=\dimen122
+\FV@BreakSymbolIndentRightNChars=\count131
+\c@FancyVerbLineBreakLast=\count132
+\FV@LineBox=\box33
+\FV@LineIndentBox=\box34
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count133
+\calc@Bcount=\count134
+\calc@Adimen=\dimen123
+\calc@Bdimen=\dimen124
+\calc@Askip=\skip51
+\calc@Bskip=\skip52
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count135
+\calc@Cskip=\skip53
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 67.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/catchfile.sty
+Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
+)
+runsystem(uname -s > "rapport_sting_greenspector.w18")...executed.
+
+
+(./rapport_sting_greenspector.w18)
+runsystem(rm -- "rapport_sting_greenspector.w18")...executed.
+
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/local/texlive/2018/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write4
+\integerpart=\count136
+\decimalpart=\count137
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip54
+\fb@frw=\dimen125
+\fb@frh=\dimen126
+\FrameRule=\dimen127
+\FrameSep=\dimen128
+)
+\minted@appexistsfile=\read2
+\minted@bgbox=\box35
+\minted@code=\write5
+\c@minted@FancyVerbLineTemp=\count138
+\c@minted@pygmentizecounter=\count139
+\@float@every@listing=\toks22
+\c@listing=\count140
+)
+runsystem(mkdir -p _minted-rapport_sting_greenspector)...executed.
+
+
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count111
-\lst@gtempboxa=\box29
-\lst@token=\toks21
-\lst@length=\count112
-\lst@currlwidth=\dimen113
-\lst@column=\count113
-\lst@pos=\count114
-\lst@lostspace=\dimen114
-\lst@width=\dimen115
-\lst@newlines=\count115
-\lst@lineno=\count116
-\lst@maxwidth=\dimen116
+\lst@mode=\count141
+\lst@gtempboxa=\box36
+\lst@token=\toks23
+\lst@length=\count142
+\lst@currlwidth=\dimen129
+\lst@column=\count143
+\lst@pos=\count144
+\lst@lostspace=\dimen130
+\lst@width=\dimen131
+\lst@newlines=\count145
+\lst@lineno=\count146
+\lst@maxwidth=\dimen132
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count117
-\lst@skipnumbers=\count118
-\lst@framebox=\box30
+\c@lstnumber=\count147
+\lst@skipnumbers=\count148
+\lst@framebox=\box37
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
@@ -484,105 +618,103 @@ Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen117
-\captionmargin@=\dimen118
-\captionwidth=\dimen119
-\caption@tempdima=\dimen120
-\caption@indent=\dimen121
-\caption@parindent=\dimen122
-\caption@hangindent=\dimen123
+\captionmargin=\dimen133
+\captionmargin@=\dimen134
+\captionwidth=\dimen135
+\caption@tempdima=\dimen136
+\caption@indent=\dimen137
+\caption@parindent=\dimen138
+\caption@hangindent=\dimen139
 )
-\c@ContinuedFloat=\count119
+\c@ContinuedFloat=\count149
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip50
-\thanksmargin=\skip51
-\droptitle=\skip52
+\thanksmarkwidth=\skip55
+\thanksmargin=\skip56
+\droptitle=\skip57
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/eurosym/eurosym.sty
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
-\@eurobox=\box31
+\@eurobox=\box38
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2018/03/24 v5.7 Page Geometry
-\Gm@cnth=\count120
-\Gm@cntv=\count121
-\c@Gm@tempcnt=\count122
-\Gm@bindingoffset=\dimen124
-\Gm@wd@mp=\dimen125
-\Gm@odd@mp=\dimen126
-\Gm@even@mp=\dimen127
-\Gm@layoutwidth=\dimen128
-\Gm@layoutheight=\dimen129
-\Gm@layouthoffset=\dimen130
-\Gm@layoutvoffset=\dimen131
-\Gm@dimlist=\toks22
+\Gm@cnth=\count150
+\Gm@cntv=\count151
+\c@Gm@tempcnt=\count152
+\Gm@bindingoffset=\dimen140
+\Gm@wd@mp=\dimen141
+\Gm@odd@mp=\dimen142
+\Gm@even@mp=\dimen143
+\Gm@layoutwidth=\dimen144
+\Gm@layoutheight=\dimen145
+\Gm@layouthoffset=\dimen146
+\Gm@layoutvoffset=\dimen147
+\Gm@dimlist=\toks24
 )
-(/usr/local/texlive/2018/texmf-dist/tex/latex/tocbibind/tocbibind.sty
-Package: tocbibind 2010/10/13 v1.5k extra ToC listings
-Package tocbibind Info: The document has chapter divisions on input line 50.
-
-
-Package tocbibind Note: Using chapter style headings, unless overridden.
-
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/titlesec/titlesec.sty
+(/usr/local/texlive/2018/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
-\ttl@box=\box32
-\beforetitleunit=\skip53
-\aftertitleunit=\skip54
-\ttl@plus=\dimen132
-\ttl@minus=\dimen133
-\ttl@toksa=\toks23
-\titlewidth=\dimen134
-\titlewidthlast=\dimen135
-\titlewidthfirst=\dimen136
+\ttl@box=\box39
+\beforetitleunit=\skip58
+\aftertitleunit=\skip59
+\ttl@plus=\dimen148
+\ttl@minus=\dimen149
+\ttl@toksa=\toks25
+\titlewidth=\dimen150
+\titlewidthlast=\dimen151
+\titlewidthfirst=\dimen152
 )
+runsystem(which pygmentize && touch rapport_sting_greenspector.aex)...executed.
+
+runsystem(rm rapport_sting_greenspector.aex)...executed.
+
+
 (./rapport_sting_greenspector.aux)
 \openout1 = `rapport_sting_greenspector.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 39.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 35.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 39.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<t1.cmap>>
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
-\scratchdimen=\dimen137
-\scratchbox=\box33
-\nofMPsegments=\count124
-\nofMParguments=\count125
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count126
-\MPscratchDim=\dimen138
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count153
+\scratchdimen=\dimen153
+\scratchbox=\box40
+\nofMPsegments=\count154
+\nofMParguments=\count155
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count156
+\MPscratchDim=\dimen154
+\MPnumerator=\count157
+\makeMPintoPDFobject=\count158
+\everyMPtoPDFconversion=\toks27
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -600,17 +732,17 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \degres on input line 35.
-LaTeX Info: Redefining \dots on input line 35.
+LaTeX Info: Redefining \degres on input line 39.
+LaTeX Info: Redefining \dots on input line 39.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 35.
+(french.ldf)             reported on input line 39.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 35.
-LaTeX Info: Redefining \up on input line 35.
-\AtBeginShipoutBox=\box34
-Package hyperref Info: Link coloring OFF on input line 35.
+(french.ldf)             reported on input line 39.
+LaTeX Info: Redefining \up on input line 39.
+\AtBeginShipoutBox=\box41
+Package hyperref Info: Link coloring OFF on input line 39.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -618,17 +750,17 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count129
+\c@section@level=\count159
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-LaTeX Info: Redefining \nameref on input line 35.
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
 
 (./rapport_sting_greenspector.out) (./rapport_sting_greenspector.out)
-\@outlinefile=\write3
-\openout3 = `rapport_sting_greenspector.out'.
+\@outlinefile=\write6
+\openout6 = `rapport_sting_greenspector.out'.
 
-\c@lstlisting=\count130
+\c@lstlisting=\count160
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
@@ -668,48 +800,48 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<images/greenspector_pres.jpg, id=57, 1284.8pt x 722.7pt>
+<images/greenspector_pres.jpg, id=181, 1284.8pt x 722.7pt>
 File: images/greenspector_pres.jpg Graphic file (type jpg)
 <use images/greenspector_pres.jpg>
-Package pdftex.def Info: images/greenspector_pres.jpg  used on input line 42.
+Package pdftex.def Info: images/greenspector_pres.jpg  used on input line 46.
 (pdftex.def)             Requested size: 507.88533pt x 285.6784pt.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 60.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 64.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<ot1.cmap>>
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 60.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 64.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<oml.cmap>>
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 60.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 64.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<oms.cmap>>
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 60.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 64.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 60.
+(Font)              <12> on input line 64.
 <<omx.cmap>>
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 60.
+(Font)              <8> on input line 64.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 60.
-<images/ecnlogo.png, id=62, 469.755pt x 277.035pt>
+(Font)              <6> on input line 64.
+<images/ecnlogo.png, id=186, 469.755pt x 277.035pt>
 File: images/ecnlogo.png Graphic file (type png)
 <use images/ecnlogo.png>
-Package pdftex.def Info: images/ecnlogo.png  used on input line 74.
+Package pdftex.def Info: images/ecnlogo.png  used on input line 78.
 (pdftex.def)             Requested size: 152.36714pt x 89.85776pt.
-<images/greenspector_logo.jpg, id=63, 420.57124pt x 115.43124pt>
+<images/greenspector_logo.jpg, id=187, 420.57124pt x 115.43124pt>
 File: images/greenspector_logo.jpg Graphic file (type jpg)
 <use images/greenspector_logo.jpg>
-Package pdftex.def Info: images/greenspector_logo.jpg  used on input line 78.
+Package pdftex.def Info: images/greenspector_logo.jpg  used on input line 82.
 (pdftex.def)             Requested size: 152.36714pt x 41.81941pt.
 
 [1
@@ -720,95 +852,287 @@ or_logo.jpg>]pdfTeX warning (ext4): destination with the same identifier (name{
 page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.98 \newpage
-              [1
+l.102 \newpage
+               [1
 
-] (./rapport_sting_greenspector.toc)
-\tf@toc=\write4
-\openout4 = `rapport_sting_greenspector.toc'.
+] (./rapport_sting_greenspector.toc
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 33.
 
- [2
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [2
 
-]
+])
+\tf@toc=\write7
+\openout7 = `rapport_sting_greenspector.toc'.
+
+ [3]
 (./rapport_sting_greenspector.lof)
-\tf@lof=\write5
-\openout5 = `rapport_sting_greenspector.lof'.
+\tf@lof=\write8
+\openout8 = `rapport_sting_greenspector.lof'.
 
- [3
+ [4
 
-] [4
+] [5
 
 ]
-Overfull \hbox (5.06656pt too wide) in paragraph at lines 128--129
+Overfull \hbox (5.06656pt too wide) in paragraph at lines 132--133
 []\T1/lmr/m/n/12 Entre 2010 et 2014, \T1/lmr/m/sc/12 Ka-li-Terre \T1/lmr/m/n/12
  fi-nance sur fonds propres ses pro-jets de R&D sur l'éco-conception,
  []
 
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 135.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 135.
+(Font)              <10> on input line 139.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 135.
+(Font)              <7> on input line 139.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 135.
- [5
+(Font)              <5> on input line 139.
+[6
 
-] [6
-
-] [7]
-Annexe A.
-(./rapport_sting_greenspector.bbl [8
-
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 224.
- [9
+] [7
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 224.
+<images/architecture/Cloud.png, id=344, 1157.32375pt x 813.0375pt>
+File: images/architecture/Cloud.png Graphic file (type png)
+<use images/architecture/Cloud.png>
+Package pdftex.def Info: images/architecture/Cloud.png  used on input line 190.
+
+(pdftex.def)             Requested size: 507.88533pt x 356.79475pt.
+
+
+LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
+(Font)              using `T1/lmr/bx/n' instead on input line 191.
+
+<images/architecture/On_Premises.png, id=346, 1136.245pt x 813.0375pt>
+File: images/architecture/On_Premises.png Graphic file (type png)
+<use images/architecture/On_Premises.png>
+Package pdftex.def Info: images/architecture/On_Premises.png  used on input lin
+e 197.
+(pdftex.def)             Requested size: 507.88533pt x 363.41953pt.
+[8 <./images/architecture/Cloud.png>] [9 <./images/architecture/On_Premises.png
+>] [10] [11] [12] [13
+
+]
+<images/mesure_physique/ina219.jpg, id=403, 292.09125pt x 219.219pt>
+File: images/mesure_physique/ina219.jpg Graphic file (type jpg)
+<use images/mesure_physique/ina219.jpg>
+Package pdftex.def Info: images/mesure_physique/ina219.jpg  used on input line 
+319.
+(pdftex.def)             Requested size: 355.51817pt x 266.84467pt.
+<images/mesure_physique/arduinoUno.jpg, id=404, 391.4625pt x 248.42813pt>
+File: images/mesure_physique/arduinoUno.jpg Graphic file (type jpg)
+<use images/mesure_physique/arduinoUno.jpg>
+Package pdftex.def Info: images/mesure_physique/arduinoUno.jpg  used on input l
+ine 323.
+(pdftex.def)             Requested size: 355.51817pt x 225.63022pt.
+ [14]
+<images/mesure_physique/montage.png, id=413, 821.0675pt x 549.05125pt>
+File: images/mesure_physique/montage.png Graphic file (type png)
+<use images/mesure_physique/montage.png>
+Package pdftex.def Info: images/mesure_physique/montage.png  used on input line
+ 333.
+(pdftex.def)             Requested size: 406.3098pt x 271.70161pt.
+ [15 <./images/mesure_physique/ina219.jpg> <./images/mesure_physique/arduinoUno
+.jpg>]
+<images/mesure_physique/montageiot.png, id=418, 1020.81375pt x 305.14pt>
+File: images/mesure_physique/montageiot.png Graphic file (type png)
+<use images/mesure_physique/montageiot.png>
+Package pdftex.def Info: images/mesure_physique/montageiot.png  used on input l
+ine 340.
+(pdftex.def)             Requested size: 406.3098pt x 121.45319pt.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 347.
+ [16 <./images/mesure_physique/montage.png> <./images/mesure_physique/montageio
+t.png>] [17]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 382.
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/default-pyg-prefix.pygstyle)
+(./_minted-rapport_sting_greenspector/default.pygstyle)
+(./_minted-rapport_sting_greenspector/A6CC17875090010E439B99AC8D928C107CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex)
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/454BF875F791E75C906982333F1F0BC37CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [18]
+Overfull \hbox (34.79617pt too wide) in paragraph at lines 429--430
+\T1/lmr/m/n/12 vé/-dé-sac-tivé...) une ins-tance de \T1/lmtt/m/n/12 MeasureLaun
+cher\T1/lmr/m/n/12 , et je l'ai ajou-tée à la struc-ture \T1/lmtt/m/n/12 APKJob
+ExecutorModules\T1/lmr/m/n/12 .
+ []
+
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/DE3B784266EB47D1DDDE386434E30B6B7CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex)
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+runsystem(pygmentize -l go -f latex -P commandprefix=PYG -F tokenmerge -o _mint
+ed-rapport_sting_greenspector/A0F722595354FA90FE2CD0D6B2109DD57CD87DF3017E6DEC8
+3AD2F6D1F2E7CD9.pygtex rapport_sting_greenspector.pyg)...executed.
+
+
+(./_minted-rapport_sting_greenspector/A0F722595354FA90FE2CD0D6B2109DD57CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [19] [20]
+<images/mesure_physique/connecteursbatt.png, id=464, 545.03625pt x 362.35374pt>
+
+File: images/mesure_physique/connecteursbatt.png Graphic file (type png)
+<use images/mesure_physique/connecteursbatt.png>
+Package pdftex.def Info: images/mesure_physique/connecteursbatt.png  used on in
+put line 512.
+(pdftex.def)             Requested size: 406.3098pt x 270.1225pt.
+ [21 <./images/mesure_physique/connecteursbatt.png>] [22
+
+]
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/826777F9098498F131D34D03B09EE95147927304F
+E44BC17D41FCB3E07640911.pygtex) [23]
+Overfull \hbox (2.80943pt too wide) in paragraph at lines 612--613
+[]\T1/lmr/m/n/12 J'ai testé quelques fonc-tion-na-li-tés de cet ou-til pour com
+-pa-rer son uti-li-sa-tion à celle de \T1/lmtt/m/n/12 ios-deploy\T1/lmr/m/n/12 
+. 
+ []
+
+<images/wda/wda-server.png, id=497, 1307.88625pt x 475.7775pt>
+File: images/wda/wda-server.png Graphic file (type png)
+<use images/wda/wda-server.png>
+Package pdftex.def Info: images/wda/wda-server.png  used on input line 635.
+(pdftex.def)             Requested size: 507.88533pt x 184.75389pt.
+[24]
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/2B73BEA134213FD2F666FC0531D38EA047927304F
+E44BC17D41FCB3E07640911.pygtex) [25 <./images/wda/wda-server.png>] [26]
+Overfull \hbox (19.21082pt too wide) in paragraph at lines 722--723
+\T1/lmr/m/n/12 exemple, pour le na-vi-ga-teur d'Apple : \T1/lmtt/m/n/12 com.mob
+ilesafari\T1/lmr/m/n/12 ) en plus de l'URL du ser-veur \T1/lmtt/m/n/12 WebDrive
+rAgent\T1/lmr/m/n/12 . 
+ []
+
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 727.
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/1DD10213A94358A02F83CBACD0E281267CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [27]
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/9D2A125C37138493BF2369FA774DD99F7CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 8.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)) [28]
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/29581AD0A2009105F392EDFB3E6F43507CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex)
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/6A244298C4C318790C4B6A06AE28D4EA7CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [29] [30] [31]
+Annexe A.
+<images/Interface/dashboard_vue_1.png, id=565, 1667.22874pt x 650.43pt>
+File: images/Interface/dashboard_vue_1.png Graphic file (type png)
+<use images/Interface/dashboard_vue_1.png>
+Package pdftex.def Info: images/Interface/dashboard_vue_1.png  used on input li
+ne 896.
+(pdftex.def)             Requested size: 507.88533pt x 198.1377pt.
+<images/Interface/dashboard_vue_2.png, id=566, 1393.205pt x 713.66624pt>
+File: images/Interface/dashboard_vue_2.png Graphic file (type png)
+<use images/Interface/dashboard_vue_2.png>
+Package pdftex.def Info: images/Interface/dashboard_vue_2.png  used on input li
+ne 903.
+(pdftex.def)             Requested size: 507.88533pt x 260.16476pt.
+<images/Interface/dashboard_vue_3.png, id=567, 1393.205pt x 814.04124pt>
+File: images/Interface/dashboard_vue_3.png Graphic file (type png)
+<use images/Interface/dashboard_vue_3.png>
+Package pdftex.def Info: images/Interface/dashboard_vue_3.png  used on input li
+ne 910.
+(pdftex.def)             Requested size: 507.88533pt x 296.75615pt.
+[32
+
+ <./images/Interface/dashboard_vue_1.png>] [33 <./images/Interface/dashboard_vu
+e_2.png> <./images/Interface/dashboard_vue_3.png>]
+Annexe B.
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/C0117418A5957219A97FA0A656313F4C47927304F
+E44BC17D41FCB3E07640911.pygtex [34
+
+] [35])
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/0A35B5A1CCD0C1E8110C24A8C077D93247927304F
+E44BC17D41FCB3E07640911.pygtex [36]) (./rapport_sting_greenspector.bbl [37])
+runsystem(rm _minted-rapport_sting_greenspector/5760C445FFC69D7F43C5A090B986B07
+57CD87DF3017E6DEC83AD2F6D1F2E7CD9.pygtex)...executed.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1038.
+
+[38
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1038.
  (./rapport_sting_greenspector.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 224.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 224.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1038.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1038.
+
+Package rerunfilecheck Info: File `rapport_sting_greenspector.out' has not chan
+ged.
+(rerunfilecheck)             Checksum: 11A56B0287001CE2EE85FBEFBDE870DC;3522.
 
 
-Package rerunfilecheck Warning: File `rapport_sting_greenspector.out' has chang
-ed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: Checksums for `rapport_sting_greenspector.out':
-(rerunfilecheck)             Before: 18B62BE36FEF3E398580D8326ADDEA4D;940
-(rerunfilecheck)             After:  738837DD4879F572DF9303C8A18ACAAE;946.
+runsystem(rm rapport_sting_greenspector.pyg)...executed.
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 224.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1038.
  ) 
 Here is how much of TeX's memory you used:
- 11389 strings out of 492649
- 170642 string characters out of 6129622
- 280937 words of memory out of 5000000
- 15014 multiletter control sequences out of 15000+600000
- 82394 words of font info for 54 fonts, out of 8000000 for 9000
+ 14665 strings out of 492649
+ 239993 string characters out of 6129622
+ 393890 words of memory out of 5000000
+ 18024 multiletter control sequences out of 15000+600000
+ 101469 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,8n,38p,889b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2018/texmf-dist
-/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/ty
-pe1/public/lm/lmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/
-lm/lmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr8.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on rapport_sting_greenspector.pdf (10 pages, 299616 bytes).
+ 36i,11n,39p,1009b,657s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
+/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2
+018/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2018/texmf-
+dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2018/texmf-dist/fonts/typ
+e1/public/eurosym/feymr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/p
+ublic/lm/lmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/l
+mbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb
+></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive
+/2018/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2018/texmf
+-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts
+/type1/public/lm/lmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publi
+c/lm/lmri10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmri1
+2.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr
+/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2018/
+texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2018/texmf-dist
+/fonts/type1/public/lm/lmtti10.pfb>
+Output written on rapport_sting_greenspector.pdf (39 pages, 1924580 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 140 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 697 PDF objects out of 1000 (max. 8388607)
+ 605 compressed objects within 7 object streams
+ 158 named destinations out of 1000 (max. 500000)
+ 443 words of extra memory for PDF output out of 10000 (max. 10000000)
 

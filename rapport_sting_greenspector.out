@@ -1,13 +1,44 @@
 \BOOKMARK [0][-]{chapter*.2}{Remerciements}{}% 1
-\BOOKMARK [0][-]{chapter*.5}{Introduction}{}% 2
-\BOOKMARK [0][-]{chapter*.6}{Pr\351sentation de l'entreprise}{}% 3
-\BOOKMARK [0][-]{chapter*.7}{Cadre g\351n\351ral}{}% 4
-\BOOKMARK [1][-]{section.0.1}{\311co-conception logicielle}{chapter*.7}% 5
-\BOOKMARK [1][-]{section.0.2}{Pr\351sentation de l'outil Greenspector}{chapter*.7}% 6
-\BOOKMARK [2][-]{subsection.0.2.1}{Architecture}{section.0.2}% 7
-\BOOKMARK [2][-]{subsection.0.2.2}{Intelligence}{section.0.2}% 8
-\BOOKMARK [3][-]{subsubsection.0.2.2.1}{R\351f\351rentiel de r\350gles et de mesures}{subsection.0.2.2}% 9
-\BOOKMARK [3][-]{subsubsection.0.2.2.2}{Moteur d'analyse}{subsection.0.2.2}% 10
-\BOOKMARK [3][-]{subsubsection.0.2.2.3}{Interface utilisateur}{subsection.0.2.2}% 11
-\BOOKMARK [0][-]{appendix.A}{Tableau de bord : exemple d'analyse du site de l'\311cole Centrale de Nantes}{}% 12
-\BOOKMARK [0][-]{appendix*.8}{Bibliographie}{}% 13
+\BOOKMARK [0][-]{chapter*.3}{Table des mati\350res}{}% 2
+\BOOKMARK [0][-]{chapter*.4}{Table des figures}{}% 3
+\BOOKMARK [0][-]{chapter*.5}{Introduction}{}% 4
+\BOOKMARK [0][-]{chapter*.6}{Pr\351sentation de l'entreprise}{}% 5
+\BOOKMARK [0][-]{chapter*.7}{Cadre g\351n\351ral}{}% 6
+\BOOKMARK [1][-]{section..section.1}{\311co-conception logicielle}{chapter*.7}% 7
+\BOOKMARK [1][-]{section..section.2}{Pr\351sentation de l'outil Greenspector}{chapter*.7}% 8
+\BOOKMARK [2][-]{subsection..section.2.1}{Architecture}{section..section.2}% 9
+\BOOKMARK [2][-]{subsection..section.2.2}{Intelligence}{section..section.2}% 10
+\BOOKMARK [1][-]{section..section.3}{Travail demand\351}{chapter*.7}% 11
+\BOOKMARK [2][-]{subsection..section.3.1}{Dispositif de mesure physique de consommation d'\351nergie}{section..section.3}% 12
+\BOOKMARK [2][-]{subsection..section.3.2}{\311tude et d\351veloppement iOS}{section..section.3}% 13
+\BOOKMARK [2][-]{subsection..section.3.3}{T\342ches suppl\351mentaires}{section..section.3}% 14
+\BOOKMARK [0][-]{chapter*.10}{Dispositif de mesure physique de consommation d'\351nergie sur mobiles Android}{}% 15
+\BOOKMARK [1][-]{section.chX.1}{Introduction : \340 propos de la mesure logicielle de consommation \351nerg\351tique}{chapter*.10}% 16
+\BOOKMARK [1][-]{section.chX.2}{Cadre}{chapter*.10}% 17
+\BOOKMARK [2][-]{subsection.chX.2.1}{Pr\351sentation du prototype de sonde physique}{section.chX.2}% 18
+\BOOKMARK [2][-]{subsection.chX.2.2}{Projets impact\351s, langages de programmation}{section.chX.2}% 19
+\BOOKMARK [2][-]{subsection.chX.2.3}{Sp\351cification}{section.chX.2}% 20
+\BOOKMARK [1][-]{section.chX.3}{Impl\351mentation du module de mesure physique}{chapter*.10}% 21
+\BOOKMARK [2][-]{subsection.chX.3.1}{go-testapi}{section.chX.3}% 22
+\BOOKMARK [2][-]{subsection.chX.3.2}{testrunner}{section.chX.3}% 23
+\BOOKMARK [1][-]{section.chX.4}{Adaptation du dispositif}{chapter*.10}% 24
+\BOOKMARK [1][-]{section.chX.5}{Analyse des r\351sultats}{chapter*.10}% 25
+\BOOKMARK [0][-]{chapter*.19}{\311tude de faisabilit\351 iOS}{}% 26
+\BOOKMARK [1][-]{section.chXX.1}{Introduction}{chapter*.19}% 27
+\BOOKMARK [1][-]{section.chXX.2}{Cadre}{chapter*.19}% 28
+\BOOKMARK [2][-]{subsection.chXX.2.1}{Appareil}{section.chXX.2}% 29
+\BOOKMARK [2][-]{subsection.chXX.2.2}{Sonde physique}{section.chXX.2}% 30
+\BOOKMARK [2][-]{subsection.chXX.2.3}{Technologies utilis\351es}{section.chXX.2}% 31
+\BOOKMARK [1][-]{section.chXX.3}{Tests automatis\351s}{chapter*.19}% 32
+\BOOKMARK [2][-]{subsection.chXX.3.1}{Premiers essais : libimobiledevice et ios-deploy}{section.chXX.3}% 33
+\BOOKMARK [2][-]{subsection.chXX.3.2}{Vers la solution : WebDriverAgent}{section.chXX.3}% 34
+\BOOKMARK [2][-]{subsection.chXX.3.3}{\311criture de scripts de benchmark}{section.chXX.3}% 35
+\BOOKMARK [1][-]{section.chXX.4}{Impl\351mentation dans go-testapi et testrunner}{chapter*.19}% 36
+\BOOKMARK [2][-]{subsection.chXX.4.1}{go-testapi}{section.chXX.4}% 37
+\BOOKMARK [2][-]{subsection.chXX.4.2}{testrunner}{section.chXX.4}% 38
+\BOOKMARK [1][-]{section.chXX.5}{Ajout de m\351triques suppl\351mentaires}{chapter*.19}% 39
+\BOOKMARK [0][-]{appendix.A}{Tableau de bord : exemple d'analyse du site de l'\311cole Centrale de Nantes}{}% 40
+\BOOKMARK [0][-]{appendix.B}{Scripts de tests automatis\351s sur iOS}{}% 41
+\BOOKMARK [1][-]{section.anX.1}{Benchmark web}{appendix.B}% 42
+\BOOKMARK [1][-]{section.anX.2}{Benchmark d'application}{appendix.B}% 43
+\BOOKMARK [0][-]{appendix*.30}{Bibliographie}{}% 44

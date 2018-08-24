@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{type} \PYG{n+nx}{APKJobExecutor} \PYG{k+kd}{struct} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{Iterations}        \PYG{k+kt}{int}
+	\PYG{n+nx}{TestTimeout}       \PYG{n+nx}{time}\PYG{p}{.}\PYG{n+nx}{Duration}
+	\PYG{n+nx}{WorkingDirectory}  \PYG{k+kt}{string}
+	\PYG{n+nx}{EnableScreenshots} \PYG{k+kt}{bool}
+	\PYG{n+nx}{EnableAssertions}  \PYG{k+kt}{bool}
+	\PYG{n+nx}{Modules}           \PYG{n+nx}{APKJobExecutorModules}
+	\PYG{n+nx}{Results}           \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{JobResult}
+	\PYG{n+nx}{UsbHub}            \PYG{n+nx}{usbhub}\PYG{p}{.}\PYG{n+nx}{UsbHub}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
