@@ -266,6 +266,36 @@ On dispose également d'un bilan des ressources consommées pendant le test.
 
 \bigskip Les autres onglets (\textbf{Meter}, \textbf{Test results}, \textbf{Budgets}, \textbf{Evolution}) fournissent différentes précisions sur l'application et sa mesure. En particulier l'onglet \textbf{Meter} détaille l'ensemble des étapes de mesure à l'aide de graphiques. Tous les graphiques de mesure présentés dans ce rapport proviennent de cet onglet.
 
+\subsubsection{Tests automatisés}
+\label{benchmarks}
+L'outil \logiciel{} propose 3 types de tests pour ses mesures sur mobile : les benchmarks web et apk (qui sont des tests standardisés) et custom tests.
+
+\paragraph{Benchmark web}
+Le benchmark de site internet est divisé en 7 étapes, dont 5 sont mesurées : 
+\begin{itemize}[noitemsep]
+\item Effacement des données de navigation (caches, historique)
+\item Lancement du navigateur et \textbf{étape de référence} : le mobile est inactif sur l'accueil du navigateur pendant 20 secondes
+\item Lancement et chargement du site à mesurer (\textbf{loading}) : 20 secondes 
+\item Inactivité au premier plan (\textbf{idle foreground}) : le mobile est inactif sur la page web pendant 20 secondes 
+\item Inactivité en arrière plan (\textbf{idle background}) : le mobile est inactif sur l'écran d'accueil (avec le navigateur en arrière plan) pendant 20 secondes
+\item Fermeture de l'onglet (sans cette action la page consultée se recharge lors du lancement du navigateur au test suivant) et fermeture du navigateur 
+\end{itemize}
+
+\paragraph{Benchmark apk}
+Le benchmark d'application (ou \code{apk}, qui désigne l'extension de l'exécutable d'une application Android) comporte 6 étapes : 
+\begin{itemize}[noitemsep]
+\item Installation de l'application grâce à \code{ios-deploy}
+\item \textbf{Étape de référence} sur l'écran d'accueil
+\item \textbf{Loading}
+\item \textbf{Idle background}
+\item Fermeture de l'application
+\item Désinstallation grâce à \code{ios-deploy}
+\end{itemize}
+
+\paragraph{Tests custom}
+Le mode custom permet aux développeurs d'utiliser leurs propres tests automatisés, ce qui a pour avantage de pouvoir effectuer des mesures dans des cas d'utilisation plus précis qu'avec les tests de benchmark.
+
+
 \section{Travail demandé}
 \entreprise{} souhaitait approfondir certains sujets afin d'étendre la portée de son outil et diversifier son offre. J'ai donc été chargé de tâches de recherche et développement, dans le but de progresser le plus possible sur ces sujets avant que l'entreprise envisage un développement plus poussé et une commercialisation des fonctionnalités résultantes.
 
@@ -316,11 +346,11 @@ La sonde physique développée par \entreprise{} est basée sur deux composants :
 \centering
 \begin{minipage}{1\textwidth}
 \centering
-\includegraphics[width=0.7\textwidth]{mesure_physique/ina219.jpg}
+\includegraphics[width=0.6\textwidth]{mesure_physique/ina219.jpg}
 \caption{Arduino INA219 High Side DC Current Sensor}
 \label{shuntphoto}
 \centering
-\includegraphics[width=0.7\textwidth]{mesure_physique/arduinoUno.jpg}
+\includegraphics[width=0.6\textwidth]{mesure_physique/arduinoUno.jpg}
 \caption{Arduino Uno Rev3}
 \label{arduinophoto}
 \end{minipage}
@@ -384,9 +414,9 @@ Dans un premier temps, j'ai été chargé d'implémenter la mesure physique de sorte
 À mon arrivée, les structures et méthodes permettant la mesure physique étaient contenues dans le package \code{iot}. Je les ai déplacées dans un package \code{hardware} pour plus de cohérence.
 
 \bigskip Ce package contient un autre package nommé \code{controller} dans lequel on trouve une structure \code{SerialController} qui fait le lien entre le port série (carte \textbf{Arduino}) et le projet. Cette structure permet notamment de démarrer/stopper la mesure et lire les informations contenues sur le port série.
-\code{SerialController} implémente l'interface \code{controller}. On utilise une interface pour faciliter les tests automatisés. En effet, en créant un mock qui implémente l'interface on peut facilement imiter le comportement du \code{SerialController} et vérifier le fonctionnement du code dans lequel il intervient.
+\code{SerialController} implémente l'interface \code{Controller}. On utilise une interface pour faciliter les tests automatisés. En effet, en créant un mock qui implémente l'interface on peut facilement imiter le comportement du \code{SerialController} et vérifier le fonctionnement du code dans lequel il intervient.
 
-\bigskip Dans le package \code{hardware} on retrouve également une structure \code{HardwareMeasureLauncher} (interface \code{MeasureLauncher}), présentée sur la figure \ref{hwmeasurelauncher}. Elle contient notamment les informations du dispositif de mesure grâce à un \code{controller}, et permet de stocker (dans \code{hardwareMeasureResults}) les résultats lus sur le port série. On reviendra sur le champ \code{config} dans la suite.
+\bigskip Dans le package \code{hardware} on retrouve également une structure \code{HardwareMeasureLauncher} (interface \code{MeasureLauncher}), présentée sur la figure \ref{hwmeasurelauncher}. Elle contient notamment les informations du dispositif de mesure grâce à une instance de \code{Controller}, et permet de stocker (dans \code{hardwareMeasureResults}) les résultats lus sur le port série (méthode \code{startMeasure}). On reviendra sur le champ \code{config} dans la suite.
 
 \begin{figure}[H]
 \centering
@@ -494,8 +524,95 @@ func (e *CommonAPKJobExecutor) RunIterations(instrumentation string, arguments [
 \label{runiterations}
 \end{figure}
 
+L'étape suivante a consisté dans la récupération des résultats de la sonde physique et leur fusion avec les résultats des sondes logicielles.
+
 \subsubsection{Récupération des résultats}
+La méthode \code{retrieveResults} (qui est appelée fig \ref{runiterations}) permet de récupérer les mesures et construire les résultats des tests. Elle appelle une méthode \code{CompleteTestResultsWithMeasures} destinée à compléter les résultats provenant des sondes logicielles du téléphone avec les mesures issues de la sonde réseau. J'ai modifié cette méthode pour inclure la mesure physique, en ajoutant à ses arguments les résultats ainsi qu'un booléen précisant si on veut inclure ou pas ces résultats. 
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single,breaklines]{go}
+func CompleteTestResultsWithMeasures(testResults []common.TestResultV2, hardwareProbeData []common.MeasureTick, hardwareModule bool) ([]common.TestResultV2, error) {
+	...
+
+	if hardwareModule && len(hardwareProbeData) > 0 {
+		mergedTestResults := make([]common.TestResultV2, 0)
+		for _, testResult := range mergedTestResultsNetwork {
+			err := CompleteTestResultMeasures(&testResult, hardwareProbeData)
+			if err != nil {
+				logger.Warn(err.Error())
+			}
+			mergedTestResults = append(mergedTestResults, testResult)
+		}
+		return mergedTestResults, nil
+	} else {
+		return mergedTestResultsNetwork, nil
+	}
+}
+\end{minted}
+\caption{Intégration des résultats de la mesure physique}
+\label{completeresults}
+\end{figure}
+
+À ce stade j'ai rencontré une difficulté : la fusion des résultats ne fonctionnait pas. En debuggant j'ai réalisé que les dates (\code{timestamps}) des points de mesure logicielle et matérielle n'étaient pas cohérents. En effet les dates des points de mesure physique sont issues du poste sur lequel le programme tourne tandis les points de mesure logicielle sont datés à partir de l'heure du mobile. Il existait un léger décalage (\textasciitilde 30s) qui empêchait la fusion des résultats.
+
+Pour résoudre ce problème, j'ai ajouté le champ \code{config} de type \code{HardwareMeasureLauncherConfig} au sein de \code{HardwareMeasureLauncher}. Ce champ contient un champ \code{GetTimeDelta} qui est une fonction donnant la différence entre l'heure du poste et celle du téléphone (figure \ref{hwmeasurelauncherconfig}). L'avantage de cette solution est que pour les autres plateformes (iot et iOS) qui ne présentent pas ce problème, on peut simplement renvoyer 0, et éviter d'avoir autant d'implémentations que de plateformes. La figure \ref{gettimedelta} présente l'implémentation dans le cas d'un mobile Android\footnote{Ce bout de code apparaît dans \code{testrunner}}.
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single,breaklines]{go}
+type HardwareMeasureLauncherConfig struct {
+	GetTimeDelta func() (int64, error)
+}
+\end{minted}
+\caption{Déclaration de la structure \code{HardwareMeasureLauncherConfig}}
+\label{hwmeasurelauncherconfig}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single,breaklines]{go}
+GetTimeDelta: func() (int64, error) {
+	adbCommandLauncher := adb.NewAdbCommandLauncher()
+	deviceTime, err := adbCommandLauncher.DeviceTime()
+	if err != nil {
+		return int64(0), err
+	}
+	return util.Now() - deviceTime, nil
+}
+\end{minted}
+\caption{Instanciation de \code{GetTimeDelta} dans le cas Android}
+\label{gettimedelta}
+\end{figure}
+
+La fonction est appelée lors de la mesure physique, dans la méthode \code{startMeasure} : on prend en compte le delta temporel lorsqu'on stocke les points de mesure dans le tableau \code{hardwareMeasureResults}.
+
 \subsection{\code{testrunner}}
+Le \code{testrunner} a pour rôle de créer les objets nécessaires à la réalisation des tests, selon les besoins de l'utilisateur. J'ai donc dû modifier ce projet pour finir d'implémenter la fonctionnalité de mesure physique.
+
+\bigskip J'ai modifié le fichier principal pour créer une instance de \code{SerialControllerConfig} (figure \ref{serialcontrollerconfigtestrunner}). Cette instance contient les informations relatives au port série utilisé pour la mesure (carte \textbf{Arduino}). L'adresse du port série est renseignée par l'utilisateur dans le fichier de configuration \code{config.yml}\footnote{Si cette information n'est pas renseignée, on utilise une valeur par défaut correspondant au port série des postes Linux}. Les autres informations ne sont pas modifiables.
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single,breaklines]{go}
+	address := settings.GetString("target.hardware.address")
+	if address == "" {
+		address = "/dev/ttyACM0"
+	}
+
+	controllerConfig := controller.SerialControllerConfig{
+		Address:  address,
+		Baudrate: 115200,
+		DataBits: 8,
+		Parity:   "N",
+		StopBits: 2,
+	}
+\end{minted}
+\caption{Instanciation de la configuration du port série dans le programme principal du \code{testrunner}}
+\label{serialcontrollerconfigtestrunner}
+\end{figure}
+
+Le fichier principal appelle la méthode \code{LaunchTestRunnerJob} du package \code{android}. J'ai ajouté l'objet \code{controllerConfig} à ses paramètres. \code{LaunchTestRunnerJob} instancie un \code{Job} (grâce aux informations du fichier de configuration \code{job.yml}) et un \code{JobLauncher} avec notamment son \code{MeasureLauncher} pour la mesure physique. Ensuite elle appelle la méthode de \code{go-testapi} correspondante au mode (\code{url}, \code{apk} ou \code{custom}). Le code de la méthode se trouve dans l'annexe \ref{sec:testrunnerhw}.
 
 
 \section{Adaptation du dispositif}
@@ -624,7 +741,7 @@ La commande \code{idevicesyslog} permet d'afficher les logs de l'appareil en tem
 Il manquait un moyen d'interagir avec l'appareil et mener les tests de façon automatisée. Mes recherches et mes collègues m'ont amené à m'intéresser l'outil d'automatisation de tests \code{Appium}\footnote{\url{https://github.com/appium/}}, qui permet effectivement de mener des tests automatisés sur appareils iOS (entre autres). J'ai entrepris d'étudier cet outil open source afin d'en comprendre le fonctionnement et l'adapter à mon problème. Pour les tests iOS,  \code{Appium} utilise l'outil \code{WebDriverAgent}.
 
 \subsubsection{\code{WebDriverAgent}}
-\code{WebDriverAgent}\footnote{\url{https://github.com/facebook/WebDriverAgent}} est un outil développé par \textsc{Facebook}. Il s'agit d'un serveur WebDriver pour iOS permettant de contrôler des appareils à distance. Il permet notamment de lancer des applications (y compris celles de l'App Store) et effectuer des actions sur l'écran (scroller, taper au clavier...), ce qui répond à notre besoin.
+\code{WebDriverAgent}\footnote{\url{https://github.com/facebook/WebDriverAgent}} est un outil développé par \textsc{Facebook}. Il s'agit d'un serveur WebDriver pour iOS permettant de contrôler des appareils à distance. Il permet notamment de lancer des applications (y compris celles de l'App Store) et effectuer des actions sur l'écran (scroller, taper du texte...), ce qui répond à notre besoin.
 
 \subsubsection{Fonctionnement}
 \label{fonctionnementwda}
@@ -693,36 +810,16 @@ curl -X DELETE $JSON_HEADER $DEVICE_URL/session/$SESSION_ID
 \subsection{Écriture de scripts de benchmark}
 \label{scriptsbenchmark}
 Après avoir pris en main ces commandes j'ai entrepris d'écrire des scripts de tests automatisés afin de mieux maîtriser l'enchaînement des différentes actions. Il s'agissait d'effectuer les bonnes requêtes avec les informations adéquates. Par exemple, pour fermer une application il faut effectuer la requête avec le bon identifiant de session, il faut donc s'assurer d'avoir accès à ce dernier en le récupérant lors du lancement. 
-Pour les étapes de test je me suis basé sur les tests existants sur Android. Les scripts sont présentés dans l'annexe \ref{sec:iosscripts}. 
+Pour les étapes de test je me suis basé sur les tests existants sur Android (voir le paragraphe \ref{benchmarks} de la présentation de l'outil) en réduisant le temps de test. Les scripts sont présentés dans l'annexe \ref{sec:iosscripts}. 
 
 \subsubsection{Benchmark de site web}
-Le benchmark de site internet est divisé en 7 étapes, dont 5 sont mesurées : 
-\begin{itemize}[noitemsep]
-\item Effacement des données de navigation (caches, historique)
-\item Lancement du navigateur et \textbf{étape de référence} : le mobile est inactif sur l'accueil du navigateur pendant 20 secondes\footnote{Les scripts présentent des durées de 5 secondes pour  les rendre moins longs à tester.}
-\item Lancement et chargement du site à mesurer (\textbf{loading}) : 20 secondes 
-\item Inactivité au premier plan (\textbf{idle foreground}) : le mobile est inactif sur la page web pendant 20 secondes 
-\item Inactivité en arrière plan (\textbf{idle background}) : le mobile est inactif sur l'écran d'accueil (avec le navigateur en arrière plan) pendant 20 secondes
-\item Fermeture de l'onglet (sans cette action la page consultée se recharge lors du lancement du navigateur au test suivant) et fermeture du navigateur 
-\end{itemize}
-
-Les URLs du serveur \code{WebDriverAgent} et du site web mesuré sont passées en argument de ce script.
+Le script de benchmark de site internet prend en argument l'URL du serveur \code{WebDriverAgent} et l'URL de la page testée.
 
 \subsubsection{Benchmark d'application}
-Le benchmark d'application comporte 6 étapes\footnote{L'étape \textbf{idle foreground} n'a pas été écrite dans le script mais elle est présente dans l'implémentation finale.} : 
-\begin{itemize}[noitemsep]
-\item Installation de l'application grâce à \code{ios-deploy}
-\item \textbf{Étape de référence} sur l'écran d'accueil
-\item \textbf{Loading}
-\item \textbf{Idle background}
-\item Fermeture de l'application
-\item Désinstallation grâce à \code{ios-deploy}
-\end{itemize}
-
-Ici on passe en argument le chemin vers le fichier \code{.app} et l'identifiant de l'application (par exemple, pour le navigateur d'Apple : \code{com.mobilesafari}) en plus de l'URL du serveur \code{WebDriverAgent}.
+Ici on passe en argument le chemin vers le fichier \code{.app} et l'identifiant de l'application (par exemple, pour le navigateur d'Apple : \code{com.apple.mobilesafari}) en plus de l'URL du serveur \code{WebDriverAgent}.
 
 
-\bigskip Je me suis servi de ces scripts de benchmark comme base de travail pour l'implémentation de la fonctionnalité iOS dans \code{go-testapi} et \code{test runner}. 
+\bigskip Je me suis servi de ces scripts de benchmark comme base de travail pour l'implémentation de la fonctionnalité iOS dans \code{go-testapi} et \code{testrunner}. 
 
 \section{Implémentation dans \code{go-testapi} et \code{testrunner}}
 \subsection{\code{go-testapi}}
@@ -731,7 +828,7 @@ Pour implémenter la fonctionnalité iOS, j'ai principalement travaillé sur \code{
 \subsubsection{Package \code{device}}
 J'ai commencé par créer un package \code{device} avec une interface du même nom dans le package \code{ios}. Cette interface met en jeu les méthodes d'interaction avec l'appareil, présentées dans la figure \ref{devicemethods}. Les noms de méthodes commençant par une minuscule correspondent aux méthodes "utilitaires" privées et appelées par les autres méthodes.
 
-Ensuite, dans un autre fichier, j'ai créé les structures \code{IosDeviceConfig} (contenant les informations relatives à un appareil) et \code{IosDevice} (contenant une instance de \code{IosDeviceConfig}) qui implémente l'interface \code{Device} (déclaration fig. \ref{iosdevice}). Pour implémenter les méthodes de l'interface, j'ai adapté mes tests de \code{WebDriverAgent} en effectuant les différentes nécessaires en \code{go}, ce qui rend les interactions plus commodes. En effet, un appel de méthode est beaucoup plus simple et explicite qu'une ligne de commande \code{cURL}. 
+Ensuite, dans un autre fichier, j'ai créé les structures \code{IosDeviceConfig} (contenant les informations relatives à un appareil) et \code{IosDevice} (contenant une instance de \code{IosDeviceConfig}) qui implémente l'interface \code{Device} (déclaration fig. \ref{iosdevice}). Pour implémenter les méthodes de l'interface, j'ai adapté mes tests de \code{WebDriverAgent} en effectuant les différentes requêtes nécessaires grâce à des méthodes \code{go}, ce qui rend les interactions plus commodes. En effet, un appel de méthode est beaucoup plus simple et explicite qu'une ligne de commande \code{cURL}. 
 
 J'ai également également créé une version mockée de \code{IosDevice} pour en simuler le comportement lors de tests unitaires\footnote{L'utilisation de mocks pour les tests unitaires automatisés justifie la création d'une interface.}.
 
@@ -813,7 +910,7 @@ La structure \code{IosJobLauncher} — qui contient un \code{device} et un \code{m
 \begin{itemize}[noitemsep]
 \item Lancement de \code{WebDriverAgent} sur l'appareil
 \item Démarrage de la mesure physique
-\item Déroulement des tests sur une ou plusieurs itérations\footnote{On note que dans le cas d'un benchmark d'application, l'installation et la désinstallation ne sont pas effectuées à chaque itération mais seulement avant et après l'exécution de tous les tests.} : voir la section \ref{scriptsbenchmark}
+\item Déroulement des tests sur une ou plusieurs itérations\footnote{On note que dans le cas d'un benchmark d'application, l'installation et la désinstallation ne sont pas effectuées à chaque itération mais seulement avant et après l'exécution de tous les tests.}
 \item Arrêt de la mesure physique
 \item Construction et renvoi des résultats
 \end{itemize}
@@ -882,7 +979,48 @@ J'ai ensuite travaillé sur \code{testrunner} pour créer les objets nécessaires a
 \section{Ajout de métriques supplémentaires}
 Pour la suite de l'étude, j'ai été chargé de trouver des solutions pour remonter des métriques de performance (CPU, mémoire...) des appareils iOS pendant les tests.
    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
+\chapter*{Tâches supplémentaires}
+\label{chap:tachessup}
+\addcontentsline{toc}{chapter}{Tâches supplémentaires}
+\setcounter{footnote}{0}
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{chXXX.\the\value{section}}
+
+Parallèlement à mes sujets principaux, j'ai été chargé d'effectuer deux petites tâches. 
+
+\section{Benchmark web Android : mesure de référence}
+La mesure de référence pour les tests de page web était basée sur l'écran d'accueil du navigateur \textbf{Chrome}. Nous avons remarqué que cet écran pouvait changer selon l'appareil. Les icônes également pouvaient changer (lorsque le logo d'un site présent est mis à jour par exemple). Pour stabiliser un peu plus les mesures, j'ai été chargé de modifier le projet \code{testbench-launcher-android} pour charger la page \code{about:blank} avant la mesure de référence.
+
+\begin{figure}[H]
+\raggedright
+\includegraphics[width=0.3\textwidth]{reference/chromebrowser.png}
+\end{figure}
+
+Pour cela j'ai ajouté deux lignes à la méthode qui effectue les différentes étapes du test automatisé, juste avant l'étape de référence (figure \ref{blank}).
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single]{java}
+try {
+	this.device.wait(10000);
+	if (testName.equals("initial")) {
+		this.device.goToUrlInBrowser("about:blank");
+		this.device.pressKey(KeyEvent.KEYCODE_ENTER);
+		runReferenceMeasure("url");
+	}
+} 
+\end{minted}
+\caption{Page web blanche pour la mesure de référence}
+\label{blank}
+\end{figure}
+
+
+ 
+
+\section{Calibration \textsc{Samsung Galaxy S9}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -911,6 +1049,106 @@ Pour la suite de l'étude, j'ai été chargé de trouver des solutions pour remonter
 \caption{Tableau de bord. Vue 3}
 \label{dashboard3}
 \end{figure}
+
+\newpage
+\chapter{Intégration de la mesure physique dans \code{testrunner}}
+\label{sec:testrunnerhw}
+\renewcommand*{\theHsection}{anXX.\the\value{section}}
+
+
+
+\begin{minted}[breaklines]{go}
+func LaunchTestRunnerJob(UsbHub usbhub.UsbHub, controllerConfig controller.SerialControllerConfig) error {
+	mode := settings.Job.GetString("mode")
+
+	defer adb.Disconnect()
+
+	urls := settings.Job.GetStringSlice("job.urls")
+
+	if len(urls) == 0 {
+		urls = []string{settings.Job.GetString("job.url")}
+	}
+
+	job := common.Job{
+		URLS:             urls,
+		LocationType:     settings.Job.GetString("job.locationType"),
+		TestPackages:     settings.Job.GetStringSlice("job.testPackages"),
+		MonitoredPackage: settings.Job.GetString("job.monitoredPackage"),
+		Iterations:       settings.Job.GetInt("job.iterations"),
+		TestTimeout:      settings.Job.GetDuration("job.testTimeout"),
+		Scenario:         settings.Job.GetString("job.scenario"),
+		AuthenticationForm: common.AuthenticationForm{
+			Actions: settings.Job.GetStringSlice("job.authentication.actions"),
+		},
+		Cache:   settings.Job.GetBool("job.cache"),
+		Browser: settings.Job.GetString("job.browser"),
+		Modules: settings.Job.GetStringMapBool("job.modules"),
+		Mode:    mode,
+		Online:  settings.Job.GetBool("job.online"),
+		GreenspectorApp: common.GreenspectorApp{
+			Name:    settings.Job.GetString("greenspector.application.name"),
+			Version: settings.Job.GetString("greenspector.application.version"),
+		},
+	}
+
+	var jobResult common.JobResult
+	var err error
+	jobLauncher := jobs.NewJobLauncher(
+		jobs.JobLauncherConfig{
+			UsbHub: UsbHub,
+			MeasureLauncherConfig: hardware.HardwareMeasureLauncherConfig{
+				GetTimeDelta: func() (int64, error) {
+					adbCommandLauncher := adb.NewAdbCommandLauncher()
+					deviceTime, err := adbCommandLauncher.DeviceTime()
+					if err != nil {
+						return int64(0), err
+					}
+					return util.Now() - deviceTime, nil
+				},
+			},
+			SerialConfig: controllerConfig,
+		},
+	)
+
+	switch mode {
+	case "url":
+		jobResult, err = jobLauncher.LaunchURLJob(job)
+	case "apk":
+		jobResult, err = jobLauncher.LaunchStandardApkJob(job)
+	case "apkCustom":
+		return fmt.Errorf("`apkCustom` mode has been deprecated. Please change it to `custom`.")
+	case "custom":
+		jobResult, err = jobLauncher.LaunchCustomTestsJob(job)
+	default:
+		return fmt.Errorf("unknown job mode: %s", mode)
+	}
+	if err != nil {
+		return err
+	}
+
+	testFailed := false
+
+	for _, testStatus := range jobResult.TestsStatus {
+		if testStatus.Status == "failed" {
+			testFailed = true
+			break
+		}
+	}
+
+	if testFailed {
+		for test, testStatus := range jobResult.TestsStatus {
+			if testStatus.Status == "success" {
+				logger.Info("%s: passed", test)
+			} else {
+				logger.Error("%s: failed. Reason: %s", test, testStatus.StackTrace)
+			}
+		}
+	}
+
+	return results.HandleResults(job, jobResult)
+}
+\end{minted}
+
 
 \newpage
 \chapter{Scripts de tests automatisés sur iOS}

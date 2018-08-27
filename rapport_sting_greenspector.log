@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.31)  24 AUG 2018 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.31)  27 AUG 2018 17:19
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -800,7 +800,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<images/greenspector_pres.jpg, id=181, 1284.8pt x 722.7pt>
+<images/greenspector_pres.jpg, id=197, 1284.8pt x 722.7pt>
 File: images/greenspector_pres.jpg Graphic file (type jpg)
 <use images/greenspector_pres.jpg>
 Package pdftex.def Info: images/greenspector_pres.jpg  used on input line 46.
@@ -833,12 +833,12 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 64.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 64.
-<images/ecnlogo.png, id=186, 469.755pt x 277.035pt>
+<images/ecnlogo.png, id=202, 469.755pt x 277.035pt>
 File: images/ecnlogo.png Graphic file (type png)
 <use images/ecnlogo.png>
 Package pdftex.def Info: images/ecnlogo.png  used on input line 78.
 (pdftex.def)             Requested size: 152.36714pt x 89.85776pt.
-<images/greenspector_logo.jpg, id=187, 420.57124pt x 115.43124pt>
+<images/greenspector_logo.jpg, id=203, 420.57124pt x 115.43124pt>
 File: images/greenspector_logo.jpg Graphic file (type jpg)
 <use images/greenspector_logo.jpg>
 Package pdftex.def Info: images/greenspector_logo.jpg  used on input line 82.
@@ -856,18 +856,27 @@ l.102 \newpage
                [1
 
 ] (./rapport_sting_greenspector.toc
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 33.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 37.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [2
 
-])
+]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 77.
+)
 \tf@toc=\write7
 \openout7 = `rapport_sting_greenspector.toc'.
 
  [3]
-(./rapport_sting_greenspector.lof)
+(./rapport_sting_greenspector.lof
+Overfull \hbox (9.29655pt too wide) in paragraph at lines 15--15
+ [][] [][]\T1/lmr/m/n/12 Instanciation de la confi-gu-ra-tion du port sé-rie da
+ns le pro-gramme prin-ci-pal du \T1/lmtt/m/n/12 testrunner[] [][]  
+ []
+
+)
 \tf@lof=\write8
 \openout8 = `rapport_sting_greenspector.lof'.
 
@@ -892,7 +901,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ] [7
 
 ]
-<images/architecture/Cloud.png, id=344, 1157.32375pt x 813.0375pt>
+<images/architecture/Cloud.png, id=375, 1157.32375pt x 813.0375pt>
 File: images/architecture/Cloud.png Graphic file (type png)
 <use images/architecture/Cloud.png>
 Package pdftex.def Info: images/architecture/Cloud.png  used on input line 190.
@@ -903,7 +912,7 @@ Package pdftex.def Info: images/architecture/Cloud.png  used on input line 190.
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 (Font)              using `T1/lmr/bx/n' instead on input line 191.
 
-<images/architecture/On_Premises.png, id=346, 1136.245pt x 813.0375pt>
+<images/architecture/On_Premises.png, id=377, 1136.245pt x 813.0375pt>
 File: images/architecture/On_Premises.png Graphic file (type png)
 <use images/architecture/On_Premises.png>
 Package pdftex.def Info: images/architecture/On_Premises.png  used on input lin
@@ -913,41 +922,44 @@ e 197.
 >] [10] [11] [12] [13
 
 ]
-<images/mesure_physique/ina219.jpg, id=403, 292.09125pt x 219.219pt>
+<images/mesure_physique/ina219.jpg, id=435, 292.09125pt x 219.219pt>
 File: images/mesure_physique/ina219.jpg Graphic file (type jpg)
 <use images/mesure_physique/ina219.jpg>
 Package pdftex.def Info: images/mesure_physique/ina219.jpg  used on input line 
-319.
-(pdftex.def)             Requested size: 355.51817pt x 266.84467pt.
-<images/mesure_physique/arduinoUno.jpg, id=404, 391.4625pt x 248.42813pt>
+349.
+(pdftex.def)             Requested size: 304.73428pt x 228.7283pt.
+<images/mesure_physique/arduinoUno.jpg, id=436, 391.4625pt x 248.42813pt>
 File: images/mesure_physique/arduinoUno.jpg Graphic file (type jpg)
 <use images/mesure_physique/arduinoUno.jpg>
 Package pdftex.def Info: images/mesure_physique/arduinoUno.jpg  used on input l
-ine 323.
-(pdftex.def)             Requested size: 355.51817pt x 225.63022pt.
- [14]
-<images/mesure_physique/montage.png, id=413, 821.0675pt x 549.05125pt>
+ine 353.
+(pdftex.def)             Requested size: 304.73428pt x 193.39787pt.
+<images/mesure_physique/montage.png, id=438, 821.0675pt x 549.05125pt>
 File: images/mesure_physique/montage.png Graphic file (type png)
 <use images/mesure_physique/montage.png>
 Package pdftex.def Info: images/mesure_physique/montage.png  used on input line
- 333.
+ 363.
 (pdftex.def)             Requested size: 406.3098pt x 271.70161pt.
- [15 <./images/mesure_physique/ina219.jpg> <./images/mesure_physique/arduinoUno
+ [14 <./images/mesure_physique/ina219.jpg> <./images/mesure_physique/arduinoUno
 .jpg>]
-<images/mesure_physique/montageiot.png, id=418, 1020.81375pt x 305.14pt>
+<images/mesure_physique/montageiot.png, id=446, 1020.81375pt x 305.14pt>
 File: images/mesure_physique/montageiot.png Graphic file (type png)
 <use images/mesure_physique/montageiot.png>
 Package pdftex.def Info: images/mesure_physique/montageiot.png  used on input l
-ine 340.
+ine 370.
 (pdftex.def)             Requested size: 406.3098pt x 121.45319pt.
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 347.
- [16 <./images/mesure_physique/montage.png> <./images/mesure_physique/montageio
-t.png>] [17]
+ [15 <./images/mesure_physique/montage.png> <./images/mesure_physique/montageio
+t.png>] [16]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 382.
-\openout3 = `rapport_sting_greenspector.pyg'.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 412.
 
+Overfull \hbox (40.25436pt too wide) in paragraph at lines 419--420
+\T1/lmr/m/n/12 po-si-tif de me-sure grâce à une ins-tance de \T1/lmtt/m/n/12 Co
+ntroller\T1/lmr/m/n/12 , et per-met de sto-cker (dans \T1/lmtt/m/n/12 hardwareM
+easureResults\T1/lmr/m/n/12 )
+ []
+
+\openout3 = `rapport_sting_greenspector.pyg'.
 
 (./_minted-rapport_sting_greenspector/default-pyg-prefix.pygstyle)
 (./_minted-rapport_sting_greenspector/default.pygstyle)
@@ -957,8 +969,8 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
 
 
 (./_minted-rapport_sting_greenspector/454BF875F791E75C906982333F1F0BC37CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [18]
-Overfull \hbox (34.79617pt too wide) in paragraph at lines 429--430
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [17]
+Overfull \hbox (34.79617pt too wide) in paragraph at lines 459--460
 \T1/lmr/m/n/12 vé/-dé-sac-tivé...) une ins-tance de \T1/lmtt/m/n/12 MeasureLaun
 cher\T1/lmr/m/n/12 , et je l'ai ajou-tée à la struc-ture \T1/lmtt/m/n/12 APKJob
 ExecutorModules\T1/lmr/m/n/12 .
@@ -971,58 +983,87 @@ ExecutorModules\T1/lmr/m/n/12 .
 17E6DEC83AD2F6D1F2E7CD9.pygtex)
 \openout3 = `rapport_sting_greenspector.pyg'.
 
-runsystem(pygmentize -l go -f latex -P commandprefix=PYG -F tokenmerge -o _mint
-ed-rapport_sting_greenspector/A0F722595354FA90FE2CD0D6B2109DD57CD87DF3017E6DEC8
-3AD2F6D1F2E7CD9.pygtex rapport_sting_greenspector.pyg)...executed.
-
 
 (./_minted-rapport_sting_greenspector/A0F722595354FA90FE2CD0D6B2109DD57CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [19] [20]
-<images/mesure_physique/connecteursbatt.png, id=464, 545.03625pt x 362.35374pt>
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [18]
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/D5C4D73EEA14E9A93F720C79A704D9C27CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [19]
+Overfull \hbox (7.43765pt too wide) in paragraph at lines 559--560
+[]\T1/lmr/m/n/12 Pour ré-soudre ce pro-blème, j'ai ajouté le champ \T1/lmtt/m/n
+/12 config \T1/lmr/m/n/12 de type \T1/lmtt/m/n/12 HardwareMeasureLauncherConfig
+
+ []
+
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/0D7B8BE7D0F8BF1D446E2C9E0B31F8507CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex)
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/D1C4240B6ACE1680EDDAEE3D0E0F07FB7CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [20]
+Overfull \hbox (22.03836pt too wide) in paragraph at lines 588--589
+\T1/lmr/m/n/12 compte le delta tem-po-rel lors-qu'on stocke les points de me-su
+re dans le ta-bleau \T1/lmtt/m/n/12 hardwareMeasureResults\T1/lmr/m/n/12 . 
+ []
+
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/0782A5119A4E5290D3E8D29DAB8FBC587CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex)
+Overfull \hbox (29.76253pt too wide) in paragraph at lines 615--616
+\T1/lmr/m/n/12 for-ma-tions du fi-chier de confi-gu-ra-tion \T1/lmtt/m/n/12 job
+.yml\T1/lmr/m/n/12 ) et un \T1/lmtt/m/n/12 JobLauncher \T1/lmr/m/n/12 avec no-t
+am-ment son \T1/lmtt/m/n/12 MeasureLauncher
+ []
+
+[21]
+<images/mesure_physique/connecteursbatt.png, id=508, 545.03625pt x 362.35374pt>
 
 File: images/mesure_physique/connecteursbatt.png Graphic file (type png)
 <use images/mesure_physique/connecteursbatt.png>
 Package pdftex.def Info: images/mesure_physique/connecteursbatt.png  used on in
-put line 512.
+put line 629.
 (pdftex.def)             Requested size: 406.3098pt x 270.1225pt.
- [21 <./images/mesure_physique/connecteursbatt.png>] [22
+ [22 <./images/mesure_physique/connecteursbatt.png>] [23
 
 ]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/826777F9098498F131D34D03B09EE95147927304F
-E44BC17D41FCB3E07640911.pygtex) [23]
-Overfull \hbox (2.80943pt too wide) in paragraph at lines 612--613
+E44BC17D41FCB3E07640911.pygtex) [24]
+Overfull \hbox (2.80943pt too wide) in paragraph at lines 729--730
 []\T1/lmr/m/n/12 J'ai testé quelques fonc-tion-na-li-tés de cet ou-til pour com
 -pa-rer son uti-li-sa-tion à celle de \T1/lmtt/m/n/12 ios-deploy\T1/lmr/m/n/12 
 . 
  []
 
-<images/wda/wda-server.png, id=497, 1307.88625pt x 475.7775pt>
+<images/wda/wda-server.png, id=542, 1307.88625pt x 475.7775pt>
 File: images/wda/wda-server.png Graphic file (type png)
 <use images/wda/wda-server.png>
-Package pdftex.def Info: images/wda/wda-server.png  used on input line 635.
+Package pdftex.def Info: images/wda/wda-server.png  used on input line 752.
 (pdftex.def)             Requested size: 507.88533pt x 184.75389pt.
-[24]
+[25]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/2B73BEA134213FD2F666FC0531D38EA047927304F
-E44BC17D41FCB3E07640911.pygtex) [25 <./images/wda/wda-server.png>] [26]
-Overfull \hbox (19.21082pt too wide) in paragraph at lines 722--723
-\T1/lmr/m/n/12 exemple, pour le na-vi-ga-teur d'Apple : \T1/lmtt/m/n/12 com.mob
-ilesafari\T1/lmr/m/n/12 ) en plus de l'URL du ser-veur \T1/lmtt/m/n/12 WebDrive
-rAgent\T1/lmr/m/n/12 . 
- []
-
+E44BC17D41FCB3E07640911.pygtex) [26 <./images/wda/wda-server.png>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 727.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 824.
+ [27]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/1DD10213A94358A02F83CBACD0E281267CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [27]
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [28]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
@@ -1032,7 +1073,7 @@ LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 8.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [28]
+)) [29]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
@@ -1042,73 +1083,112 @@ File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 
 (./_minted-rapport_sting_greenspector/6A244298C4C318790C4B6A06AE28D4EA7CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [29] [30] [31]
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [30] [31] [32]
+<images/reference/chromebrowser.png, id=605, 1204.5pt x 2475.2475pt>
+File: images/reference/chromebrowser.png Graphic file (type png)
+<use images/reference/chromebrowser.png>
+Package pdftex.def Info: images/reference/chromebrowser.png  used on input line
+ 999.
+(pdftex.def)             Requested size: 152.36714pt x 313.10655pt.
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/6005DB10EC1BA89C0A378AC24E676E0A6343E67C6
+F32048ABF07681D927BEC06.pygtex) [33
+
+ <./images/reference/chromebrowser.png>]
+[34]
 Annexe A.
-<images/Interface/dashboard_vue_1.png, id=565, 1667.22874pt x 650.43pt>
+<images/Interface/dashboard_vue_1.png, id=617, 1667.22874pt x 650.43pt>
 File: images/Interface/dashboard_vue_1.png Graphic file (type png)
 <use images/Interface/dashboard_vue_1.png>
 Package pdftex.def Info: images/Interface/dashboard_vue_1.png  used on input li
-ne 896.
+ne 1034.
 (pdftex.def)             Requested size: 507.88533pt x 198.1377pt.
-<images/Interface/dashboard_vue_2.png, id=566, 1393.205pt x 713.66624pt>
+<images/Interface/dashboard_vue_2.png, id=618, 1393.205pt x 713.66624pt>
 File: images/Interface/dashboard_vue_2.png Graphic file (type png)
 <use images/Interface/dashboard_vue_2.png>
 Package pdftex.def Info: images/Interface/dashboard_vue_2.png  used on input li
-ne 903.
+ne 1041.
 (pdftex.def)             Requested size: 507.88533pt x 260.16476pt.
-<images/Interface/dashboard_vue_3.png, id=567, 1393.205pt x 814.04124pt>
+<images/Interface/dashboard_vue_3.png, id=619, 1393.205pt x 814.04124pt>
 File: images/Interface/dashboard_vue_3.png Graphic file (type png)
 <use images/Interface/dashboard_vue_3.png>
 Package pdftex.def Info: images/Interface/dashboard_vue_3.png  used on input li
-ne 910.
+ne 1048.
 (pdftex.def)             Requested size: 507.88533pt x 296.75615pt.
-[32
+[35
 
- <./images/Interface/dashboard_vue_1.png>] [33 <./images/Interface/dashboard_vu
+ <./images/Interface/dashboard_vue_1.png>] [36 <./images/Interface/dashboard_vu
 e_2.png> <./images/Interface/dashboard_vue_3.png>]
 Annexe B.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1054.
+\openout3 = `rapport_sting_greenspector.pyg'.
+
+
+(./_minted-rapport_sting_greenspector/2FAE7A479287B9D68CA7264D16D19CFB7CD87DF30
+17E6DEC83AD2F6D1F2E7CD9.pygtex
+Overfull \hbox (23.16493pt too wide) in paragraph at lines 22--22
+\T1/lmtt/m/n/12 settings.Job.GetStringSlice([]"job.authentication.actions"[]),|
+  
+ []
+
+
+Overfull \hbox (10.81493pt too wide) in paragraph at lines 30--30
+\T1/lmtt/m/n/12 settings.Job.GetString([]"greenspector.application.name"[]),|  
+
+ []
+
+
+Overfull \hbox (29.33994pt too wide) in paragraph at lines 31--31
+\T1/lmtt/m/n/12 settings.Job.GetString([]"greenspector.application.version"[]),
+|  
+ []
+
+[37
+
+] [38]) [39]
+Annexe C.
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/C0117418A5957219A97FA0A656313F4C47927304F
-E44BC17D41FCB3E07640911.pygtex [34
+E44BC17D41FCB3E07640911.pygtex [40
 
-] [35])
+] [41])
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/0A35B5A1CCD0C1E8110C24A8C077D93247927304F
-E44BC17D41FCB3E07640911.pygtex [36]) (./rapport_sting_greenspector.bbl [37])
-runsystem(rm _minted-rapport_sting_greenspector/5760C445FFC69D7F43C5A090B986B07
-57CD87DF3017E6DEC83AD2F6D1F2E7CD9.pygtex)...executed.
+E44BC17D41FCB3E07640911.pygtex [42]) (./rapport_sting_greenspector.bbl [43])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1276.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1038.
-
-[38
+[44
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1038.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1276.
  (./rapport_sting_greenspector.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1038.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1038.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1276.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1276.
 
 Package rerunfilecheck Info: File `rapport_sting_greenspector.out' has not chan
 ged.
-(rerunfilecheck)             Checksum: 11A56B0287001CE2EE85FBEFBDE870DC;3522.
+(rerunfilecheck)             Checksum: AA26AECF6A23768EFF8BD5DD09D9EF00;3861.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 runsystem(rm rapport_sting_greenspector.pyg)...executed.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1038.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1276.
  ) 
 Here is how much of TeX's memory you used:
- 14665 strings out of 492649
- 239993 string characters out of 6129622
- 393890 words of memory out of 5000000
- 18024 multiletter control sequences out of 15000+600000
- 101469 words of font info for 68 fonts, out of 8000000 for 9000
+ 14734 strings out of 492649
+ 242937 string characters out of 6129622
+ 394982 words of memory out of 5000000
+ 18054 multiletter control sequences out of 15000+600000
+ 101787 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,11n,39p,1009b,657s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
@@ -1129,10 +1209,10 @@ c/lm/lmri10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmri1
 live/2018/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2018/
 texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2018/texmf-dist
 /fonts/type1/public/lm/lmtti10.pfb>
-Output written on rapport_sting_greenspector.pdf (39 pages, 1924580 bytes).
+Output written on rapport_sting_greenspector.pdf (45 pages, 2026380 bytes).
 PDF statistics:
- 697 PDF objects out of 1000 (max. 8388607)
- 605 compressed objects within 7 object streams
- 158 named destinations out of 1000 (max. 500000)
- 443 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 765 PDF objects out of 1000 (max. 8388607)
+ 665 compressed objects within 7 object streams
+ 175 named destinations out of 1000 (max. 500000)
+ 480 words of extra memory for PDF output out of 10000 (max. 10000000)
 

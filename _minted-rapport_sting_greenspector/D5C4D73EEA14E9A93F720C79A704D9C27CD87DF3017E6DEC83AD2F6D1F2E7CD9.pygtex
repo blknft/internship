@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{func} \PYG{n+nx}{CompleteTestResultsWithMeasures}\PYG{p}{(}\PYG{n+nx}{testResults} \PYG{p}{[]}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{TestResultV2}\PYG{p}{,} \PYG{n+nx}{hardwareProbeData} \PYG{p}{[]}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{MeasureTick}\PYG{p}{,} \PYG{n+nx}{hardwareModule} \PYG{k+kt}{bool}\PYG{p}{)} \PYG{p}{([]}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{TestResultV2}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{o}{...}
+
+	\PYG{k}{if} \PYG{n+nx}{hardwareModule} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nx}{hardwareProbeData}\PYG{p}{)} \PYG{p}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{mergedTestResults} \PYG{o}{:=} \PYG{n+nb}{make}\PYG{p}{([]}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{TestResultV2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+		\PYG{k}{for} \PYG{n+nx}{\PYGZus{}}\PYG{p}{,} \PYG{n+nx}{testResult} \PYG{o}{:=} \PYG{k}{range} \PYG{n+nx}{mergedTestResultsNetwork} \PYG{p}{\PYGZob{}}
+			\PYG{n+nx}{err} \PYG{o}{:=} \PYG{n+nx}{CompleteTestResultMeasures}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n+nx}{testResult}\PYG{p}{,} \PYG{n+nx}{hardwareProbeData}\PYG{p}{)}
+			\PYG{k}{if} \PYG{n+nx}{err} \PYG{o}{!=} \PYG{k+kc}{nil} \PYG{p}{\PYGZob{}}
+				\PYG{n+nx}{logger}\PYG{p}{.}\PYG{n+nx}{Warn}\PYG{p}{(}\PYG{n+nx}{err}\PYG{p}{.}\PYG{n+nx}{Error}\PYG{p}{())}
+			\PYG{p}{\PYGZcb{}}
+			\PYG{n+nx}{mergedTestResults} \PYG{p}{=} \PYG{n+nb}{append}\PYG{p}{(}\PYG{n+nx}{mergedTestResults}\PYG{p}{,} \PYG{n+nx}{testResult}\PYG{p}{)}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{return} \PYG{n+nx}{mergedTestResults}\PYG{p}{,} \PYG{k+kc}{nil}
+	\PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n+nx}{mergedTestResultsNetwork}\PYG{p}{,} \PYG{k+kc}{nil}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

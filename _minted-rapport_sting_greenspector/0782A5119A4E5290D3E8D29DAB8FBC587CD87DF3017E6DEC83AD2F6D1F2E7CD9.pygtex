@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n+nx}{address} \PYG{o}{:=} \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}target.hardware.address\PYGZdq{}}\PYG{p}{)}
+	\PYG{k}{if} \PYG{n+nx}{address} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}\PYGZdq{}} \PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{address} \PYG{p}{=} \PYG{l+s}{\PYGZdq{}/dev/ttyACM0\PYGZdq{}}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n+nx}{controllerConfig} \PYG{o}{:=} \PYG{n+nx}{controller}\PYG{p}{.}\PYG{n+nx}{SerialControllerConfig}\PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{Address}\PYG{p}{:}  \PYG{n+nx}{address}\PYG{p}{,}
+		\PYG{n+nx}{Baudrate}\PYG{p}{:} \PYG{l+m+mi}{115200}\PYG{p}{,}
+		\PYG{n+nx}{DataBits}\PYG{p}{:} \PYG{l+m+mi}{8}\PYG{p}{,}
+		\PYG{n+nx}{Parity}\PYG{p}{:}   \PYG{l+s}{\PYGZdq{}N\PYGZdq{}}\PYG{p}{,}
+		\PYG{n+nx}{StopBits}\PYG{p}{:} \PYG{l+m+mi}{2}\PYG{p}{,}
+	\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

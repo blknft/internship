@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{GetTimeDelta}\PYG{p}{:} \PYG{k+kd}{func}\PYG{p}{()} \PYG{p}{(}\PYG{k+kt}{int64}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{adbCommandLauncher} \PYG{o}{:=} \PYG{n+nx}{adb}\PYG{p}{.}\PYG{n+nx}{NewAdbCommandLauncher}\PYG{p}{()}
+	\PYG{n+nx}{deviceTime}\PYG{p}{,} \PYG{n+nx}{err} \PYG{o}{:=} \PYG{n+nx}{adbCommandLauncher}\PYG{p}{.}\PYG{n+nx}{DeviceTime}\PYG{p}{()}
+	\PYG{k}{if} \PYG{n+nx}{err} \PYG{o}{!=} \PYG{k+kc}{nil} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n+nb}{int64}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{),} \PYG{n+nx}{err}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{n+nx}{util}\PYG{p}{.}\PYG{n+nx}{Now}\PYG{p}{()} \PYG{o}{\PYGZhy{}} \PYG{n+nx}{deviceTime}\PYG{p}{,} \PYG{k+kc}{nil}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

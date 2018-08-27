@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{type} \PYG{n+nx}{HardwareMeasureLauncherConfig} \PYG{k+kd}{struct} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{GetTimeDelta} \PYG{k+kd}{func}\PYG{p}{()} \PYG{p}{(}\PYG{k+kt}{int64}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

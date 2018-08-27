@@ -1,0 +1,91 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{func} \PYG{n+nx}{LaunchTestRunnerJob}\PYG{p}{(}\PYG{n+nx}{UsbHub} \PYG{n+nx}{usbhub}\PYG{p}{.}\PYG{n+nx}{UsbHub}\PYG{p}{,} \PYG{n+nx}{controllerConfig} \PYG{n+nx}{controller}\PYG{p}{.}\PYG{n+nx}{SerialControllerConfig}\PYG{p}{)} \PYG{k+kt}{error} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{mode} \PYG{o}{:=} \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}mode\PYGZdq{}}\PYG{p}{)}
+
+	\PYG{k}{defer} \PYG{n+nx}{adb}\PYG{p}{.}\PYG{n+nx}{Disconnect}\PYG{p}{()}
+
+	\PYG{n+nx}{urls} \PYG{o}{:=} \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetStringSlice}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.urls\PYGZdq{}}\PYG{p}{)}
+
+	\PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nx}{urls}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{urls} \PYG{p}{=} \PYG{p}{[]}\PYG{k+kt}{string}\PYG{p}{\PYGZob{}}\PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.url\PYGZdq{}}\PYG{p}{)\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n+nx}{job} \PYG{o}{:=} \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{URLS}\PYG{p}{:}             \PYG{n+nx}{urls}\PYG{p}{,}
+		\PYG{n+nx}{LocationType}\PYG{p}{:}     \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.locationType\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{TestPackages}\PYG{p}{:}     \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetStringSlice}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.testPackages\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{MonitoredPackage}\PYG{p}{:} \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.monitoredPackage\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{Iterations}\PYG{p}{:}       \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetInt}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.iterations\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{TestTimeout}\PYG{p}{:}      \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetDuration}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.testTimeout\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{Scenario}\PYG{p}{:}         \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.scenario\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{AuthenticationForm}\PYG{p}{:} \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{AuthenticationForm}\PYG{p}{\PYGZob{}}
+			\PYG{n+nx}{Actions}\PYG{p}{:} \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetStringSlice}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.authentication.actions\PYGZdq{}}\PYG{p}{),}
+		\PYG{p}{\PYGZcb{},}
+		\PYG{n+nx}{Cache}\PYG{p}{:}   \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.cache\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{Browser}\PYG{p}{:} \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.browser\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{Modules}\PYG{p}{:} \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetStringMapBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.modules\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{Mode}\PYG{p}{:}    \PYG{n+nx}{mode}\PYG{p}{,}
+		\PYG{n+nx}{Online}\PYG{p}{:}  \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}job.online\PYGZdq{}}\PYG{p}{),}
+		\PYG{n+nx}{GreenspectorApp}\PYG{p}{:} \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{GreenspectorApp}\PYG{p}{\PYGZob{}}
+			\PYG{n+nx}{Name}\PYG{p}{:}    \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}greenspector.application.name\PYGZdq{}}\PYG{p}{),}
+			\PYG{n+nx}{Version}\PYG{p}{:} \PYG{n+nx}{settings}\PYG{p}{.}\PYG{n+nx}{Job}\PYG{p}{.}\PYG{n+nx}{GetString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}greenspector.application.version\PYGZdq{}}\PYG{p}{),}
+		\PYG{p}{\PYGZcb{},}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k+kd}{var} \PYG{n+nx}{jobResult} \PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{JobResult}
+	\PYG{k+kd}{var} \PYG{n+nx}{err} \PYG{k+kt}{error}
+	\PYG{n+nx}{jobLauncher} \PYG{o}{:=} \PYG{n+nx}{jobs}\PYG{p}{.}\PYG{n+nx}{NewJobLauncher}\PYG{p}{(}
+		\PYG{n+nx}{jobs}\PYG{p}{.}\PYG{n+nx}{JobLauncherConfig}\PYG{p}{\PYGZob{}}
+			\PYG{n+nx}{UsbHub}\PYG{p}{:} \PYG{n+nx}{UsbHub}\PYG{p}{,}
+			\PYG{n+nx}{MeasureLauncherConfig}\PYG{p}{:} \PYG{n+nx}{hardware}\PYG{p}{.}\PYG{n+nx}{HardwareMeasureLauncherConfig}\PYG{p}{\PYGZob{}}
+				\PYG{n+nx}{GetTimeDelta}\PYG{p}{:} \PYG{k+kd}{func}\PYG{p}{()} \PYG{p}{(}\PYG{k+kt}{int64}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+					\PYG{n+nx}{adbCommandLauncher} \PYG{o}{:=} \PYG{n+nx}{adb}\PYG{p}{.}\PYG{n+nx}{NewAdbCommandLauncher}\PYG{p}{()}
+					\PYG{n+nx}{deviceTime}\PYG{p}{,} \PYG{n+nx}{err} \PYG{o}{:=} \PYG{n+nx}{adbCommandLauncher}\PYG{p}{.}\PYG{n+nx}{DeviceTime}\PYG{p}{()}
+					\PYG{k}{if} \PYG{n+nx}{err} \PYG{o}{!=} \PYG{k+kc}{nil} \PYG{p}{\PYGZob{}}
+						\PYG{k}{return} \PYG{n+nb}{int64}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{),} \PYG{n+nx}{err}
+					\PYG{p}{\PYGZcb{}}
+					\PYG{k}{return} \PYG{n+nx}{util}\PYG{p}{.}\PYG{n+nx}{Now}\PYG{p}{()} \PYG{o}{\PYGZhy{}} \PYG{n+nx}{deviceTime}\PYG{p}{,} \PYG{k+kc}{nil}
+				\PYG{p}{\PYGZcb{},}
+			\PYG{p}{\PYGZcb{},}
+			\PYG{n+nx}{SerialConfig}\PYG{p}{:} \PYG{n+nx}{controllerConfig}\PYG{p}{,}
+		\PYG{p}{\PYGZcb{},}
+	\PYG{p}{)}
+
+	\PYG{k}{switch} \PYG{n+nx}{mode} \PYG{p}{\PYGZob{}}
+	\PYG{k}{case} \PYG{l+s}{\PYGZdq{}url\PYGZdq{}}\PYG{p}{:}
+		\PYG{n+nx}{jobResult}\PYG{p}{,} \PYG{n+nx}{err} \PYG{p}{=} \PYG{n+nx}{jobLauncher}\PYG{p}{.}\PYG{n+nx}{LaunchURLJob}\PYG{p}{(}\PYG{n+nx}{job}\PYG{p}{)}
+	\PYG{k}{case} \PYG{l+s}{\PYGZdq{}apk\PYGZdq{}}\PYG{p}{:}
+		\PYG{n+nx}{jobResult}\PYG{p}{,} \PYG{n+nx}{err} \PYG{p}{=} \PYG{n+nx}{jobLauncher}\PYG{p}{.}\PYG{n+nx}{LaunchStandardApkJob}\PYG{p}{(}\PYG{n+nx}{job}\PYG{p}{)}
+	\PYG{k}{case} \PYG{l+s}{\PYGZdq{}apkCustom\PYGZdq{}}\PYG{p}{:}
+		\PYG{k}{return} \PYG{n+nx}{fmt}\PYG{p}{.}\PYG{n+nx}{Errorf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}`apkCustom` mode has been deprecated. Please change it to `custom`.\PYGZdq{}}\PYG{p}{)}
+	\PYG{k}{case} \PYG{l+s}{\PYGZdq{}custom\PYGZdq{}}\PYG{p}{:}
+		\PYG{n+nx}{jobResult}\PYG{p}{,} \PYG{n+nx}{err} \PYG{p}{=} \PYG{n+nx}{jobLauncher}\PYG{p}{.}\PYG{n+nx}{LaunchCustomTestsJob}\PYG{p}{(}\PYG{n+nx}{job}\PYG{p}{)}
+	\PYG{k}{default}\PYG{p}{:}
+		\PYG{k}{return} \PYG{n+nx}{fmt}\PYG{p}{.}\PYG{n+nx}{Errorf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}unknown job mode: \PYGZpc{}s\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{mode}\PYG{p}{)}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{if} \PYG{n+nx}{err} \PYG{o}{!=} \PYG{k+kc}{nil} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n+nx}{err}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n+nx}{testFailed} \PYG{o}{:=} \PYG{k+kc}{false}
+
+	\PYG{k}{for} \PYG{n+nx}{\PYGZus{}}\PYG{p}{,} \PYG{n+nx}{testStatus} \PYG{o}{:=} \PYG{k}{range} \PYG{n+nx}{jobResult}\PYG{p}{.}\PYG{n+nx}{TestsStatus} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{n+nx}{testStatus}\PYG{p}{.}\PYG{n+nx}{Status} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}failed\PYGZdq{}} \PYG{p}{\PYGZob{}}
+			\PYG{n+nx}{testFailed} \PYG{p}{=} \PYG{k+kc}{true}
+			\PYG{k}{break}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{if} \PYG{n+nx}{testFailed} \PYG{p}{\PYGZob{}}
+		\PYG{k}{for} \PYG{n+nx}{test}\PYG{p}{,} \PYG{n+nx}{testStatus} \PYG{o}{:=} \PYG{k}{range} \PYG{n+nx}{jobResult}\PYG{p}{.}\PYG{n+nx}{TestsStatus} \PYG{p}{\PYGZob{}}
+			\PYG{k}{if} \PYG{n+nx}{testStatus}\PYG{p}{.}\PYG{n+nx}{Status} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}success\PYGZdq{}} \PYG{p}{\PYGZob{}}
+				\PYG{n+nx}{logger}\PYG{p}{.}\PYG{n+nx}{Info}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}s: passed\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{test}\PYG{p}{)}
+			\PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+				\PYG{n+nx}{logger}\PYG{p}{.}\PYG{n+nx}{Error}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}s: failed. Reason: \PYGZpc{}s\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{test}\PYG{p}{,} \PYG{n+nx}{testStatus}\PYG{p}{.}\PYG{n+nx}{StackTrace}\PYG{p}{)}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{return} \PYG{n+nx}{results}\PYG{p}{.}\PYG{n+nx}{HandleResults}\PYG{p}{(}\PYG{n+nx}{job}\PYG{p}{,} \PYG{n+nx}{jobResult}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
