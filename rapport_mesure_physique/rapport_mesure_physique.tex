@@ -1,0 +1,332 @@
+\documentclass[a4paper,12pt, titlepage]{report}
+\usepackage[applemac]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,textcomp, graphicx}
+\graphicspath{{images/}}
+\usepackage[french]{babel}
+\usepackage{cmap}
+\usepackage{enumitem} % pour gérer l'apparence des listes
+\usepackage{float} % pour placer les images à l'endroit où elles sont définies dans le code LaTeX
+\usepackage{hyperref}
+\usepackage{listings} % pour afficher du code source
+\usepackage[svgnames]{xcolor} % pour utiliser les couleurs
+\usepackage[hang, small, labelfont=bf, up, textfont=it, up]{caption}
+\usepackage{titling}
+\usepackage{pdftexcmds}
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.85,vscale=0.85,centering}
+\setcounter{secnumdepth}{3} % profondeur pour la numérotation
+\setcounter{tocdepth}{3} % profondeur pour la table des matières
+
+\renewcommand{\thesection}{\arabic{section}} 
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}} 
+\newcommand{\code}[1]{\texttt{#1}}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+
+\lstset{escapechar=@,style=customc}
+
+\title{Mesure physique de consommation d'énergie d'un smartphone dans l'outil \textsc{Greenspector}}
+\author{Khalil Boulkenafet}
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\section{Introduction}
+Ce document fait le bilan du travail réalisé sur la mesure hardware. On y présente le principe de la mesure, le travail d'intégration à l'outil \textsc{greenspector}, les expériences menées, ainsi que le travail qu'il reste à effectuer. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Acquisition de la mesure}
+
+\subsection{Dispositif}
+On utilise une carte \textsc{Arduino Uno} avec un shunt \textsc{INA219}. Le shunt, placé entre le smartphone et sa batterie, permet de mesurer l'intensité du courant qui sort de cette dernière. La carte \textsc{Arduino} permet de récupérer et traiter ces données de courant. 
+
+Le dispositif fonctionne sur \textsc{Samsung j3} et n'a pas encore été mis en place sur d'autres appareils.
+
+\subsection{Principe de la mesure}
+On fait l'hypothèse que le courant mesuré est constant sur l'intervalle de mesure considéré. On multiplie cette valeur de courant par l'intervalle de mesure (\code{M\_PERIOD\_ms})  pour obtenir une valeur en milliampère-heure (mAh). 
+
+\subsection{Start/Stop de la mesure}
+L'acquisition des données est initiée en envoyant le caractère \code{"a"} à la carte \textsc{arduino}, qui écrit sur le serial la consommation enregistrée toutes les \code{M\_PERIOD\_ms} (200 ms pour l'instant, cf fig.~\ref{code}). On a observé que la carte \textsc{arduino} nécessite un certain temps d'initialisation avant de pouvoir écrire des mesures. Ainsi on peut ne pas démarrer la mesure en envoyant \code{"a"} trop tôt.
+On arrête la mesure en envoyant \code{"b"} à la carte.
+
+\subsection{Code Arduino}
+Le code de la figure~\ref{code} a été téléversé sur \textsc{Arduino}. On utilise la librairie Adafruit\_INA219. Le code et la librairie sont disponibles sur Gitlab.
+
+\begin{figure}[H]
+\begin{lstlisting}[language=C]
+
+#include <Wire.h>
+#include <Adafruit_INA219.h>
+
+Adafruit_INA219 ina219;
+
+#if defined(ARDUINO_ARCH_SAMD)
+// for Zero, output on USB Serial console, remove line below if using programming port to program the Zero!
+   #define Serial SerialUSB
+#endif
+
+#define M_PERIOD_ms 200
+#define ARRAYSIZE 1000 // 5mn*1000*60/M_PERIOD_ms
+int state = 0;
+
+void setup(void) 
+{
+  Serial.begin(115200);
+  ina219.begin();
+  ina219.setCalibration_32V_1A();
+}
+
+void loop(void) 
+{
+  float current_mA = 0;
+  float dischargemAh = 0;
+
+  current_mA = ina219.getCurrent_mA();
+  dischargemAh = current_mA*((float)M_PERIOD_ms/3600000.0);
+
+  int incoming = 0;
+  int serialavailable = 0;
+  serialavailable = Serial.available();
+   if (serialavailable > 0) {
+      incoming = Serial.read();
+      if (state == 0) {
+        state = 1;
+      } else if (state == 1) {
+        state = 0;
+      }
+   }
+
+  if (state == 1) {
+      Serial.println(dischargemAh,8);
+   } 
+   
+  delay(M_PERIOD_ms); 
+}
+
+\end{lstlisting}
+\caption{Code de la carte Arduino UNO}
+\label{code}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Le module hardware dans le Test Runner}
+\subsection{Intégration et activation}
+Le module a été intégré dans les projets \emph{go-testapi} et \emph{testrunner}, dans le prolongement de la feature IOT. On active le module hardware via la configuration du \textsc{test runner} : il suffit de renseigner le port de la carte \textsc{Arduino} (en général \code{/dev/ttyACM0} sur Linux) dans le champ \code{hardware.address} du fichier \code{config.yml} et \code{true} dans le champ \code{modules.hardware\_probe} du fichier \code{job.yml}.
+
+\subsection{Nomenclature des métriques}
+Lorsque le module hardware est utilisé en mode IOT, la décharge mesurée se nomme \code{AH\_PL}. En mode mobile, la nomenclature \code{AH\_PL} est réservée à la sonde logicielle. On utilise \code{AH\_HARD} pour nommer la métrique mesurée physiquement ; c'est cette métrique qui est présente dans le fichier de résultats et rendue visible sur l'interface \textsc{Greenspector}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mesures et analyse}
+\subsection{Premières mesures}
+Après l'intégration du module hardware dans le \textsc{test runner}, quelques mesures ont été effectuées afin de vérifier la récupération des résultats de mesure des deux sondes, à la fois dans un fichier de résultats bruts (en local, lorsque le mode online est désactivé) et sur l'interface \textsc{Greenspector} (fig.~\ref{firstmeasureslocal} \&~\ref{firstmeasuresinterface}).
+
+\begin{figure}[H]
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{AHPLbrut.png}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{AHHARDbrut.png}
+  \end{minipage}
+\caption{Récupération des mesures des deux sondes en local dans un fichier json.}
+\label{firstmeasureslocal}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{minipage}{1\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{firstsoft.png}
+  \end{minipage}
+  \begin{minipage}{1\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{firsthard.png}
+  \end{minipage}
+\caption{Visualisation des mesures des deux sondes sur l'interface \textsc{Greenspector}. Les résultats obtenus ne sont pas significatifs, ici on s'assure seulement de récupérer effectivement des données.}
+\label{firstmeasuresinterface}
+\end{figure} 
+
+\subsection{Analyse des mesures brutes}
+On a commencé par analyser les données de mesure à partir des résultats bruts, dans le but de comparer les sondes. La confrontation de ces données n'a pas permis de relier la mesure physique à la mesure logicielle. Cependant, elle a permis de relever quelques points :
+\begin{itemize}[noitemsep]
+  \item Malgré un intervalle de mesure prévu de 200 ms, la sonde logicielle, lorsqu'elle relève les métriques CPU, mémoire etc... met davantage de temps à fournir un point de mesure (environ 500 ms). La période de la sonde physique étant de 200 ms, le retard de la sonde logicielle ne permettait pas la comparaison des courbes.
+  \item  Lorsqu'on s'intéresse à la décharge totale (somme de tous les points de mesure), on observe des instabilités au niveau de la sonde logicielle et des écarts parfois importants avec la sonde physique.
+\end{itemize}
+
+Pour la suite de l'analyse des mesures, on a mis à jour la sonde logicielle du smartphone pour ne mesurer que la décharge plateforme (toutes les 200 ms).
+
+
+\subsection{Analyse des mesures sur l'interface Greenspector}
+\subsubsection{Comportement de la sonde logicielle}
+Après avoir mis à jour la sonde logicielle du \textsc{Samsung j3}, plusieurs mesures de benchmark apk ont été effectuées. On a également allongé l'étape de chargement (2mn) afin d'avoir une meilleure vision des variations (fig.~\ref{loading2mn})
+
+\begin{figure}[H]
+  \begin{minipage}{1\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{chargement_2mn_brightness_min.png}
+  \end{minipage}
+  \begin{minipage}{1\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{chargement_2mn_brightness_max.png}
+  \end{minipage}
+\caption{Mesures logicielles. Étape de chargement (2mn). Les deux courbes correspondent respectivement à un test en luminosité minimum et maximum.}
+\label{loading2mn}
+\end{figure}
+
+Les points de mesures semblent se regrouper autour de "valeurs paliers". En analysant les fichiers de mesure brute, on remarque que la majorité des points de mesure sur un palier correspond à une seule valeur (les variations au sein d'un palier sont peu nombreuses).
+
+Ces observations semblent questionner la fiabilité de la sonde logicielle du \textsc{Samsung j3}. On observe le même comportement (les périodes de mesure sont moins régulières) sur certaines mesures du  \textsc{Samsung j3} de staging (fig.~\ref{j3staging}).
+
+Ce comportement peut s'expliquer par le principe de mesure de la sonde logicielle, qui est le même que celui de la sonde physique. On récupère une valeur de courant que l'on "intègre" sur la durée de la mesure. Contrairement à la sonde physique, la mesure de courant est mise à jour beaucoup moins fréquemment (environ 30s). Comme les intervalles de mesure ne sont pas rigoureusement les mêmes, on observe quelques variations au sein de chaque palier. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{j3stagingref.png}
+\caption{Résultat de mesure de l'étape de référence sur le \textsc{Samsung j3} de staging.}
+\label{j3staging}
+\end{figure}
+
+\bigskip En faisant varier progressivement la luminosité pendant une étape de 2mn, on observe néanmoins une augmentation progressive de la décharge (fig.~\ref{progbrightness}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{progbrightness.png}
+\caption{Décharge observée lors d'une augmentation progressive de la luminosité pendant 2mn.}
+\label{progbrightness}
+\end{figure}
+
+Ces observations montrent que la mesure logicielle du \textsc{Samsung j3} demeure utilisable (on a effectivement une hausse de consommation lorsqu'on augmente la luminosité). Il convient toutefois de considérer un niveau de confiance plus bas pour la sonde logicielle. 
+
+\subsubsection{Comportement et fiabilité de la sonde physique}
+\paragraph{Affichage des mesures} La mesure physique présente des courbes certainement moins lisibles (fig. ~\ref{affichageAH}), en raison de pics parasites \footnote{ou pas ?}, mais aussi d'une fréquence de mise à jour permettant d'enregistrer une valeur différente à chaque point (contrairement à la sonde logicielle). Dans tous les cas, la sonde physique ne présente pas le comportement en paliers observé avec la sonde logicielle.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{affichageAH.png}
+\caption{Affichage de la mesure physique. Étape de référence.}
+\label{affichageAH}
+\end{figure}
+
+\paragraph{Comportement de la sonde physique}
+Au niveau de la décharge totale, la sonde physique présente des valeurs globalement stables sur l'ensemble des étapes de test (fig.~\ref{dechargetotale}).
+
+\begin{figure}[H]
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{dechargetotale.png}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{dechargetotale2.png}
+  \end{minipage}
+\caption{Décharge totale des sondes sur l'étape de référence et idle au premier plan.}
+\label{dechargetotale}
+\end{figure}
+
+
+
+
+On a cherché à comparer les comportement de la sonde physique et des sondes logicielles d'autres appareils (\textsc{Nexus 6} et \textsc{Samsung Galaxy}). La sonde physique fournit un classement des étapes (ordonnées par consommation, fig.~\ref{classement}) similaire autres téléphones, alors que la sonde logicielle présente des différences plus importantes — par exemple, l'étape de chargement consomme moins que l'étape idle en arrière plan. On observe même des cas où l'étape de chargement est celle qui consomme le moins.
+
+\begin{figure}[H]
+  \begin{minipage}{0.22\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{benchmark_sonde_galaxy.png}
+  \end{minipage}
+  \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{benchmark_sonde_nexus.png}
+  \end{minipage}
+  \begin{minipage}{0.24\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{benchmark_sonde_physique_j3.png}
+  \end{minipage}
+    \begin{minipage}{0.26\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{benchmark_sonde_logicielle_j3.png}
+  \end{minipage}
+\caption{Classement des étapes de test par ordre décroissant de consommation. Dans l'ordre : \textsc{Samsung Galaxy}, \textsc{Nexus 6}, \textsc{Samsung j3} (sonde physique), \textsc{Samsung j3} (sonde logicielle).}
+\label{classement}
+\end{figure}
+
+\subsection{Conclusion.s}
+Les mesures réalisées à l'aide du dispositif hardware permettent de tirer plusieurs conclusions :
+\begin{itemize}[noitemsep]
+\item La sonde logicielle du \textsc{Samsung j3} ne semble pas assez fiable pour obtenir des résultats précis sur la consommation d'énergie du téléphone. Elle peut cependant être utile pour avoir une idée, un ordre de grandeur de cette consommation sur ce type d'appareil. 
+\item Au vu des résultats de mesure physique, on peut affirmer que la sonde est plus fiable que la sonde logicielle. Dans le cas du \textsc{Samsung j3}, le dispositif hardware pourra venir complémenter la mesure logicielle en apportant plus de précision. Si le montage est adaptable, il conviendrait d'effectuer des mesures physiques sur d'autres appareils afin de préciser le niveau de fiabilité de la sonde.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Travail restant}
+\subsection{Montage}
+Avant d'envisager une éventuelle industrialisation du dispositif, il convient de le rendre plus stable. En effet, le prototype utilisé pour l'étude est fragile : les connecteurs côté batterie perdent le contact de temps en temps, et côté téléphone, le bout de plastique qui tient le connecteur est très instable, si bien qu'il n'est pas possible de déplacer normalement le téléphone sans qu'il ne s'éteigne.
+Des socles imprimés en 3D sont envisageables (selon les appareils) afin de stabiliser les points de contact, comme sur la figure~\ref{dummybattery}.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{dummybattery.png}
+\caption{Exemple de "dummy battery" 3D, à placer à la place de la batterie. La batterie pourra être placée dans un socle 3D.}
+\label{dummybattery}
+\end{figure}
+
+\bigskip Il faudra également adapter le dispositif pour d'autres téléphones. Pour cette étude on a utilisé un \textsc{Samsung j3} car sa batterie se retire facilement, et les points de contact électrique sont relativement accessibles. Ce n'est pas le cas de tous les appareils, il conviendra donc de réfléchir à la mise en place – accès à la batterie, ouverture, types de connecteurs – d'un tel dispositif sur des téléphones plus difficiles à manipuler.
+
+\subsection{Intégration}
+La fonctionnalité de mesure physique est implémentée seulement dans le \textsc{test runner} pour l'instant. Si on veut l'intégrer dans le \textsc{testbench agent}, il faudra réfléchir à un certain nombre de questions – combien de sondes sur le même PC ? comment l'agent sait que la sonde est activée ? tous les agents vont-ils avoir une sonde ? — qui n'ont pas été traitées lors de l'implémentation dans le \textsc{test runner}.
+
+\subsection{Interface \textsc{Greenspector}}
+Au niveau du front, il faudra harmoniser l'affichage des mesures, en incluant notamment l'unité. De plus on pourra renommer les métriques \code{AH\_HARD} et \code{AH\_HARD/s} afin de les rendre plus compréhensibles par l'utilisateur de l'outil.
+
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
