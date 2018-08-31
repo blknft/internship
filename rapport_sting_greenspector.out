@@ -23,26 +23,35 @@
 \BOOKMARK [2][-]{subsection.chX.3.2}{testrunner}{section.chX.3}% 23
 \BOOKMARK [1][-]{section.chX.4}{Adaptation du dispositif}{chapter*.10}% 24
 \BOOKMARK [1][-]{section.chX.5}{Analyse des r\351sultats}{chapter*.10}% 25
-\BOOKMARK [0][-]{chapter*.23}{\311tude de faisabilit\351 iOS}{}% 26
-\BOOKMARK [1][-]{section.chXX.1}{Introduction}{chapter*.23}% 27
-\BOOKMARK [1][-]{section.chXX.2}{Cadre}{chapter*.23}% 28
+\BOOKMARK [0][-]{chapter*.24}{\311tude de faisabilit\351 iOS}{}% 26
+\BOOKMARK [1][-]{section.chXX.1}{Introduction}{chapter*.24}% 27
+\BOOKMARK [1][-]{section.chXX.2}{Cadre}{chapter*.24}% 28
 \BOOKMARK [2][-]{subsection.chXX.2.1}{Appareil}{section.chXX.2}% 29
 \BOOKMARK [2][-]{subsection.chXX.2.2}{Sonde physique}{section.chXX.2}% 30
 \BOOKMARK [2][-]{subsection.chXX.2.3}{Technologies utilis\351es}{section.chXX.2}% 31
-\BOOKMARK [1][-]{section.chXX.3}{Tests automatis\351s}{chapter*.23}% 32
+\BOOKMARK [1][-]{section.chXX.3}{Tests automatis\351s}{chapter*.24}% 32
 \BOOKMARK [2][-]{subsection.chXX.3.1}{Premiers essais : libimobiledevice et ios-deploy}{section.chXX.3}% 33
 \BOOKMARK [2][-]{subsection.chXX.3.2}{Vers la solution : WebDriverAgent}{section.chXX.3}% 34
 \BOOKMARK [2][-]{subsection.chXX.3.3}{\311criture de scripts de benchmark}{section.chXX.3}% 35
-\BOOKMARK [1][-]{section.chXX.4}{Impl\351mentation dans go-testapi et testrunner}{chapter*.23}% 36
+\BOOKMARK [1][-]{section.chXX.4}{Impl\351mentation dans go-testapi et testrunner}{chapter*.24}% 36
 \BOOKMARK [2][-]{subsection.chXX.4.1}{go-testapi}{section.chXX.4}% 37
 \BOOKMARK [2][-]{subsection.chXX.4.2}{testrunner}{section.chXX.4}% 38
-\BOOKMARK [1][-]{section.chXX.5}{Ajout de m\351triques suppl\351mentaires}{chapter*.23}% 39
-\BOOKMARK [0][-]{chapter*.31}{T\342ches suppl\351mentaires}{}% 40
-\BOOKMARK [1][-]{section.chXXX.1}{Benchmark web Android : mesure de r\351f\351rence}{chapter*.31}% 41
-\BOOKMARK [1][-]{section.chXXX.2}{Calibration Samsung Galaxy S9}{chapter*.31}% 42
-\BOOKMARK [0][-]{appendix.A}{Tableau de bord : exemple d'analyse du site de l'\311cole Centrale de Nantes}{}% 43
-\BOOKMARK [0][-]{appendix.B}{Int\351gration de la mesure physique dans testrunner}{}% 44
-\BOOKMARK [0][-]{appendix.C}{Scripts de tests automatis\351s sur iOS}{}% 45
-\BOOKMARK [1][-]{section.anX.1}{Benchmark web}{appendix.C}% 46
-\BOOKMARK [1][-]{section.anX.2}{Benchmark d'application}{appendix.C}% 47
-\BOOKMARK [0][-]{appendix*.37}{Bibliographie}{}% 48
+\BOOKMARK [1][-]{section.chXX.5}{Ajout de m\351triques suppl\351mentaires}{chapter*.24}% 39
+\BOOKMARK [2][-]{subsection.chXX.5.1}{Application sondeiOS}{section.chXX.5}% 40
+\BOOKMARK [2][-]{subsection.chXX.5.2}{R\351cup\351ration des r\351sultats}{section.chXX.5}% 41
+\BOOKMARK [2][-]{subsection.chXX.5.3}{Probl\351matique du fonctionnement en arri\350re plan}{section.chXX.5}% 42
+\BOOKMARK [1][-]{section.chXX.6}{Mesure physique}{chapter*.24}% 43
+\BOOKMARK [0][-]{chapter*.34}{T\342ches suppl\351mentaires}{}% 44
+\BOOKMARK [1][-]{section.chXXX.1}{Benchmark web Android : mesure de r\351f\351rence}{chapter*.34}% 45
+\BOOKMARK [1][-]{section.chXXX.2}{Calibration Samsung Galaxy S9}{chapter*.34}% 46
+\BOOKMARK [0][-]{chapter*.36}{Conclusion}{}% 47
+\BOOKMARK [1][-]{section.conclusion.1}{Bilan des t\342ches r\351alis\351es}{chapter*.36}% 48
+\BOOKMARK [1][-]{section.conclusion.2}{Difficult\351s rencontr\351es}{chapter*.36}% 49
+\BOOKMARK [1][-]{section.conclusion.3}{Bilan personnel}{chapter*.36}% 50
+\BOOKMARK [0][-]{appendix.A}{Tableau de bord : exemple d'analyse du site de l'\311cole Centrale de Nantes}{}% 51
+\BOOKMARK [0][-]{appendix.B}{Int\351gration de la mesure physique dans testrunner}{}% 52
+\BOOKMARK [0][-]{appendix.C}{Scripts de tests automatis\351s sur iOS}{}% 53
+\BOOKMARK [1][-]{section.anX.1}{Benchmark web}{appendix.C}% 54
+\BOOKMARK [1][-]{section.anX.2}{Benchmark d'application}{appendix.C}% 55
+\BOOKMARK [0][-]{appendix.D}{Rapport de calibration du Samsung Galaxy S9}{}% 56
+\BOOKMARK [0][-]{appendix*.40}{Bibliographie}{}% 57

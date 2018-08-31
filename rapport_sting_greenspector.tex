@@ -4,6 +4,7 @@
 \usepackage{lmodern,textcomp, graphicx}
 \graphicspath{{images/}}
 \usepackage[french]{babel}
+\usepackage{pdfpages}
 \usepackage{cmap}
 \usepackage{enumitem} % pour g√©rer l'apparence des listes
 \usepackage{float} % pour placer les images √†¬† l'endroit o√π elles sont d√©finies dans le code LaTeX
@@ -11,7 +12,7 @@
 \usepackage{hyperref}
 \usepackage{minted}
 \usepackage{listings} % pour afficher du code source
-\usepackage[svgnames]{xcolor} % pour utiliser les couleurs
+%\usepackage[svgnames]{xcolor} % pour utiliser les couleurs
 \usepackage[hang, small, labelfont=bf, up, textfont=it, up]{caption}
 \usepackage{titling}
 \usepackage[official]{eurosym}
@@ -318,6 +319,7 @@ Il m'a également été demandé de travailler sur d'autres tâches moins conséquente
 \renewcommand*{\theHsection}{chX.\the\value{section}}
 
 \section{Introduction : à propos de la mesure logicielle de consommation énergétique}
+\label{introcalib}
 
 À mon arrivée chez \entreprise{}, j'ai pu prendre connaissance des moyens mis en oeuvre pour mesurer la consommation d'énergie d'une application sur les appareils Android. 
 
@@ -393,7 +395,7 @@ Le \code{testrunner} est un module  également codé en \code{go} qui permet à l'u
 Son rôle est de faire la correspondance entre des paramètres en ligne de commande (issus de fichiers de configuration), et les fonctions de l'API pour lancer des tests (standard URL, standard APK, custom APK).
 
 \subsubsection{\code{test-bench-launcher-android}}
-\code{test-bench-launcher-android} est une application Android écrite en \code{Java}. Elle est notamment lancée par \code{go-testapi}, avec les arguments nécessaires à son fonctionnement. De plus, elle définit les scénarios des tests standards automatisés. Les méthodes permettant l'interaction avec l'écran du téléphone testé sont également contenues dans \code{test-bench-launcher-android}, et utilisent le framework de test \code{UIAutomator}. 
+\code{test-bench-launcher-android} est une application Android écrite en \code{Java}. Elle est notamment lancée par \code{go-testapi}, avec les arguments nécessaires à son fonctionnement. Elle définit les scénarios des tests standards automatisés. Les méthodes permettant l'interaction avec l'écran du téléphone testé sont également contenues dans \code{test-bench-launcher-android}, et utilisent le framework de test \code{UIAutomator}. 
 
 \subsection{Spécification}
 Avant le début du développement de la fonctionnalité, une spécification m'a été fournie par le scrum master. La fonctionnalité doit répondre aux exigences suivantes :
@@ -616,18 +618,25 @@ Le fichier principal appelle la méthode \code{LaunchTestRunnerJob} du package \c
 
 
 \section{Adaptation du dispositif}
-Comme évoqué dans le paragraphe \ref{presentationmodulephy}, il a fallu adapter la sonde physique dans le but de mesurer la consommation d'énergie sur mobile. L'idée est de placer le shunt entre le téléphone et la batterie et de mesurer le courant sortant de cette dernière vers l'appareil.  
+Comme évoqué dans le paragraphe \ref{presentationmodulephy}, il a fallu adapter la sonde physique dans le but de mesurer la consommation d'énergie sur mobile. L'idée est de placer le shunt entre le téléphone et la batterie et de mesurer le courant sortant de cette dernière vers l'appareil (figure \ref{montagehwschema}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{mesure_physique/schemahwj3.png}
+\caption{Schéma du montage de mesure physique}
+\label{montagehwschema}
+\end{figure}
 
 Pour cette tâche, nous avons choisi d'utiliser un \textbf{Samsung Galaxy J3} car sa batterie est facilement accessible.
 
 \bigskip La figure \ref{connecteurs} présente les connecteurs que nous avons utilisés. Ces connecteurs établissent le contact entre les bornes de la batterie et les fils électriques d'un côté, ainsi qu'entre le téléphone et les fils de l'autre.
 
-Nous avons soudé les fils électriques à chaque borne des connecteurs. De chaque côté, les bornes + et - sont reliées au shunt, de sorte que ce dernier est placé entre la batterie et le téléphone. Chacune des bornes restantes du côté de la batterie relie la borne correspondante du côté du mobile grâce un fil, sans passer par le shunt.
+Nous avons soudé les fils électriques à chaque borne des connecteurs. De chaque côté, les bornes + et - sont reliées au shunt, de sorte que ce dernier est placé entre la batterie et le téléphone. Chacune des bornes restantes du côté de la batterie relie la borne correspondante du côté du mobile grâce un fil, sans passer par le shunt\footnote{Bien que fonctionnel, le montage complet est très bricolé ; je doute qu'il soit compréhensible avec une photo. Pour présenter un montage plus clair, j'ai choisi de montrer celui que nous avons réalisé sur iPhone (). }.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{mesure_physique/connecteursbatt.png}
-\caption{Connecteurs batterie}
+\includegraphics[width=0.6\textwidth]{mesure_physique/montagehwj3.JPG}
+\caption{Connecteurs \textbf{Samsung Galaxy J3}}
 \label{connecteurs}
 \end{figure}
 
@@ -908,7 +917,7 @@ type JobLauncher interface {
 
 La structure \code{IosJobLauncher} — qui contient un \code{device} et un \code{measureLauncher} (pour déclencher la mesure physique) — implémente l'interface \code{JobLauncher}. L'algorithme général de l'implémentation des méthodes de \code{JobLauncher} se présente comme suit :
 \begin{itemize}[noitemsep]
-\item Lancement de \code{WebDriverAgent} sur l'appareil
+\item Lancement de \code{WebDriverAgent} sur l'appareil via une ligne de commande
 \item Démarrage de la mesure physique
 \item Déroulement des tests sur une ou plusieurs itérations\footnote{On note que dans le cas d'un benchmark d'application, l'installation et la désinstallation ne sont pas effectuées à chaque itération mais seulement avant et après l'exécution de tous les tests.}
 \item Arrêt de la mesure physique
@@ -978,6 +987,95 @@ J'ai ensuite travaillé sur \code{testrunner} pour créer les objets nécessaires a
 
 \section{Ajout de métriques supplémentaires}
 Pour la suite de l'étude, j'ai été chargé de trouver des solutions pour remonter des métriques de performance (CPU, mémoire...) des appareils iOS pendant les tests.
+
+
+\subsection{Application \code{sondeiOS}}
+J'ai créé un projet \textbf{Xcode} pour implémenter une sonde logicielle permettant de remonter ces métriques. Les fonctions qui calculent ces grandeurs proviennent d'un projet que j'ai trouvé sur github (\url{https://github.com/beltex/SystemKit/}). Écrites initialement en \code{Objective-C}, je les ai légèrement adaptées pour \code{Swift}. Elles utilisent \code{I/O Kit}, un framework privé d'Apple. J'ai suivi un tutoriel en ligne pour pouvoir inclure ce framework dans mon projet\footnote{Apple peut refuser la mise en ligne d'une application sur l'App Store en raison de l'utilisation de \code{I/O Kit} dans le projet. Cependant ce n'est pas notre but ici.}.
+
+\subsubsection{Principe}
+La sonde est conçue pour fonctionner en arrière-plan pendant les tests, comme les sondes logicielles Android. Le principe est le suivant : 
+\begin{itemize}[noitemsep]
+\item Après lancement, rien ne se passe tant qu'on ne met pas l'application en tâche de fond.
+\item Une fois en arrière-plan, la sonde mesure toutes les 200ms et stocke les données dans un tableau.
+\item Lorsqu'on clique à nouveau sur l'application, un fichier JSON est créé avec les données stockées. Ce fichier est enregistré dans un répertoire de l'application.
+\item Si on repasse en arrière-plan, les données et le fichier JSON sont effacés et la mesure recommence.
+\end{itemize}
+
+Le but est de démarrer la sonde (lancer l'application puis la mettre en arrière plan) en début de test et de l'arrêter (en revenant sur l'écran de l'application) après l'exécution.
+
+\subsubsection{Métriques}
+L'application sonde permet de remonter deux métriques de performance : l'utilisation CPU et mémoire. Je précise que je n'ai pas pu vérifier la pertinence des valeurs calculées par la sonde, je ne suis donc pas sur qu'elles correspondent à la réalité. 
+
+\subsection{Récupération des résultats}
+\code{ios-deploy} ne permet pas de télécharger le répertoire d'une application lorsque l'appareil est connecté en Wi-Fi, ce qui pose une difficulté pour la réalisation de cette tâche. Dans le but de développer un outil fonctionnel, j'ai entrepris de contourner le problème par l'utilisation du câble USB de l'appareil. Cette solution est peu commode pour l'utilisateur, qui doit intervenir pendant l'exécution du \code{testrunner}, mais elle permet d'avoir des métriques supplémentaires.
+
+\bigskip Pour cela j'ai créé une méthode \code{GetProbeResults} dans l'interface \code{Device} (projet \code{go-testapi}). L'implémentation de cette méthode par \code{IosDevice} (figure \ref{getproberesults}) demande à l'utilisateur de brancher l'appareil avec son câble USB et d'appuyer sur Entrée, puis appelle \code{ios-deploy} pour télécharger les résultats. Ces derniers sont stockés puis renvoyés (pour être fusionnés ou non aux résultats de la sonde physique) une fois que le fichier a été supprimé du répertoire de la sonde. 
+
+\begin{figure}[H]
+\centering
+\begin{minted}[frame=single, breaklines]{go}
+func (device *IosDevice) GetProbeResults() ([]common.MeasureTick, error) {
+	// Wait device
+	logger.Infoln("Please connect device USB cable and press Enter...")
+	var input string
+	fmt.Scanln(&input)
+	time.Sleep(3 * time.Second)
+
+	// Download probe files
+	args := []string{"-i", device.Config.UDID, "-w", "-1", "com.greenspector.sondeiOS", "-2", "~/.iOSProbeMeasures"}
+	cmd := exec.Command(device.Config.PathToIosDeploy, args...)
+	err := cmd.Run()
+	...
+
+	// Reach the json files which contain the probe results
+	documentsDirectory, err := ioutil.ReadDir("~/.iOSProbeMeasures/Documents/")
+	...
+	file := documentsDirectory[0]
+	jsonFile, err := os.Open("~/.iOSProbeMeasures/Documents/" + file.Name())
+	...
+	jsonByte, _ := ioutil.ReadAll(jsonFile)
+	var measures []common.MeasureTick
+	json.Unmarshal([]byte(jsonByte), &measures)
+	jsonFile.Close()
+
+	// Deleting the app data
+	err = os.RemoveAll("~/.iOSProbeMeasures/")
+	...
+
+	// Closing probe
+	... 
+
+	return measures, nil
+}
+\end{minted}
+\caption{Méthode \code{GetProbeResults}}
+\label{getproberesults}
+\end{figure}
+
+J'ai fait en sorte d'initier le téléchargement des résultats de la sonde une fois toutes les itérations de test terminées. En effet il aurait été contraignant pour l'utilisateur d'avoir à brancher/débrancher le câble à chaque itération.
+
+\subsection{Problématique du fonctionnement en arrière plan}
+Je me suis heurté à un autre problème lors du développement. J'ai remarqué que pour un test long (plus de 2 itérations), les résultats de la sonde ne s'étendaient pas sur toute la durée du test, ce qui empêchait la construction des résultats finaux. 
+
+\bigskip Ce problème provient d'une restriction d'Apple sur le fonctionnement en arrière plan des applications iOS. Une application ne peut pas tourner indéfiniment en arrière plan, elle est forcément interrompue au bout d'un certain temps, afin de préserver la durée de vie de la batterie. Il existe des exceptions pour des cas très précis (GPS, lecture audio...) qui ne correspondent pas à l'utilisation de notre sonde. Ceci pose une difficulté importante d'autant plus que le temps d'exécution en arrière-plan varie. 
+
+En exécutant la sonde sur l'appareil via \textbf{Xcode}, on peut contourner le problème : Apple est moins restrictif pour ces cas d'utilisation en développement. Cette solution est contraignante pour l'utilisateur puisqu'elle nécessite à nouveau son intervention mais aussi le projet \textbf{Xcode} de la sonde. Cependant, seulement un lancement est nécessaire (avant toute exécution de test). L'exécution des tests suivants ne nécessite pas de refaire la manipulation, tant que \textbf{Xcode}  est lié à l'appareil.
+
+\section{Mesure physique}
+À la fin de mon stage, nous avons adapté le dispositif de mesure physique à la mesure sur iPhone. Pour cela j'ai ouvert l'appareil et retiré sa batterie, puis nous avons soudé des fils directement à l'appareil pour les connecter au boitier. Côté batterie, le contact électrique est assuré par des pinces. La figure \ref{montagehwios} présente le montage complet.
+
+\paragraph{Difficultés rencontrées}
+À l'intérieur de l'appareil, les connecteurs batterie sont vraiment petits et peu accessibles, ce qui a posé des problèmes. Lors de la première tentative, l'iPhone chauffait et ne s'allumait pas : nous avions probablement endommagé des circuits lors de l'étape de soudure, ou monté la batterie à l'envers. Nous avons réitéré l'opération sur un autre appareil. Ce dernier s'allumait, cependant il redémarrait sans cesse et présentait des niveaux de batterie incohérent. Nous avons probablement une nouvelle fois endommagé l'appareil, qui redémarre pour des raisons de sécurité.      
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{mesure_physique/montagehwios.JPG}
+\caption{Dispositif de mesure physique sur \textbf{iPhone 7}}
+\label{montagehwios}
+\end{figure}
+
+
+
    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -999,29 +1097,38 @@ La mesure de référence pour les tests de page web était basée sur l'écran d'accu
 \includegraphics[width=0.3\textwidth]{reference/chromebrowser.png}
 \end{figure}
 
-Pour cela j'ai ajouté deux lignes à la méthode qui effectue les différentes étapes du test automatisé, juste avant l'étape de référence (figure \ref{blank}).
-
-\begin{figure}[H]
-\centering
-\begin{minted}[frame=single]{java}
-try {
-	this.device.wait(10000);
-	if (testName.equals("initial")) {
-		this.device.goToUrlInBrowser("about:blank");
-		this.device.pressKey(KeyEvent.KEYCODE_ENTER);
-		runReferenceMeasure("url");
-	}
-} 
-\end{minted}
-\caption{Page web blanche pour la mesure de référence}
-\label{blank}
-\end{figure}
-
-
- 
+Pour cela j'ai ajouté deux lignes au code la méthode qui effectue les différentes étapes du test automatisé, juste avant l'étape de référence. Ces deux lignes permettent d'écrire \code{about:blank} dans la barre du navigateur, et d'appuyer sur la touche Entrée.
 
 \section{Calibration \textsc{Samsung Galaxy S9}}
+J'ai été chargé de suivre le processus décrit dans l'\hyperref[introcalib]{introduction sur la mesure logicielle} à la réception d'un \textbf{Samsung Galaxy S9}. 
 
+\bigskip J'ai trouvé dans les fichiers système une grandeur de courant satisfaisante. Pour l'implémentation de la sonde logicielle, il a simplement fallu créer une classe fille de \code{AmpereSensor} (la classe des sondes qui mesurent le courant) dans le projet \code{sonde-android}, en précisant le fichier utilisé.
+
+Ensuite il a fallu installer la sonde sur l'appareil et lancer un script de calibration, qui se charge de mesurer la consommation énergétique tous les 10\% de batterie. Les mesures résultantes m'ont permis d'écrire un rapport de calibration dans lequel figure le détail des mesures ainsi qu'un niveau de confiance pour la sonde logicielle (annexe \ref{sec:rapportcalib}). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\chapter*{Conclusion}
+\label{chap:conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+\setcounter{footnote}{0}
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{conclusion.\the\value{section}}
+
+\section{Bilan des tâches réalisées}
+Mon stage avait pour objectif principal de creuser certains sujets pour étendre l'outil \logiciel{}. J'ai tout d'abord réalisé l'implémentation du dispositif de mesure physique sur mobile Android, puis j'ai étudié de façon un peu plus large la problématique iOS. Enfin, j'ai pu progresser sur certaines tâches qui m'ont permis d'explorer davantage l'écosystème \logiciel{}.
+
+\section{Difficultés rencontrées}
+Au début du stage j'ai eu des difficultés à identifier clairement l'outil et son usage. Au fil du temps j'ai pu le prendre en main et mieux me l'approprier. Également, j'ai eu du mal à comprendre le fonctionnement de la solution : l'écosystème \logiciel{} présente une multitude de projets, différentes technologies et différents langages, ce qui n'a pas été évident d'appréhender. Aujourd'hui, bien que je ne sois pas familier avec tous les projets, j'ai réussi à identifier le fonctionnement global et les fonctions des différents projets. 
+
+Sur la tâche de développement iOS, j'avançais seul sur un sujet que l'entreprise ne maîtrisait pas. Je profitais de conseils généraux (et précieux !) de la part de l'équipe, mais c'était difficile d'avoir de l'aide sur des problématiques un peu plus précises. Cependant cette tâche représentait un beau défi et je suis satisfait du travail que j'ai réalisé.  
+
+\section{Bilan personnel}
+J'ai trouvé ce stage chez \entreprise{} très enrichissant, tout d'abord d'un point de vue technique. En effet j'ai pu apprendre un nouveau langage de programmation (\code{Go}), m'initier au développement iOS, et consolider mes connaissances avec \code{git} sur des cas concrets. J'ai pu prendre connaissance de certains concepts et pratiques de développement qui me permettront sans doute d'être plus à l'aise pour mes expériences futures dans le secteur. Je n'ai pas été directement confronté à certaines problématiques de l'édition logicielle, notamment l'intégration continue et le déploiement, et c'est mon unique regret. Mes aventures inattendues en électronique étaient aussi intéressantes. 
+
+\bigskip Je tire également un très bon bilan de ce stage d'un point de vue professionnel, puisque j'ai vécu une première immersion dans une start up, ce qui m'était complètement inconnu jusqu'à présent. C'était également ma première expérience chez un éditeur de logiciel. J'ai pris conscience de certains enjeux importants du secteur (autres que le développement), notamment les enjeux commercial et marketing.
+
+\bigskip Enfin j'ai beaucoup aimé m'intégrer au sein de l'équipe \entreprise{}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
@@ -1054,7 +1161,6 @@ try {
 \chapter{Intégration de la mesure physique dans \code{testrunner}}
 \label{sec:testrunnerhw}
 \renewcommand*{\theHsection}{anXX.\the\value{section}}
-
 
 
 \begin{minted}[breaklines]{go}
@@ -1148,7 +1254,6 @@ func LaunchTestRunnerJob(UsbHub usbhub.UsbHub, controllerConfig controller.Seria
 	return results.HandleResults(job, jobResult)
 }
 \end{minted}
-
 
 \newpage
 \chapter{Scripts de tests automatisés sur iOS}
@@ -1267,6 +1372,13 @@ UNINSTALL=$(ios-deploy --uninstall_only --bundle_id $BUNDLE_ID)
 
 echo 'Terminé'
 \end{minted}
+
+\newpage
+\chapter{Rapport de calibration du Samsung Galaxy S9}
+\label{sec:rapportcalib}
+\renewcommand*{\theHsection}{anXXL.\the\value{section}}
+
+\includepdf[pages={1-2}]{rapport_Calibration_S9.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

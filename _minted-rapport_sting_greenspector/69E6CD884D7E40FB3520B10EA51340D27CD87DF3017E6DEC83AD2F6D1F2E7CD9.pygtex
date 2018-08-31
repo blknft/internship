@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{func} \PYG{p}{(}\PYG{n+nx}{device} \PYG{o}{*}\PYG{n+nx}{IosDevice}\PYG{p}{)} \PYG{n+nx}{GetProbeResults}\PYG{p}{()} \PYG{p}{([]}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{MeasureTick}\PYG{p}{,} \PYG{k+kt}{error}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{c+c1}{// Wait device}
+	\PYG{n+nx}{logger}\PYG{p}{.}\PYG{n+nx}{Infoln}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Please connect device USB cable and press Enter...\PYGZdq{}}\PYG{p}{)}
+	\PYG{k+kd}{var} \PYG{n+nx}{input} \PYG{k+kt}{string}
+	\PYG{n+nx}{fmt}\PYG{p}{.}\PYG{n+nx}{Scanln}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n+nx}{input}\PYG{p}{)}
+	\PYG{n+nx}{time}\PYG{p}{.}\PYG{n+nx}{Sleep}\PYG{p}{(}\PYG{l+m+mi}{3} \PYG{o}{*} \PYG{n+nx}{time}\PYG{p}{.}\PYG{n+nx}{Second}\PYG{p}{)}
+
+	\PYG{c+c1}{// Download probe files}
+	\PYG{n+nx}{args} \PYG{o}{:=} \PYG{p}{[]}\PYG{k+kt}{string}\PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZdq{}\PYGZhy{}i\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{device}\PYG{p}{.}\PYG{n+nx}{Config}\PYG{p}{.}\PYG{n+nx}{UDID}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZhy{}w\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZhy{}1\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}com.greenspector.sondeiOS\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZhy{}2\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZti{}/.iOSProbeMeasures\PYGZdq{}}\PYG{p}{\PYGZcb{}}
+	\PYG{n+nx}{cmd} \PYG{o}{:=} \PYG{n+nx}{exec}\PYG{p}{.}\PYG{n+nx}{Command}\PYG{p}{(}\PYG{n+nx}{device}\PYG{p}{.}\PYG{n+nx}{Config}\PYG{p}{.}\PYG{n+nx}{PathToIosDeploy}\PYG{p}{,} \PYG{n+nx}{args}\PYG{o}{...}\PYG{p}{)}
+	\PYG{n+nx}{err} \PYG{o}{:=} \PYG{n+nx}{cmd}\PYG{p}{.}\PYG{n+nx}{Run}\PYG{p}{()}
+	\PYG{o}{...}
+
+	\PYG{c+c1}{// Reach the json files which contain the probe results}
+	\PYG{n+nx}{documentsDirectory}\PYG{p}{,} \PYG{n+nx}{err} \PYG{o}{:=} \PYG{n+nx}{ioutil}\PYG{p}{.}\PYG{n+nx}{ReadDir}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZti{}/.iOSProbeMeasures/Documents/\PYGZdq{}}\PYG{p}{)}
+	\PYG{o}{...}
+	\PYG{n+nx}{file} \PYG{o}{:=} \PYG{n+nx}{documentsDirectory}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+	\PYG{n+nx}{jsonFile}\PYG{p}{,} \PYG{n+nx}{err} \PYG{o}{:=} \PYG{n+nx}{os}\PYG{p}{.}\PYG{n+nx}{Open}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZti{}/.iOSProbeMeasures/Documents/\PYGZdq{}} \PYG{o}{+} \PYG{n+nx}{file}\PYG{p}{.}\PYG{n+nx}{Name}\PYG{p}{())}
+	\PYG{o}{...}
+	\PYG{n+nx}{jsonByte}\PYG{p}{,} \PYG{n+nx}{\PYGZus{}} \PYG{o}{:=} \PYG{n+nx}{ioutil}\PYG{p}{.}\PYG{n+nx}{ReadAll}\PYG{p}{(}\PYG{n+nx}{jsonFile}\PYG{p}{)}
+	\PYG{k+kd}{var} \PYG{n+nx}{measures} \PYG{p}{[]}\PYG{n+nx}{common}\PYG{p}{.}\PYG{n+nx}{MeasureTick}
+	\PYG{n+nx}{json}\PYG{p}{.}\PYG{n+nx}{Unmarshal}\PYG{p}{([]}\PYG{n+nb}{byte}\PYG{p}{(}\PYG{n+nx}{jsonByte}\PYG{p}{),} \PYG{o}{\PYGZam{}}\PYG{n+nx}{measures}\PYG{p}{)}
+	\PYG{n+nx}{jsonFile}\PYG{p}{.}\PYG{n+nx}{Close}\PYG{p}{()}
+
+	\PYG{c+c1}{// Deleting the app data}
+	\PYG{n+nx}{err} \PYG{p}{=} \PYG{n+nx}{os}\PYG{p}{.}\PYG{n+nx}{RemoveAll}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZti{}/.iOSProbeMeasures/\PYGZdq{}}\PYG{p}{)}
+	\PYG{o}{...}
+
+	\PYG{c+c1}{// Closing probe}
+	\PYG{o}{...}
+
+	\PYG{k}{return} \PYG{n+nx}{measures}\PYG{p}{,} \PYG{k+kc}{nil}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
