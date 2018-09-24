@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.31)  31 AUG 2018 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.17)  24 SEP 2018 07:33
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -836,7 +836,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<images/greenspector_pres.jpg, id=234, 1284.8pt x 722.7pt>
+<images/greenspector_pres.jpg, id=254, 1284.8pt x 722.7pt>
 File: images/greenspector_pres.jpg Graphic file (type jpg)
 <use images/greenspector_pres.jpg>
 Package pdftex.def Info: images/greenspector_pres.jpg  used on input line 47.
@@ -869,12 +869,12 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 65.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 65.
-<images/ecnlogo.png, id=239, 469.755pt x 277.035pt>
+<images/ecnlogo.png, id=259, 469.755pt x 277.035pt>
 File: images/ecnlogo.png Graphic file (type png)
 <use images/ecnlogo.png>
 Package pdftex.def Info: images/ecnlogo.png  used on input line 79.
 (pdftex.def)             Requested size: 152.36714pt x 89.85776pt.
-<images/greenspector_logo.jpg, id=240, 420.57124pt x 115.43124pt>
+<images/greenspector_logo.jpg, id=260, 420.57124pt x 115.43124pt>
 File: images/greenspector_logo.jpg Graphic file (type jpg)
 <use images/greenspector_logo.jpg>
 Package pdftex.def Info: images/greenspector_logo.jpg  used on input line 83.
@@ -888,11 +888,11 @@ or_logo.jpg>]pdfTeX warning (ext4): destination with the same identifier (name{
 page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.103 \newpage
+l.105 \newpage
                [1
 
 ] (./rapport_sting_greenspector.toc
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 37.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 38.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -900,7 +900,7 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 88.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 97.
 )
 \tf@toc=\write7
 \openout7 = `rapport_sting_greenspector.toc'.
@@ -912,84 +912,84 @@ Overfull \hbox (9.29655pt too wide) in paragraph at lines 15--15
 ns le pro-gramme prin-ci-pal du \T1/lmtt/m/n/12 testrunner[] [][]  
  []
 
-)
+[4
+
+])
 \tf@lof=\write8
 \openout8 = `rapport_sting_greenspector.lof'.
 
- [4
-
-] [5
+ [5] [6
 
 ]
-Overfull \hbox (5.06656pt too wide) in paragraph at lines 133--134
+Overfull \hbox (5.06656pt too wide) in paragraph at lines 135--136
 []\T1/lmr/m/n/12 Entre 2010 et 2014, \T1/lmr/m/sc/12 Ka-li-Terre \T1/lmr/m/n/12
  fi-nance sur fonds propres ses pro-jets de R&D sur l'éco-conception,
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 140.
+(Font)              <10> on input line 142.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 140.
+(Font)              <7> on input line 142.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 140.
-[6
+(Font)              <5> on input line 142.
+[7
 
-] [7
+] [8
 
 ]
-<images/architecture/Cloud.png, id=424, 1157.32375pt x 813.0375pt>
+<images/architecture/Cloud.png, id=474, 1157.32375pt x 813.0375pt>
 File: images/architecture/Cloud.png Graphic file (type png)
 <use images/architecture/Cloud.png>
-Package pdftex.def Info: images/architecture/Cloud.png  used on input line 191.
+Package pdftex.def Info: images/architecture/Cloud.png  used on input line 196.
 
 (pdftex.def)             Requested size: 507.88533pt x 356.79475pt.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 192.
+(Font)              using `T1/lmr/bx/n' instead on input line 197.
 
-<images/architecture/On_Premises.png, id=426, 1136.245pt x 813.0375pt>
+<images/architecture/On_Premises.png, id=476, 1136.245pt x 813.0375pt>
 File: images/architecture/On_Premises.png Graphic file (type png)
 <use images/architecture/On_Premises.png>
 Package pdftex.def Info: images/architecture/On_Premises.png  used on input lin
-e 198.
+e 203.
 (pdftex.def)             Requested size: 507.88533pt x 363.41953pt.
-[8 <./images/architecture/Cloud.png>] [9 <./images/architecture/On_Premises.png
->] [10] [11] [12] [13
+[9 <./images/architecture/Cloud.png>] [10 <./images/architecture/On_Premises.pn
+g>] [11] [12] [13] [14] [15
 
 ]
-<images/mesure_physique/ina219.jpg, id=485, 292.09125pt x 219.219pt>
+<images/mesure_physique/ina219.jpg, id=539, 292.09125pt x 219.219pt>
 File: images/mesure_physique/ina219.jpg Graphic file (type jpg)
 <use images/mesure_physique/ina219.jpg>
 Package pdftex.def Info: images/mesure_physique/ina219.jpg  used on input line 
-351.
+372.
 (pdftex.def)             Requested size: 304.73428pt x 228.7283pt.
-<images/mesure_physique/arduinoUno.jpg, id=486, 391.4625pt x 248.42813pt>
+<images/mesure_physique/arduinoUno.jpg, id=540, 391.4625pt x 248.42813pt>
 File: images/mesure_physique/arduinoUno.jpg Graphic file (type jpg)
 <use images/mesure_physique/arduinoUno.jpg>
 Package pdftex.def Info: images/mesure_physique/arduinoUno.jpg  used on input l
-ine 355.
+ine 376.
 (pdftex.def)             Requested size: 304.73428pt x 193.39787pt.
-<images/mesure_physique/montage.png, id=488, 821.0675pt x 549.05125pt>
+<images/mesure_physique/montage.png, id=542, 821.0675pt x 549.05125pt>
 File: images/mesure_physique/montage.png Graphic file (type png)
 <use images/mesure_physique/montage.png>
 Package pdftex.def Info: images/mesure_physique/montage.png  used on input line
- 365.
+ 386.
 (pdftex.def)             Requested size: 406.3098pt x 271.70161pt.
- [14 <./images/mesure_physique/ina219.jpg> <./images/mesure_physique/arduinoUno
+ [16 <./images/mesure_physique/ina219.jpg> <./images/mesure_physique/arduinoUno
 .jpg>]
-<images/mesure_physique/montageiot.png, id=496, 1020.81375pt x 305.14pt>
+<images/mesure_physique/montageiot.png, id=550, 1020.81375pt x 305.14pt>
 File: images/mesure_physique/montageiot.png Graphic file (type png)
 <use images/mesure_physique/montageiot.png>
 Package pdftex.def Info: images/mesure_physique/montageiot.png  used on input l
-ine 372.
+ine 393.
 (pdftex.def)             Requested size: 406.3098pt x 121.45319pt.
- [15 <./images/mesure_physique/montage.png> <./images/mesure_physique/montageio
-t.png>] [16]
+ [17 <./images/mesure_physique/montage.png> <./images/mesure_physique/montageio
+t.png>] [18]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 414.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 435.
 
-Overfull \hbox (40.25436pt too wide) in paragraph at lines 421--422
+Overfull \hbox (40.25436pt too wide) in paragraph at lines 442--443
 \T1/lmr/m/n/12 po-si-tif de me-sure grâce à une ins-tance de \T1/lmtt/m/n/12 Co
 ntroller\T1/lmr/m/n/12 , et per-met de sto-cker (dans \T1/lmtt/m/n/12 hardwareM
 easureResults\T1/lmr/m/n/12 )
@@ -1005,8 +1005,8 @@ easureResults\T1/lmr/m/n/12 )
 
 
 (./_minted-rapport_sting_greenspector/454BF875F791E75C906982333F1F0BC37CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [17]
-Overfull \hbox (34.79617pt too wide) in paragraph at lines 461--462
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [19]
+Overfull \hbox (34.79617pt too wide) in paragraph at lines 482--483
 \T1/lmr/m/n/12 vé/-dé-sac-tivé...) une ins-tance de \T1/lmtt/m/n/12 MeasureLaun
 cher\T1/lmr/m/n/12 , et je l'ai ajou-tée à la struc-ture \T1/lmtt/m/n/12 APKJob
 ExecutorModules\T1/lmr/m/n/12 .
@@ -1021,13 +1021,13 @@ ExecutorModules\T1/lmr/m/n/12 .
 
 
 (./_minted-rapport_sting_greenspector/A0F722595354FA90FE2CD0D6B2109DD57CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [18]
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [20]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/D5C4D73EEA14E9A93F720C79A704D9C27CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [19]
-Overfull \hbox (7.43765pt too wide) in paragraph at lines 561--562
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [21]
+Overfull \hbox (7.43765pt too wide) in paragraph at lines 582--583
 []\T1/lmr/m/n/12 Pour ré-soudre ce pro-blème, j'ai ajouté le champ \T1/lmtt/m/n
 /12 config \T1/lmr/m/n/12 de type \T1/lmtt/m/n/12 HardwareMeasureLauncherConfig
 
@@ -1042,8 +1042,8 @@ Overfull \hbox (7.43765pt too wide) in paragraph at lines 561--562
 
 
 (./_minted-rapport_sting_greenspector/D1C4240B6ACE1680EDDAEE3D0E0F07FB7CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [20]
-Overfull \hbox (22.03836pt too wide) in paragraph at lines 590--591
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [22]
+Overfull \hbox (22.03836pt too wide) in paragraph at lines 611--612
 \T1/lmr/m/n/12 compte le delta tem-po-rel lors-qu'on stocke les points de me-su
 re dans le ta-bleau \T1/lmtt/m/n/12 hardwareMeasureResults\T1/lmr/m/n/12 . 
  []
@@ -1053,59 +1053,159 @@ re dans le ta-bleau \T1/lmtt/m/n/12 hardwareMeasureResults\T1/lmr/m/n/12 .
 
 (./_minted-rapport_sting_greenspector/0782A5119A4E5290D3E8D29DAB8FBC587CD87DF30
 17E6DEC83AD2F6D1F2E7CD9.pygtex)
-Overfull \hbox (29.76253pt too wide) in paragraph at lines 617--618
+Overfull \hbox (29.76253pt too wide) in paragraph at lines 638--639
 \T1/lmr/m/n/12 for-ma-tions du fi-chier de confi-gu-ra-tion \T1/lmtt/m/n/12 job
 .yml\T1/lmr/m/n/12 ) et un \T1/lmtt/m/n/12 JobLauncher \T1/lmr/m/n/12 avec no-t
 am-ment son \T1/lmtt/m/n/12 MeasureLauncher
  []
 
-[21]
-<images/mesure_physique/schemahwj3.png, id=557, 495.8525pt x 278.03876pt>
+[23]
+<images/mesure_physique/schemahwj3.png, id=612, 495.8525pt x 278.03876pt>
 File: images/mesure_physique/schemahwj3.png Graphic file (type png)
 <use images/mesure_physique/schemahwj3.png>
 Package pdftex.def Info: images/mesure_physique/schemahwj3.png  used on input l
-ine 625.
+ine 646.
 (pdftex.def)             Requested size: 253.94266pt x 142.39183pt.
-<images/mesure_physique/montagehwj3.JPG, id=560, 4047.12pt x 3035.34pt>
+<images/mesure_physique/montagehwj3.JPG, id=616, 4047.12pt x 3035.34pt>
 File: images/mesure_physique/montagehwj3.JPG Graphic file (type jpg)
 <use images/mesure_physique/montagehwj3.JPG>
 Package pdftex.def Info: images/mesure_physique/montagehwj3.JPG  used on input 
-line 638.
+line 659.
 (pdftex.def)             Requested size: 304.73428pt x 228.52068pt.
- [22 <./images/mesure_physique/schemahwj3.png> <./images/mesure_physique/montag
-ehwj3.JPG>] [23] [24
+ [24 <./images/mesure_physique/schemahwj3.png> <./images/mesure_physique/montag
+ehwj3.JPG>]
+<images/AHPLbrut.png, id=626, 347.2975pt x 306.14375pt>
+File: images/AHPLbrut.png Graphic file (type png)
+<use images/AHPLbrut.png>
+Package pdftex.def Info: images/AHPLbrut.png  used on input line 671.
+(pdftex.def)             Requested size: 253.94266pt x 223.85678pt.
+<images/AHHARDbrut.png, id=627, 389.455pt x 232.87pt>
+File: images/AHHARDbrut.png Graphic file (type png)
+<use images/AHHARDbrut.png>
+Package pdftex.def Info: images/AHHARDbrut.png  used on input line 675.
+(pdftex.def)             Requested size: 253.94266pt x 151.83983pt.
+
+Overfull \hbox (2.61105pt too wide) in paragraph at lines 669--677
+[]$[]$ $[]$ 
+ []
+
+<images/firstsoft.png, id=628, 1347.0325pt x 604.2575pt>
+File: images/firstsoft.png Graphic file (type png)
+<use images/firstsoft.png>
+Package pdftex.def Info: images/firstsoft.png  used on input line 684.
+(pdftex.def)             Requested size: 507.88533pt x 227.83151pt.
+<images/firsthard.png, id=629, 1346.02875pt x 605.26125pt>
+File: images/firsthard.png Graphic file (type png)
+<use images/firsthard.png>
+Package pdftex.def Info: images/firsthard.png  used on input line 688.
+(pdftex.def)             Requested size: 507.88533pt x 228.3762pt.
+[25 <./images/AHPLbrut.png> <./images/AHHARDbrut.png>] [26 <./images/firstsoft.
+png> <./images/firsthard.png>]
+<images/chargement_2mn_brightness_min.png, id=643, 1534.73375pt x 466.74374pt>
+File: images/chargement_2mn_brightness_min.png Graphic file (type png)
+<use images/chargement_2mn_brightness_min.png>
+Package pdftex.def Info: images/chargement_2mn_brightness_min.png  used on inpu
+t line 711.
+(pdftex.def)             Requested size: 507.88533pt x 154.45322pt.
+<images/chargement_2mn_brightness_max.png, id=644, 1347.0325pt x 553.06625pt>
+File: images/chargement_2mn_brightness_max.png Graphic file (type png)
+<use images/chargement_2mn_brightness_max.png>
+Package pdftex.def Info: images/chargement_2mn_brightness_max.png  used on inpu
+t line 715.
+(pdftex.def)             Requested size: 507.88533pt x 208.53017pt.
+<images/j3stagingref.png, id=646, 1351.0475pt x 553.06625pt>
+File: images/j3stagingref.png Graphic file (type png)
+<use images/j3stagingref.png>
+Package pdftex.def Info: images/j3stagingref.png  used on input line 729.
+(pdftex.def)             Requested size: 507.88533pt x 207.90567pt.
+ [27 <./images/chargement_2mn_brightness_min.png> <./images/chargement_2mn_brig
+htness_max.png>]
+<images/progbrightness.png, id=655, 1347.0325pt x 553.06625pt>
+File: images/progbrightness.png Graphic file (type png)
+<use images/progbrightness.png>
+Package pdftex.def Info: images/progbrightness.png  used on input line 738.
+(pdftex.def)             Requested size: 507.88533pt x 208.53017pt.
+<images/affichageAH.png, id=657, 1348.03625pt x 554.07pt>
+File: images/affichageAH.png Graphic file (type png)
+<use images/affichageAH.png>
+Package pdftex.def Info: images/affichageAH.png  used on input line 750.
+(pdftex.def)             Requested size: 507.88533pt x 208.748pt.
+ [28 <./images/j3stagingref.png> <./images/progbrightness.png>]
+<images/dechargetotale.png, id=666, 474.77374pt x 460.72125pt>
+File: images/dechargetotale.png Graphic file (type png)
+<use images/dechargetotale.png>
+Package pdftex.def Info: images/dechargetotale.png  used on input line 761.
+(pdftex.def)             Requested size: 253.94266pt x 246.42368pt.
+<images/dechargetotale2.png, id=667, 455.7025pt x 461.725pt>
+File: images/dechargetotale2.png Graphic file (type png)
+<use images/dechargetotale2.png>
+Package pdftex.def Info: images/dechargetotale2.png  used on input line 765.
+(pdftex.def)             Requested size: 253.94266pt x 257.30312pt.
+
+Overfull \hbox (2.61105pt too wide) in paragraph at lines 759--767
+[]$[]$ $[]$ 
+ []
+
+<images/benchmark_sonde_galaxy.png, id=669, 276.03125pt x 406.51875pt>
+File: images/benchmark_sonde_galaxy.png Graphic file (type png)
+<use images/benchmark_sonde_galaxy.png>
+Package pdftex.def Info: images/benchmark_sonde_galaxy.png  used on input line 
+776.
+(pdftex.def)             Requested size: 111.73538pt x 164.55855pt.
+<images/benchmark_sonde_nexus.png, id=670, 275.0275pt x 390.45876pt>
+File: images/benchmark_sonde_nexus.png Graphic file (type png)
+<use images/benchmark_sonde_nexus.png>
+Package pdftex.def Info: images/benchmark_sonde_nexus.png  used on input line 7
+80.
+(pdftex.def)             Requested size: 116.81145pt x 165.8385pt.
+<images/benchmark_sonde_physique_j3.png, id=671, 275.0275pt x 377.41pt>
+File: images/benchmark_sonde_physique_j3.png Graphic file (type png)
+<use images/benchmark_sonde_physique_j3.png>
+Package pdftex.def Info: images/benchmark_sonde_physique_j3.png  used on input 
+line 784.
+(pdftex.def)             Requested size: 121.89526pt x 167.27025pt.
+<images/benchmark_sonde_logicielle_j3.png, id=672, 275.0275pt x 350.30875pt>
+File: images/benchmark_sonde_logicielle_j3.png Graphic file (type png)
+<use images/benchmark_sonde_logicielle_j3.png>
+Package pdftex.def Info: images/benchmark_sonde_logicielle_j3.png  used on inpu
+t line 788.
+(pdftex.def)             Requested size: 132.0474pt x 168.1944pt.
+[29 <./images/affichageAH.png> <./images/dechargetotale.png> <./images/decharge
+totale2.png>] [30 <./images/benchmark_sonde_galaxy.png> <./images/benchmark_son
+de_nexus.png> <./images/benchmark_sonde_physique_j3.png> <./images/benchmark_so
+nde_logicielle_j3.png>] [31
 
 ]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/826777F9098498F131D34D03B09EE95147927304F
-E44BC17D41FCB3E07640911.pygtex) [25]
-Overfull \hbox (2.80943pt too wide) in paragraph at lines 738--739
+E44BC17D41FCB3E07640911.pygtex) [32]
+Overfull \hbox (2.80943pt too wide) in paragraph at lines 892--893
 []\T1/lmr/m/n/12 J'ai testé quelques fonc-tion-na-li-tés de cet ou-til pour com
 -pa-rer son uti-li-sa-tion à celle de \T1/lmtt/m/n/12 ios-deploy\T1/lmr/m/n/12 
 . 
  []
 
-<images/wda/wda-server.png, id=600, 1307.88625pt x 475.7775pt>
+<images/wda/wda-server.png, id=720, 1307.88625pt x 475.7775pt>
 File: images/wda/wda-server.png Graphic file (type png)
 <use images/wda/wda-server.png>
-Package pdftex.def Info: images/wda/wda-server.png  used on input line 761.
+Package pdftex.def Info: images/wda/wda-server.png  used on input line 915.
 (pdftex.def)             Requested size: 507.88533pt x 184.75389pt.
-[26]
+[33]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/2B73BEA134213FD2F666FC0531D38EA047927304F
-E44BC17D41FCB3E07640911.pygtex) [27 <./images/wda/wda-server.png>]
+E44BC17D41FCB3E07640911.pygtex) [34 <./images/wda/wda-server.png>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 833.
- [28]
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 987.
+ [35]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/1DD10213A94358A02F83CBACD0E281267CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [29]
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [36]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
@@ -1115,7 +1215,7 @@ LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 8.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [30]
+)) [37]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
@@ -1125,56 +1225,56 @@ File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 
 (./_minted-rapport_sting_greenspector/6A244298C4C318790C4B6A06AE28D4EA7CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [31] [32] [33]
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [38] [39] [40]
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/69E6CD884D7E40FB3520B10EA51340D27CD87DF30
-17E6DEC83AD2F6D1F2E7CD9.pygtex) [34]
-<images/mesure_physique/montagehwios.JPG, id=674, 4047.12pt x 3035.34pt>
+17E6DEC83AD2F6D1F2E7CD9.pygtex) [41]
+<images/mesure_physique/montagehwios.JPG, id=794, 4047.12pt x 3035.34pt>
 File: images/mesure_physique/montagehwios.JPG Graphic file (type jpg)
 <use images/mesure_physique/montagehwios.JPG>
 Package pdftex.def Info: images/mesure_physique/montagehwios.JPG  used on input
- line 1072.
+ line 1226.
 (pdftex.def)             Requested size: 507.88533pt x 380.89867pt.
- [35] [36 <./images/mesure_physique/montagehwios.JPG>]
-<images/reference/chromebrowser.png, id=684, 1204.5pt x 2475.2475pt>
+ [42] [43 <./images/mesure_physique/montagehwios.JPG>]
+<images/reference/chromebrowser.png, id=804, 1204.5pt x 2475.2475pt>
 File: images/reference/chromebrowser.png Graphic file (type png)
 <use images/reference/chromebrowser.png>
 Package pdftex.def Info: images/reference/chromebrowser.png  used on input line
- 1097.
+ 1251.
 (pdftex.def)             Requested size: 152.36714pt x 313.10655pt.
- [37
+ [44
 
- <./images/reference/chromebrowser.png>] [38] [39
+ <./images/reference/chromebrowser.png>] [45] [46
 
-]
+] [47]
 Annexe A.
-<images/Interface/dashboard_vue_1.png, id=701, 1667.22874pt x 650.43pt>
+<images/Interface/dashboard_vue_1.png, id=826, 1667.22874pt x 650.43pt>
 File: images/Interface/dashboard_vue_1.png Graphic file (type png)
 <use images/Interface/dashboard_vue_1.png>
 Package pdftex.def Info: images/Interface/dashboard_vue_1.png  used on input li
-ne 1141.
+ne 1295.
 (pdftex.def)             Requested size: 507.88533pt x 198.1377pt.
-<images/Interface/dashboard_vue_2.png, id=702, 1393.205pt x 713.66624pt>
+<images/Interface/dashboard_vue_2.png, id=827, 1393.205pt x 713.66624pt>
 File: images/Interface/dashboard_vue_2.png Graphic file (type png)
 <use images/Interface/dashboard_vue_2.png>
 Package pdftex.def Info: images/Interface/dashboard_vue_2.png  used on input li
-ne 1148.
+ne 1302.
 (pdftex.def)             Requested size: 507.88533pt x 260.16476pt.
-<images/Interface/dashboard_vue_3.png, id=703, 1393.205pt x 814.04124pt>
+<images/Interface/dashboard_vue_3.png, id=828, 1393.205pt x 814.04124pt>
 File: images/Interface/dashboard_vue_3.png Graphic file (type png)
 <use images/Interface/dashboard_vue_3.png>
 Package pdftex.def Info: images/Interface/dashboard_vue_3.png  used on input li
-ne 1155.
+ne 1309.
 (pdftex.def)             Requested size: 507.88533pt x 296.75615pt.
-[40
+[48
 
- <./images/Interface/dashboard_vue_1.png>] [41 <./images/Interface/dashboard_vu
+ <./images/Interface/dashboard_vue_1.png>] [49 <./images/Interface/dashboard_vu
 e_2.png> <./images/Interface/dashboard_vue_3.png>]
 Annexe B.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1161.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1315.
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
@@ -1197,105 +1297,105 @@ Overfull \hbox (29.33994pt too wide) in paragraph at lines 31--31
 |  
  []
 
-[42
+[50
 
-] [43]) [44]
+] [51]) [52]
 Annexe C.
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/C0117418A5957219A97FA0A656313F4C47927304F
-E44BC17D41FCB3E07640911.pygtex [45
+E44BC17D41FCB3E07640911.pygtex [53
 
-] [46])
+] [54])
 \openout3 = `rapport_sting_greenspector.pyg'.
 
 
 (./_minted-rapport_sting_greenspector/0A35B5A1CCD0C1E8110C24A8C077D93247927304F
-E44BC17D41FCB3E07640911.pygtex [47]) [48]
+E44BC17D41FCB3E07640911.pygtex [55]) [56]
 Annexe D.
-<rapport_Calibration_S9.pdf, id=746, 597.50829pt x 845.0471pt>
+<rapport_Calibration_S9.pdf, id=871, 597.50829pt x 845.0471pt>
 File: rapport_Calibration_S9.pdf Graphic file (type pdf)
 <use rapport_Calibration_S9.pdf>
-Package pdftex.def Info: rapport_Calibration_S9.pdf  used on input line 1381.
+Package pdftex.def Info: rapport_Calibration_S9.pdf  used on input line 1535.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: rapport_Calibration_S9.pdf Graphic file (type pdf)
 <use rapport_Calibration_S9.pdf>
-Package pdftex.def Info: rapport_Calibration_S9.pdf  used on input line 1381.
+Package pdftex.def Info: rapport_Calibration_S9.pdf  used on input line 1535.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<rapport_Calibration_S9.pdf, id=749, page=1, 597.50829pt x 845.0471pt>
+<rapport_Calibration_S9.pdf, id=874, page=1, 597.50829pt x 845.0471pt>
 File: rapport_Calibration_S9.pdf Graphic file (type pdf)
 <use rapport_Calibration_S9.pdf, page 1>
 Package pdftex.def Info: rapport_Calibration_S9.pdf , page1 used on input line 
-1381.
+1535.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: rapport_Calibration_S9.pdf Graphic file (type pdf)
 <use rapport_Calibration_S9.pdf, page 1>
 Package pdftex.def Info: rapport_Calibration_S9.pdf , page1 used on input line 
-1381.
+1535.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
-[49
+[57
 
 ]
 File: rapport_Calibration_S9.pdf Graphic file (type pdf)
 <use rapport_Calibration_S9.pdf, page 1>
 Package pdftex.def Info: rapport_Calibration_S9.pdf , page1 used on input line 
-1381.
+1535.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: rapport_Calibration_S9.pdf Graphic file (type pdf)
 <use rapport_Calibration_S9.pdf, page 1>
 Package pdftex.def Info: rapport_Calibration_S9.pdf , page1 used on input line 
-1381.
+1535.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: rapport_Calibration_S9.pdf Graphic file (type pdf)
 <use rapport_Calibration_S9.pdf, page 1>
 Package pdftex.def Info: rapport_Calibration_S9.pdf , page1 used on input line 
-1381.
+1535.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [50 <./rapport_Calibration_S9.pdf>]
-<rapport_Calibration_S9.pdf, id=786, page=2, 597.50829pt x 845.0471pt>
+ [58 <./rapport_Calibration_S9.pdf>]
+<rapport_Calibration_S9.pdf, id=911, page=2, 597.50829pt x 845.0471pt>
 File: rapport_Calibration_S9.pdf Graphic file (type pdf)
 <use rapport_Calibration_S9.pdf, page 2>
 Package pdftex.def Info: rapport_Calibration_S9.pdf , page2 used on input line 
-1381.
-(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
-File: rapport_Calibration_S9.pdf Graphic file (type pdf)
-<use rapport_Calibration_S9.pdf, page 2>
-Package pdftex.def Info: rapport_Calibration_S9.pdf , page2 used on input line 
-1381.
+1535.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: rapport_Calibration_S9.pdf Graphic file (type pdf)
 <use rapport_Calibration_S9.pdf, page 2>
 Package pdftex.def Info: rapport_Calibration_S9.pdf , page2 used on input line 
-1381.
+1535.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [51 <./rapport_Calibration_S9.pdf>]
+File: rapport_Calibration_S9.pdf Graphic file (type pdf)
+<use rapport_Calibration_S9.pdf, page 2>
+Package pdftex.def Info: rapport_Calibration_S9.pdf , page2 used on input line 
+1535.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [59 <./rapport_Calibration_S9.pdf>]
 (./rapport_sting_greenspector.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1388.
- [52
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1542.
+ [60
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1388.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1542.
  (./rapport_sting_greenspector.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1388.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1388.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1542.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1542.
 
 Package rerunfilecheck Info: File `rapport_sting_greenspector.out' has not chan
 ged.
-(rerunfilecheck)             Checksum: BFE68C2E027112A3502D527322D4107F;4597.
+(rerunfilecheck)             Checksum: C014B98F5EC9DAD5A00FB41C69361C34;5012.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 runsystem(rm rapport_sting_greenspector.pyg)...executed.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1388.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1542.
  ) 
 Here is how much of TeX's memory you used:
- 15265 strings out of 492649
- 252345 string characters out of 6129622
- 398953 words of memory out of 5000000
- 18528 multiletter control sequences out of 15000+600000
+ 15382 strings out of 492649
+ 255271 string characters out of 6129622
+ 400081 words of memory out of 5000000
+ 18605 multiletter control sequences out of 15000+600000
  106058 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,18n,46p,1009b,657s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1318,10 +1418,10 @@ live/2018/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2018/
 texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2018/texmf-dist
 /fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/public/lm/lmtti10.pfb>
-Output written on rapport_sting_greenspector.pdf (53 pages, 7134522 bytes).
+Output written on rapport_sting_greenspector.pdf (61 pages, 7513122 bytes).
 PDF statistics:
- 905 PDF objects out of 1000 (max. 8388607)
- 783 compressed objects within 8 object streams
- 198 named destinations out of 1000 (max. 500000)
- 587 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1039 PDF objects out of 1200 (max. 8388607)
+ 878 compressed objects within 9 object streams
+ 223 named destinations out of 1000 (max. 500000)
+ 702 words of extra memory for PDF output out of 10000 (max. 10000000)
 

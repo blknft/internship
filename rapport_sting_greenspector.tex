@@ -95,7 +95,9 @@
 \label{chap:Remerciements}
 \addcontentsline{toc}{chapter}{Remerciements}
 
-Je tiens à remercier \textsc{Abdou}.
+Je souhaiterais tout d'abord remercier mon maître de stage, Thierry \textsc{Leboucq}, pour m'avoir donné l'opportunité d'effectuer mon stage chez \entreprise{}, ainsi que pour ses conseils précieux en tennis de (petite) table.
+  
+\bigskip Je souhaite également remercier le reste de l'équipe : Gwen, Kim, Solène, Abdou, Bertrand, Gabriel, Guillaume, Maxime, Olivier, Thomas et Thomas. Votre accueil, votre disponibilité et votre expertise m'a permis d'aborder et vivre ce stage dans les meilleures conditions. Je tiens enfin à célébrer votre culture de la blague et de la pause kebab.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -140,6 +142,9 @@ En 2016 l'entreprise devient \textsc{Greenspector} et lance la commercialisation
 \item \entreprise{} est partenaire du projet \textsc{WebEnergyArchive} \footnote{\url{https://wea.greencodelab.org}}, une première << étiquette énergétique >> pour les sites webs.
 \item L'entreprise a fondé le \textsc{Green Code Lab}, la communauté française des logiciels éco-conçus \footnote{Le \textsc{Green Code Lab} est notamment auteur du livre Green Patterns \cite{greenpatterns}, manuel d'éco-conception logicielle à destination des développeurs}.
 \end{itemize}
+
+\paragraph*{Locaux}
+Les locaux de \entreprise{} sont situés au Hub Creatic, au coeur du parc de la Chantrerie. Ils comprennent un open space dans lequel on retrouve principalement les activités de développement, ainsi qu'une salle de réunion et de plus petits bureaux séparés pour la direction et les activités commerciales.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -308,6 +313,22 @@ Avant mon arrivée, les mesures de \logiciel{} ne concernaient que les mobiles An
 
 \subsection{Tâches supplémentaires}
 Il m'a également été demandé de travailler sur d'autres tâches moins conséquentes. Enfin j'ai été chargé de m'intégrer au processus de développement de l'équipe (outils et méthodes agiles...).
+
+
+\section{Méthodes de travail}
+Pour le développement de son produit, \entreprise{} met en oeuvre une méthode agile nommée Kanban. Cette méthode s’inspire du système de production de Toyota \emph{Just In Time}.
+Le principe de la méthode Kanban est de limiter la quantité de tâches en cours pour éviter les embouteillages au cours du cycle de développement. Les tâches suivent ainsi un flux de travail défini, dont les principales étapes sont (pour \entreprise{}) :
+\begin{itemize}[noitemsep]
+\item À faire
+\item En cours de spécification
+\item En cours de développement
+\item En relecture
+\item À releaser
+\end{itemize}
+
+Tous les matins, nous faisions un tour rapide des tâches de la journée et de l’avancement de chacun : c’est le daily meeting qui permet de s’organiser. Le lundi, nous faisions également une rétrospective sur la semaine précédente dont l’objectif est d’identifier les points positifs et les points à améliorer. 
+
+Le vendredi nous faisions les démonstrations internes sur les dernières avancées (nouvelles fonctionnalités, améliorations de fonctionnalités existantes, etc). Ces temps de démonstration permettent d’avoir un retour de la part de tous les membres de l'équipe.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -631,7 +652,7 @@ Pour cette tâche, nous avons choisi d'utiliser un \textbf{Samsung Galaxy J3} car
 
 \bigskip La figure \ref{connecteurs} présente les connecteurs que nous avons utilisés. Ces connecteurs établissent le contact entre les bornes de la batterie et les fils électriques d'un côté, ainsi qu'entre le téléphone et les fils de l'autre.
 
-Nous avons soudé les fils électriques à chaque borne des connecteurs. De chaque côté, les bornes + et - sont reliées au shunt, de sorte que ce dernier est placé entre la batterie et le téléphone. Chacune des bornes restantes du côté de la batterie relie la borne correspondante du côté du mobile grâce un fil, sans passer par le shunt\footnote{Bien que fonctionnel, le montage complet est très bricolé ; je doute qu'il soit compréhensible avec une photo. Pour présenter un montage plus clair, j'ai choisi de montrer celui que nous avons réalisé sur iPhone (). }.
+Nous avons soudé les fils électriques à chaque borne des connecteurs. De chaque côté, les bornes + et - sont reliées au shunt, de sorte que ce dernier est placé entre la batterie et le téléphone. Chacune des bornes restantes du côté de la batterie relie la borne correspondante du côté du mobile grâce un fil, sans passer par le shunt\footnote{Bien que fonctionnel, le montage complet est très bricolé ; je doute qu'il soit compréhensible avec une photo. Pour présenter un montage plus clair, j'ai choisi de montrer celui que nous avons réalisé sur iPhone (figure \ref{montagehwios}). }.
 
 \begin{figure}[H]
 \centering
@@ -640,10 +661,143 @@ Nous avons soudé les fils électriques à chaque borne des connecteurs. De chaque 
 \label{connecteurs}
 \end{figure}
 
-
-
-
 \section{Analyse des résultats} 
+\subsection{Premières mesures}
+Après l'intégration du module physique dans le \code{testrunner}, quelques mesures ont été effectuées afin de vérifier la récupération des résultats de mesure des deux sondes, à la fois dans un fichier de résultats bruts (en local, lorsque le mode online est désactivé) et sur l'interface \logiciel{} (fig.~\ref{firstmeasureslocal} \&~\ref{firstmeasuresinterface}).
+
+\begin{figure}[H]
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{AHPLbrut.png}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{AHHARDbrut.png}
+  \end{minipage}
+\caption{Récupération des mesures des deux sondes en local dans un fichier \code{json}.}
+\label{firstmeasureslocal}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{minipage}{1\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{firstsoft.png}
+  \end{minipage}
+  \begin{minipage}{1\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{firsthard.png}
+  \end{minipage}
+\caption{Visualisation des mesures des deux sondes sur l'interface \logiciel{}. Les résultats obtenus ne sont pas significatifs, ici on s'assure seulement de récupérer effectivement des données.}
+\label{firstmeasuresinterface}
+\end{figure} 
+
+\subsection{Analyse des mesures brutes}
+On a commencé par analyser les données de mesure à partir des résultats bruts, dans le but de comparer les sondes. La confrontation de ces données n'a pas permis de relier la mesure physique à la mesure logicielle. Cependant, elle a permis de relever quelques points :
+\begin{itemize}[noitemsep]
+  \item Malgré un intervalle de mesure prévu de 200 ms, la sonde logicielle, lorsqu'elle relève les métriques CPU, mémoire etc... met davantage de temps à fournir un point de mesure (environ 500 ms). La période de la sonde physique étant de 200 ms, le retard de la sonde logicielle ne permettait pas la comparaison des courbes.
+  \item  Lorsqu'on s'intéresse à la décharge totale (somme de tous les points de mesure), on observe des instabilités au niveau de la sonde logicielle et des écarts parfois importants avec la sonde physique.
+\end{itemize}
+
+Pour la suite de l'analyse des mesures, on a mis à jour la sonde logicielle du smartphone pour ne mesurer que la décharge plateforme (toutes les 200 ms).
+
+
+\subsection{Analyse des mesures sur l'interface Greenspector}
+\subsubsection{Comportement de la sonde logicielle}
+Après avoir mis à jour la sonde logicielle du \textsc{Samsung j3}, plusieurs mesures de benchmark apk ont été réalisées. On a également allongé l'étape de chargement (2mn) afin d'avoir une meilleure vision des variations (fig.~\ref{loading2mn}).
+
+\begin{figure}[H]
+  \begin{minipage}{1\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{chargement_2mn_brightness_min.png}
+  \end{minipage}
+  \begin{minipage}{1\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{chargement_2mn_brightness_max.png}
+  \end{minipage}
+\caption{Mesures logicielles. Étape de chargement (2mn). Les deux courbes correspondent respectivement à un test en luminosité minimum et maximum.}
+\label{loading2mn}
+\end{figure}
+
+Les points de mesures semblent se regrouper autour de paliers. En analysant les fichiers de mesure brute, on remarque que la majorité des points de mesure sur un palier correspond à une seule valeur (les variations au sein d'un palier sont peu nombreuses).
+
+Ces observations semblent questionner la fiabilité de la sonde logicielle du \textbf{Samsung j3}. On observe le même comportement (les périodes de mesure sont moins régulières) sur certaines mesures du deuxième \textbf{Samsung j3}, différent de celui qu'on utilise pour la mesure physique (fig.~\ref{j3staging}).
+
+Ce comportement peut s'expliquer par le principe de mesure de la sonde logicielle, qui est le même que celui de la sonde physique. On récupère une valeur de courant que l'on intègre sur la durée de la mesure. Contrairement à la sonde physique, la mesure de courant est mise à jour beaucoup moins fréquemment (environ 30s). Comme les intervalles de mesure ne sont pas rigoureusement les mêmes, on observe quelques variations au sein de chaque palier. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{j3stagingref.png}
+\caption{Résultat de mesure de l'étape de référence sur le deuxième \textbf{Samsung j3}.}
+\label{j3staging}
+\end{figure}
+
+\bigskip En faisant varier progressivement la luminosité pendant une étape de 2mn, on observe néanmoins une augmentation progressive de la décharge (fig.~\ref{progbrightness}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{progbrightness.png}
+\caption{Décharge observée lors d'une augmentation progressive de la luminosité pendant 2mn.}
+\label{progbrightness}
+\end{figure}
+
+Suite à ces observations, le CTO a jugé que la sonde logicielle du \textbf{Samsung j3} demeurait utilisable (on a effectivement une hausse de consommation lorsqu'on augmente la luminosité), mais qu'il convenait de considérer un niveau de confiance plus bas pour la sonde logicielle. 
+
+\subsubsection{Comportement et fiabilité de la sonde physique}
+\paragraph{Affichage des mesures} La mesure physique présente des courbes certainement moins lisibles (fig. ~\ref{affichageAH}), en raison de pics parasites, mais aussi d'une fréquence de mise à jour permettant d'enregistrer une valeur différente à chaque point (contrairement à la sonde logicielle). Dans tous les cas, la sonde physique ne présente pas le comportement observé avec la sonde logicielle.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{affichageAH.png}
+\caption{Affichage de la mesure physique. Étape de référence.}
+\label{affichageAH}
+\end{figure}
+
+\paragraph{Comportement de la sonde physique}
+Au niveau de la décharge totale, la sonde physique présente des valeurs globalement stables sur l'ensemble des étapes de test (fig.~\ref{dechargetotale}).
+
+\begin{figure}[H]
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{dechargetotale.png}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{dechargetotale2.png}
+  \end{minipage}
+\caption{Décharge totale des sondes sur l'étape de référence et idle au premier plan.}
+\label{dechargetotale}
+\end{figure}
+
+On a cherché à comparer les comportement de la sonde physique et des sondes logicielles d'autres appareils (\textbf{Nexus 6} et \textbf{Samsung Galaxy}). La sonde physique fournit un classement des étapes (ordonnées par consommation, fig.~\ref{classement}) similaire autres téléphones, alors que la sonde logicielle présente des différences plus importantes — par exemple, l'étape de chargement consomme moins que l'étape idle en arrière plan. On observe même des cas où l'étape de chargement est celle qui consomme le moins.
+
+\begin{figure}[H]
+  \begin{minipage}{0.22\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{benchmark_sonde_galaxy.png}
+  \end{minipage}
+  \begin{minipage}{0.23\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{benchmark_sonde_nexus.png}
+  \end{minipage}
+  \begin{minipage}{0.24\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{benchmark_sonde_physique_j3.png}
+  \end{minipage}
+    \begin{minipage}{0.26\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{benchmark_sonde_logicielle_j3.png}
+  \end{minipage}
+\caption{Classement des étapes de test par ordre décroissant de consommation. Dans l'ordre : \textbf{Samsung Galaxy}, \textbf{Nexus 6}, \textbf{Samsung j3} (sonde physique), \textbf{Samsung j3} (sonde logicielle).}
+\label{classement}
+\end{figure}
+
+\subsection{Conclusion.s}
+Les mesures réalisées à l'aide du dispositif de mesure physique permettent de tirer plusieurs conclusions :
+\begin{itemize}[noitemsep]
+\item La sonde logicielle du \textbf{Samsung j3} ne semble pas assez fiable pour obtenir des résultats précis sur la consommation d'énergie du téléphone. Elle peut cependant être utile pour avoir un ordre de grandeur de cette consommation sur ce type d'appareil. \footnote{À la fin de mon stage, un développeur a réussi à trouver un fichier système fournissant des données de consommation à intervalles de temps plus courts. Je n'ai pas eu le temps de poursuivre l'analyse après cette correction. Il conviendrait de le faire afin de mieux évaluer le comportement de la sonde physique.}
+\item Les résultats de la mesure physique semblent plus cohérents que ceux de la sonde logicielle\footnote{Il faut nuancer cette affirmation. En effet, les comparaisons ont été effectuées avec d'autres appareils.}. Dans le cas du \textbf{Samsung j3}, le dispositif physique pourra venir complémenter la mesure logicielle en apportant plus de précision. Si le montage est adaptable, il conviendrait d'effectuer des mesures physiques sur d'autres appareils afin de préciser le niveau de fiabilité de la sonde. 
+\end{itemize}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -1124,11 +1278,11 @@ Au début du stage j'ai eu des difficultés à identifier clairement l'outil et son
 Sur la tâche de développement iOS, j'avançais seul sur un sujet que l'entreprise ne maîtrisait pas. Je profitais de conseils généraux (et précieux !) de la part de l'équipe, mais c'était difficile d'avoir de l'aide sur des problématiques un peu plus précises. Cependant cette tâche représentait un beau défi et je suis satisfait du travail que j'ai réalisé.  
 
 \section{Bilan personnel}
-J'ai trouvé ce stage chez \entreprise{} très enrichissant, tout d'abord d'un point de vue technique. En effet j'ai pu apprendre un nouveau langage de programmation (\code{Go}), m'initier au développement iOS, et consolider mes connaissances avec \code{git} sur des cas concrets. J'ai pu prendre connaissance de certains concepts et pratiques de développement qui me permettront sans doute d'être plus à l'aise pour mes expériences futures dans le secteur. Je n'ai pas été directement confronté à certaines problématiques de l'édition logicielle, notamment l'intégration continue et le déploiement, et c'est mon unique regret. Mes aventures inattendues en électronique étaient aussi intéressantes. 
+J'ai trouvé ce stage chez \entreprise{} très enrichissant, tout d'abord d'un point de vue technique. En effet j'ai pu apprendre un nouveau langage de programmation (\code{Go}), m'initier au développement iOS, et consolider mes connaissances \code{git} sur des cas concrets. J'ai pu prendre connaissance de certains concepts et pratiques de développement qui me permettront sans doute d'être plus à l'aise pour mes expériences futures dans le secteur. Je n'ai pas été directement confronté à certaines problématiques de l'édition logicielle, notamment l'intégration continue et le déploiement, et c'est mon unique regret. Mes aventures inattendues en électronique étaient aussi intéressantes. 
 
-\bigskip Je tire également un très bon bilan de ce stage d'un point de vue professionnel, puisque j'ai vécu une première immersion dans une start up, ce qui m'était complètement inconnu jusqu'à présent. C'était également ma première expérience chez un éditeur de logiciel. J'ai pris conscience de certains enjeux importants du secteur (autres que le développement), notamment les enjeux commercial et marketing.
+\bigskip Je tire également un très bon bilan de ce stage d'un point de vue professionnel, puisque j'ai vécu une première immersion dans une start up, ce qui m'était complètement inconnu jusqu'à présent. C'était également ma première expérience chez un éditeur de logiciel. J'ai pris conscience de certains enjeux importants du secteur (autres que le développement), notamment les enjeux commercial et marketing, ce qui m'a permis d'élargir ma vision. Cette expérience me permettra d'aborder ma vie professionnelle future avec plus de cordes à mon arc.
 
-\bigskip Enfin j'ai beaucoup aimé m'intégrer au sein de l'équipe \entreprise{}. 
+\bigskip Enfin j'ai beaucoup aimé m'intégrer au sein de l'équipe \entreprise{}, avec qui j'ai travaillé dans une ambiance de partage, d'écoute et d'entraide. Je tire un enrichissement important de mes échanges (professionnels ou non) avec les membres de l'équipe.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix

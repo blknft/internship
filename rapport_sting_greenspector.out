@@ -12,46 +12,51 @@
 \BOOKMARK [2][-]{subsection..section.3.1}{Dispositif de mesure physique de consommation d'\351nergie}{section..section.3}% 12
 \BOOKMARK [2][-]{subsection..section.3.2}{\311tude et d\351veloppement iOS}{section..section.3}% 13
 \BOOKMARK [2][-]{subsection..section.3.3}{T\342ches suppl\351mentaires}{section..section.3}% 14
-\BOOKMARK [0][-]{chapter*.10}{Dispositif de mesure physique de consommation d'\351nergie sur mobiles Android}{}% 15
-\BOOKMARK [1][-]{section.chX.1}{Introduction : \340 propos de la mesure logicielle de consommation \351nerg\351tique}{chapter*.10}% 16
-\BOOKMARK [1][-]{section.chX.2}{Cadre}{chapter*.10}% 17
-\BOOKMARK [2][-]{subsection.chX.2.1}{Pr\351sentation du prototype de sonde physique}{section.chX.2}% 18
-\BOOKMARK [2][-]{subsection.chX.2.2}{Projets impact\351s, langages de programmation}{section.chX.2}% 19
-\BOOKMARK [2][-]{subsection.chX.2.3}{Sp\351cification}{section.chX.2}% 20
-\BOOKMARK [1][-]{section.chX.3}{Impl\351mentation du module de mesure physique}{chapter*.10}% 21
-\BOOKMARK [2][-]{subsection.chX.3.1}{go-testapi}{section.chX.3}% 22
-\BOOKMARK [2][-]{subsection.chX.3.2}{testrunner}{section.chX.3}% 23
-\BOOKMARK [1][-]{section.chX.4}{Adaptation du dispositif}{chapter*.10}% 24
-\BOOKMARK [1][-]{section.chX.5}{Analyse des r\351sultats}{chapter*.10}% 25
-\BOOKMARK [0][-]{chapter*.24}{\311tude de faisabilit\351 iOS}{}% 26
-\BOOKMARK [1][-]{section.chXX.1}{Introduction}{chapter*.24}% 27
-\BOOKMARK [1][-]{section.chXX.2}{Cadre}{chapter*.24}% 28
-\BOOKMARK [2][-]{subsection.chXX.2.1}{Appareil}{section.chXX.2}% 29
-\BOOKMARK [2][-]{subsection.chXX.2.2}{Sonde physique}{section.chXX.2}% 30
-\BOOKMARK [2][-]{subsection.chXX.2.3}{Technologies utilis\351es}{section.chXX.2}% 31
-\BOOKMARK [1][-]{section.chXX.3}{Tests automatis\351s}{chapter*.24}% 32
-\BOOKMARK [2][-]{subsection.chXX.3.1}{Premiers essais : libimobiledevice et ios-deploy}{section.chXX.3}% 33
-\BOOKMARK [2][-]{subsection.chXX.3.2}{Vers la solution : WebDriverAgent}{section.chXX.3}% 34
-\BOOKMARK [2][-]{subsection.chXX.3.3}{\311criture de scripts de benchmark}{section.chXX.3}% 35
-\BOOKMARK [1][-]{section.chXX.4}{Impl\351mentation dans go-testapi et testrunner}{chapter*.24}% 36
-\BOOKMARK [2][-]{subsection.chXX.4.1}{go-testapi}{section.chXX.4}% 37
-\BOOKMARK [2][-]{subsection.chXX.4.2}{testrunner}{section.chXX.4}% 38
-\BOOKMARK [1][-]{section.chXX.5}{Ajout de m\351triques suppl\351mentaires}{chapter*.24}% 39
-\BOOKMARK [2][-]{subsection.chXX.5.1}{Application sondeiOS}{section.chXX.5}% 40
-\BOOKMARK [2][-]{subsection.chXX.5.2}{R\351cup\351ration des r\351sultats}{section.chXX.5}% 41
-\BOOKMARK [2][-]{subsection.chXX.5.3}{Probl\351matique du fonctionnement en arri\350re plan}{section.chXX.5}% 42
-\BOOKMARK [1][-]{section.chXX.6}{Mesure physique}{chapter*.24}% 43
-\BOOKMARK [0][-]{chapter*.34}{T\342ches suppl\351mentaires}{}% 44
-\BOOKMARK [1][-]{section.chXXX.1}{Benchmark web Android : mesure de r\351f\351rence}{chapter*.34}% 45
-\BOOKMARK [1][-]{section.chXXX.2}{Calibration Samsung Galaxy S9}{chapter*.34}% 46
-\BOOKMARK [0][-]{chapter*.36}{Conclusion}{}% 47
-\BOOKMARK [1][-]{section.conclusion.1}{Bilan des t\342ches r\351alis\351es}{chapter*.36}% 48
-\BOOKMARK [1][-]{section.conclusion.2}{Difficult\351s rencontr\351es}{chapter*.36}% 49
-\BOOKMARK [1][-]{section.conclusion.3}{Bilan personnel}{chapter*.36}% 50
-\BOOKMARK [0][-]{appendix.A}{Tableau de bord : exemple d'analyse du site de l'\311cole Centrale de Nantes}{}% 51
-\BOOKMARK [0][-]{appendix.B}{Int\351gration de la mesure physique dans testrunner}{}% 52
-\BOOKMARK [0][-]{appendix.C}{Scripts de tests automatis\351s sur iOS}{}% 53
-\BOOKMARK [1][-]{section.anX.1}{Benchmark web}{appendix.C}% 54
-\BOOKMARK [1][-]{section.anX.2}{Benchmark d'application}{appendix.C}% 55
-\BOOKMARK [0][-]{appendix.D}{Rapport de calibration du Samsung Galaxy S9}{}% 56
-\BOOKMARK [0][-]{appendix*.40}{Bibliographie}{}% 57
+\BOOKMARK [1][-]{section..section.4}{M\351thodes de travail}{chapter*.7}% 15
+\BOOKMARK [0][-]{chapter*.10}{Dispositif de mesure physique de consommation d'\351nergie sur mobiles Android}{}% 16
+\BOOKMARK [1][-]{section.chX.1}{Introduction : \340 propos de la mesure logicielle de consommation \351nerg\351tique}{chapter*.10}% 17
+\BOOKMARK [1][-]{section.chX.2}{Cadre}{chapter*.10}% 18
+\BOOKMARK [2][-]{subsection.chX.2.1}{Pr\351sentation du prototype de sonde physique}{section.chX.2}% 19
+\BOOKMARK [2][-]{subsection.chX.2.2}{Projets impact\351s, langages de programmation}{section.chX.2}% 20
+\BOOKMARK [2][-]{subsection.chX.2.3}{Sp\351cification}{section.chX.2}% 21
+\BOOKMARK [1][-]{section.chX.3}{Impl\351mentation du module de mesure physique}{chapter*.10}% 22
+\BOOKMARK [2][-]{subsection.chX.3.1}{go-testapi}{section.chX.3}% 23
+\BOOKMARK [2][-]{subsection.chX.3.2}{testrunner}{section.chX.3}% 24
+\BOOKMARK [1][-]{section.chX.4}{Adaptation du dispositif}{chapter*.10}% 25
+\BOOKMARK [1][-]{section.chX.5}{Analyse des r\351sultats}{chapter*.10}% 26
+\BOOKMARK [2][-]{subsection.chX.5.1}{Premi\350res mesures}{section.chX.5}% 27
+\BOOKMARK [2][-]{subsection.chX.5.2}{Analyse des mesures brutes}{section.chX.5}% 28
+\BOOKMARK [2][-]{subsection.chX.5.3}{Analyse des mesures sur l'interface Greenspector}{section.chX.5}% 29
+\BOOKMARK [2][-]{subsection.chX.5.4}{Conclusion.s}{section.chX.5}% 30
+\BOOKMARK [0][-]{chapter*.32}{\311tude de faisabilit\351 iOS}{}% 31
+\BOOKMARK [1][-]{section.chXX.1}{Introduction}{chapter*.32}% 32
+\BOOKMARK [1][-]{section.chXX.2}{Cadre}{chapter*.32}% 33
+\BOOKMARK [2][-]{subsection.chXX.2.1}{Appareil}{section.chXX.2}% 34
+\BOOKMARK [2][-]{subsection.chXX.2.2}{Sonde physique}{section.chXX.2}% 35
+\BOOKMARK [2][-]{subsection.chXX.2.3}{Technologies utilis\351es}{section.chXX.2}% 36
+\BOOKMARK [1][-]{section.chXX.3}{Tests automatis\351s}{chapter*.32}% 37
+\BOOKMARK [2][-]{subsection.chXX.3.1}{Premiers essais : libimobiledevice et ios-deploy}{section.chXX.3}% 38
+\BOOKMARK [2][-]{subsection.chXX.3.2}{Vers la solution : WebDriverAgent}{section.chXX.3}% 39
+\BOOKMARK [2][-]{subsection.chXX.3.3}{\311criture de scripts de benchmark}{section.chXX.3}% 40
+\BOOKMARK [1][-]{section.chXX.4}{Impl\351mentation dans go-testapi et testrunner}{chapter*.32}% 41
+\BOOKMARK [2][-]{subsection.chXX.4.1}{go-testapi}{section.chXX.4}% 42
+\BOOKMARK [2][-]{subsection.chXX.4.2}{testrunner}{section.chXX.4}% 43
+\BOOKMARK [1][-]{section.chXX.5}{Ajout de m\351triques suppl\351mentaires}{chapter*.32}% 44
+\BOOKMARK [2][-]{subsection.chXX.5.1}{Application sondeiOS}{section.chXX.5}% 45
+\BOOKMARK [2][-]{subsection.chXX.5.2}{R\351cup\351ration des r\351sultats}{section.chXX.5}% 46
+\BOOKMARK [2][-]{subsection.chXX.5.3}{Probl\351matique du fonctionnement en arri\350re plan}{section.chXX.5}% 47
+\BOOKMARK [1][-]{section.chXX.6}{Mesure physique}{chapter*.32}% 48
+\BOOKMARK [0][-]{chapter*.42}{T\342ches suppl\351mentaires}{}% 49
+\BOOKMARK [1][-]{section.chXXX.1}{Benchmark web Android : mesure de r\351f\351rence}{chapter*.42}% 50
+\BOOKMARK [1][-]{section.chXXX.2}{Calibration Samsung Galaxy S9}{chapter*.42}% 51
+\BOOKMARK [0][-]{chapter*.44}{Conclusion}{}% 52
+\BOOKMARK [1][-]{section.conclusion.1}{Bilan des t\342ches r\351alis\351es}{chapter*.44}% 53
+\BOOKMARK [1][-]{section.conclusion.2}{Difficult\351s rencontr\351es}{chapter*.44}% 54
+\BOOKMARK [1][-]{section.conclusion.3}{Bilan personnel}{chapter*.44}% 55
+\BOOKMARK [0][-]{appendix.A}{Tableau de bord : exemple d'analyse du site de l'\311cole Centrale de Nantes}{}% 56
+\BOOKMARK [0][-]{appendix.B}{Int\351gration de la mesure physique dans testrunner}{}% 57
+\BOOKMARK [0][-]{appendix.C}{Scripts de tests automatis\351s sur iOS}{}% 58
+\BOOKMARK [1][-]{section.anX.1}{Benchmark web}{appendix.C}% 59
+\BOOKMARK [1][-]{section.anX.2}{Benchmark d'application}{appendix.C}% 60
+\BOOKMARK [0][-]{appendix.D}{Rapport de calibration du Samsung Galaxy S9}{}% 61
+\BOOKMARK [0][-]{appendix*.48}{Bibliographie}{}% 62

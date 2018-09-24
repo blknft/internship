@@ -1,33 +1,41 @@
 \babel@toc {french}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces Architecture et flux (version Cloud)\relax }}{8}{figure.caption.8}
-\contentsline {figure}{\numberline {2}{\ignorespaces Architecture et flux (version On premises)\relax }}{9}{figure.caption.9}
-\contentsline {figure}{\numberline {3}{\ignorespaces Arduino INA219 High Side DC Current Sensor\relax }}{14}{figure.caption.11}
-\contentsline {figure}{\numberline {4}{\ignorespaces Arduino Uno Rev3\relax }}{14}{figure.caption.11}
-\contentsline {figure}{\numberline {5}{\ignorespaces Sonde physique : c\^ablage des composants \'electroniques\relax }}{15}{figure.caption.12}
-\contentsline {figure}{\numberline {6}{\ignorespaces Sonde physique : circuit pour la mesure d'un Raspberry Pi\relax }}{15}{figure.caption.13}
-\contentsline {figure}{\numberline {7}{\ignorespaces D\'eclaration de la structure \texttt {hardwareMeasureLauncher}\relax }}{17}{figure.caption.14}
-\contentsline {figure}{\numberline {8}{\ignorespaces D\'eclaration de la structure \texttt {APKJobExecutor}\relax }}{18}{figure.caption.15}
-\contentsline {figure}{\numberline {9}{\ignorespaces M\'ethode \texttt {InitAPKJobExecutor}\relax }}{18}{figure.caption.16}
-\contentsline {figure}{\numberline {10}{\ignorespaces Int\'egration de la mesure physique dans la m\'ethode \texttt {RunIterations}\relax }}{19}{figure.caption.17}
-\contentsline {figure}{\numberline {11}{\ignorespaces Int\'egration des r\'esultats de la mesure physique\relax }}{20}{figure.caption.18}
-\contentsline {figure}{\numberline {12}{\ignorespaces D\'eclaration de la structure \texttt {HardwareMeasureLauncherConfig}\relax }}{20}{figure.caption.19}
-\contentsline {figure}{\numberline {13}{\ignorespaces Instanciation de \texttt {GetTimeDelta} dans le cas Android\relax }}{21}{figure.caption.20}
-\contentsline {figure}{\numberline {14}{\ignorespaces Instanciation de la configuration du port s\'erie dans le programme principal du \texttt {testrunner}\relax }}{21}{figure.caption.21}
-\contentsline {figure}{\numberline {15}{\ignorespaces Sch\'ema du montage de mesure physique\relax }}{22}{figure.caption.22}
-\contentsline {figure}{\numberline {16}{\ignorespaces Connecteurs \textbf {Samsung Galaxy J3}\relax }}{22}{figure.caption.23}
-\contentsline {figure}{\numberline {17}{\ignorespaces Exemples d'utilisation de \texttt {ios-deploy}\relax }}{25}{figure.caption.25}
-\contentsline {figure}{\numberline {18}{\ignorespaces \texttt {WebDriverAgent} : affichage de l'adresse du serveur dans la console\relax }}{27}{figure.caption.26}
-\contentsline {figure}{\numberline {19}{\ignorespaces Exemples d'utilisation de \texttt {WebDriverAgent} gr\^ace \`a \texttt {cURL}\relax }}{28}{figure.caption.27}
-\contentsline {figure}{\numberline {20}{\ignorespaces M\'ethodes de l'interface \texttt {Device}\relax }}{30}{figure.caption.28}
-\contentsline {figure}{\numberline {21}{\ignorespaces D\'eclaration des structures \texttt {IosDeviceConfig} et \texttt {IosDevice}\relax }}{30}{figure.caption.29}
-\contentsline {figure}{\numberline {22}{\ignorespaces D\'eclaration de l'interface \texttt {JobLauncher}\relax }}{31}{figure.caption.30}
-\contentsline {figure}{\numberline {23}{\ignorespaces Une m\'ethode de test unitaire pour \texttt {IosJobLauncher}\relax }}{32}{figure.caption.31}
-\contentsline {figure}{\numberline {24}{\ignorespaces M\'ethode \texttt {GetProbeResults}\relax }}{34}{figure.caption.32}
-\contentsline {figure}{\numberline {25}{\ignorespaces Dispositif de mesure physique sur \textbf {iPhone 7}\relax }}{36}{figure.caption.33}
+\contentsline {figure}{\numberline {1}{\ignorespaces Architecture et flux (version Cloud)\relax }}{9}{figure.caption.8}
+\contentsline {figure}{\numberline {2}{\ignorespaces Architecture et flux (version On premises)\relax }}{10}{figure.caption.9}
+\contentsline {figure}{\numberline {3}{\ignorespaces Arduino INA219 High Side DC Current Sensor\relax }}{16}{figure.caption.11}
+\contentsline {figure}{\numberline {4}{\ignorespaces Arduino Uno Rev3\relax }}{16}{figure.caption.11}
+\contentsline {figure}{\numberline {5}{\ignorespaces Sonde physique : c\^ablage des composants \'electroniques\relax }}{17}{figure.caption.12}
+\contentsline {figure}{\numberline {6}{\ignorespaces Sonde physique : circuit pour la mesure d'un Raspberry Pi\relax }}{17}{figure.caption.13}
+\contentsline {figure}{\numberline {7}{\ignorespaces D\'eclaration de la structure \texttt {hardwareMeasureLauncher}\relax }}{19}{figure.caption.14}
+\contentsline {figure}{\numberline {8}{\ignorespaces D\'eclaration de la structure \texttt {APKJobExecutor}\relax }}{20}{figure.caption.15}
+\contentsline {figure}{\numberline {9}{\ignorespaces M\'ethode \texttt {InitAPKJobExecutor}\relax }}{20}{figure.caption.16}
+\contentsline {figure}{\numberline {10}{\ignorespaces Int\'egration de la mesure physique dans la m\'ethode \texttt {RunIterations}\relax }}{21}{figure.caption.17}
+\contentsline {figure}{\numberline {11}{\ignorespaces Int\'egration des r\'esultats de la mesure physique\relax }}{22}{figure.caption.18}
+\contentsline {figure}{\numberline {12}{\ignorespaces D\'eclaration de la structure \texttt {HardwareMeasureLauncherConfig}\relax }}{22}{figure.caption.19}
+\contentsline {figure}{\numberline {13}{\ignorespaces Instanciation de \texttt {GetTimeDelta} dans le cas Android\relax }}{23}{figure.caption.20}
+\contentsline {figure}{\numberline {14}{\ignorespaces Instanciation de la configuration du port s\'erie dans le programme principal du \texttt {testrunner}\relax }}{23}{figure.caption.21}
+\contentsline {figure}{\numberline {15}{\ignorespaces Sch\'ema du montage de mesure physique\relax }}{24}{figure.caption.22}
+\contentsline {figure}{\numberline {16}{\ignorespaces Connecteurs \textbf {Samsung Galaxy J3}\relax }}{24}{figure.caption.23}
+\contentsline {figure}{\numberline {17}{\ignorespaces R\'ecup\'eration des mesures des deux sondes en local dans un fichier \texttt {json}.\relax }}{25}{figure.caption.24}
+\contentsline {figure}{\numberline {18}{\ignorespaces Visualisation des mesures des deux sondes sur l'interface \emph {Greenspector}{}. Les r\'esultats obtenus ne sont pas significatifs, ici on s'assure seulement de r\'ecup\'erer effectivement des donn\'ees.\relax }}{26}{figure.caption.25}
+\contentsline {figure}{\numberline {19}{\ignorespaces Mesures logicielles. \'Etape de chargement (2mn). Les deux courbes correspondent respectivement \`a un test en luminosit\'e minimum et maximum.\relax }}{27}{figure.caption.26}
+\contentsline {figure}{\numberline {20}{\ignorespaces R\'esultat de mesure de l'\'etape de r\'ef\'erence sur le deuxi\`eme \textbf {Samsung j3}.\relax }}{28}{figure.caption.27}
+\contentsline {figure}{\numberline {21}{\ignorespaces D\'echarge observ\'ee lors d'une augmentation progressive de la luminosit\'e pendant 2mn.\relax }}{28}{figure.caption.28}
+\contentsline {figure}{\numberline {22}{\ignorespaces Affichage de la mesure physique. \'Etape de r\'ef\'erence.\relax }}{29}{figure.caption.29}
+\contentsline {figure}{\numberline {23}{\ignorespaces D\'echarge totale des sondes sur l'\'etape de r\'ef\'erence et idle au premier plan.\relax }}{29}{figure.caption.30}
+\contentsline {figure}{\numberline {24}{\ignorespaces Classement des \'etapes de test par ordre d\'ecroissant de consommation. Dans l'ordre : \textbf {Samsung Galaxy}, \textbf {Nexus 6}, \textbf {Samsung j3} (sonde physique), \textbf {Samsung j3} (sonde logicielle).\relax }}{30}{figure.caption.31}
+\contentsline {figure}{\numberline {25}{\ignorespaces Exemples d'utilisation de \texttt {ios-deploy}\relax }}{32}{figure.caption.33}
+\contentsline {figure}{\numberline {26}{\ignorespaces \texttt {WebDriverAgent} : affichage de l'adresse du serveur dans la console\relax }}{34}{figure.caption.34}
+\contentsline {figure}{\numberline {27}{\ignorespaces Exemples d'utilisation de \texttt {WebDriverAgent} gr\^ace \`a \texttt {cURL}\relax }}{35}{figure.caption.35}
+\contentsline {figure}{\numberline {28}{\ignorespaces M\'ethodes de l'interface \texttt {Device}\relax }}{37}{figure.caption.36}
+\contentsline {figure}{\numberline {29}{\ignorespaces D\'eclaration des structures \texttt {IosDeviceConfig} et \texttt {IosDevice}\relax }}{37}{figure.caption.37}
+\contentsline {figure}{\numberline {30}{\ignorespaces D\'eclaration de l'interface \texttt {JobLauncher}\relax }}{38}{figure.caption.38}
+\contentsline {figure}{\numberline {31}{\ignorespaces Une m\'ethode de test unitaire pour \texttt {IosJobLauncher}\relax }}{39}{figure.caption.39}
+\contentsline {figure}{\numberline {32}{\ignorespaces M\'ethode \texttt {GetProbeResults}\relax }}{41}{figure.caption.40}
+\contentsline {figure}{\numberline {33}{\ignorespaces Dispositif de mesure physique sur \textbf {iPhone 7}\relax }}{43}{figure.caption.41}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Tableau de bord. Vue 1\relax }}{40}{figure.caption.37}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Tableau de bord. Vue 2\relax }}{41}{figure.caption.38}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Tableau de bord. Vue 3\relax }}{41}{figure.caption.39}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Tableau de bord. Vue 1\relax }}{48}{figure.caption.45}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Tableau de bord. Vue 2\relax }}{49}{figure.caption.46}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Tableau de bord. Vue 3\relax }}{49}{figure.caption.47}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

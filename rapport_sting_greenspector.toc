@@ -2,92 +2,101 @@
 \contentsline {chapter}{Remerciements}{1}{chapter*.2}
 \contentsline {chapter}{Table des mati\`eres}{2}{chapter*.3}
 \contentsline {chapter}{Table des figures}{4}{chapter*.4}
-\contentsline {chapter}{Introduction}{5}{chapter*.5}
-\contentsline {chapter}{Pr\'esentation de l'entreprise}{6}{chapter*.6}
-\contentsline {chapter}{Cadre g\'en\'eral}{7}{chapter*.7}
-\contentsline {section}{\numberline {1}\'Eco-conception logicielle}{7}{section..section.1}
-\contentsline {paragraph}{Exemples d'application}{7}{section..section.1}
-\contentsline {section}{\numberline {2}Pr\'esentation de l'outil \emph {Greenspector}{}}{8}{section..section.2}
-\contentsline {subsection}{\numberline {2.1}Architecture}{8}{subsection..section.2.1}
-\contentsline {subsection}{\numberline {2.2}Intelligence}{10}{subsection..section.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}R\'ef\'erentiel de r\`egles et de mesures}{10}{subsubsection..section.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Moteur d'analyse}{10}{subsubsection..section.2.2.2}
-\contentsline {subsubsection}{\numberline {2.2.3}Interface utilisateur}{10}{subsubsection..section.2.2.3}
-\contentsline {subsubsection}{\numberline {2.2.4}Tests automatis\'es}{11}{subsubsection..section.2.2.4}
-\contentsline {paragraph}{Benchmark web}{11}{subsubsection..section.2.2.4}
-\contentsline {paragraph}{Benchmark apk}{12}{subsubsection..section.2.2.4}
-\contentsline {paragraph}{Tests custom}{12}{subsubsection..section.2.2.4}
-\contentsline {section}{\numberline {3}Travail demand\'e}{12}{section..section.3}
-\contentsline {subsection}{\numberline {3.1}Dispositif de mesure physique de consommation d'\'energie}{12}{subsection..section.3.1}
-\contentsline {subsection}{\numberline {3.2}\'Etude et d\'eveloppement iOS}{12}{subsection..section.3.2}
-\contentsline {subsection}{\numberline {3.3}T\^aches suppl\'ementaires}{12}{subsection..section.3.3}
-\contentsline {chapter}{Dispositif de mesure physique de consommation d'\'energie sur mobiles Android}{13}{chapter*.10}
-\contentsline {section}{\numberline {1}Introduction : \`a propos de la mesure logicielle de consommation \'energ\'etique}{13}{section.chX.1}
-\contentsline {section}{\numberline {2}Cadre}{14}{section.chX.2}
-\contentsline {subsection}{\numberline {2.1}Pr\'esentation du prototype de sonde physique}{14}{subsection.chX.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Mat\'eriel}{14}{subsubsection.chX.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.2}Programme \texttt {Arduino}}{15}{subsubsection.chX.2.1.2}
-\contentsline {subsection}{\numberline {2.2}Projets impact\'es, langages de programmation}{16}{subsection.chX.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}\texttt {Arduino}}{16}{subsubsection.chX.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}\texttt {go-testapi}}{16}{subsubsection.chX.2.2.2}
-\contentsline {subsubsection}{\numberline {2.2.3}\texttt {testrunner}}{16}{subsubsection.chX.2.2.3}
-\contentsline {subsubsection}{\numberline {2.2.4}\texttt {test-bench-launcher-android}}{16}{subsubsection.chX.2.2.4}
-\contentsline {subsection}{\numberline {2.3}Sp\'ecification}{16}{subsection.chX.2.3}
-\contentsline {section}{\numberline {3}Impl\'ementation du module de mesure physique}{17}{section.chX.3}
-\contentsline {subsection}{\numberline {3.1}\texttt {go-testapi}}{17}{subsection.chX.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Package \texttt {hardware}}{17}{subsubsection.chX.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Impl\'ementation du module}{17}{subsubsection.chX.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}R\'ecup\'eration des r\'esultats}{19}{subsubsection.chX.3.1.3}
-\contentsline {subsection}{\numberline {3.2}\texttt {testrunner}}{21}{subsection.chX.3.2}
-\contentsline {section}{\numberline {4}Adaptation du dispositif}{22}{section.chX.4}
-\contentsline {section}{\numberline {5}Analyse des r\'esultats}{23}{section.chX.5}
-\contentsline {chapter}{\'Etude de faisabilit\'e iOS}{24}{chapter*.24}
-\contentsline {section}{\numberline {1}Introduction}{24}{section.chXX.1}
-\contentsline {section}{\numberline {2}Cadre}{24}{section.chXX.2}
-\contentsline {subsection}{\numberline {2.1}Appareil}{24}{subsection.chXX.2.1}
-\contentsline {subsection}{\numberline {2.2}Sonde physique}{24}{subsection.chXX.2.2}
-\contentsline {subsection}{\numberline {2.3}Technologies utilis\'ees}{24}{subsection.chXX.2.3}
-\contentsline {section}{\numberline {3}Tests automatis\'es}{24}{section.chXX.3}
-\contentsline {subsection}{\numberline {3.1}Premiers essais : \texttt {libimobiledevice} et \texttt {ios-deploy}}{25}{subsection.chXX.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}\texttt {ios-deploy}}{25}{subsubsection.chXX.3.1.1}
-\contentsline {paragraph}{Avantages}{25}{figure.caption.25}
-\contentsline {paragraph}{Points blocants}{26}{figure.caption.25}
-\contentsline {subsubsection}{\numberline {3.1.2}\texttt {libimobiledevice}}{26}{subsubsection.chXX.3.1.2}
-\contentsline {paragraph}{Avantage}{26}{subsubsection.chXX.3.1.2}
-\contentsline {paragraph}{Points blocants}{26}{subsubsection.chXX.3.1.2}
-\contentsline {subsection}{\numberline {3.2}Vers la solution : \texttt {WebDriverAgent}}{26}{subsection.chXX.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}\texttt {WebDriverAgent}}{26}{subsubsection.chXX.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Fonctionnement}{27}{subsubsection.chXX.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}Prise en main}{27}{subsubsection.chXX.3.2.3}
-\contentsline {subsection}{\numberline {3.3}\'Ecriture de scripts de benchmark}{28}{subsection.chXX.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Benchmark de site web}{28}{subsubsection.chXX.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}Benchmark d'application}{28}{subsubsection.chXX.3.3.2}
-\contentsline {section}{\numberline {4}Impl\'ementation dans \texttt {go-testapi} et \texttt {testrunner}}{29}{section.chXX.4}
-\contentsline {subsection}{\numberline {4.1}\texttt {go-testapi}}{29}{subsection.chXX.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Package \texttt {device}}{29}{subsubsection.chXX.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}Autres entit\'es du package \texttt {ios}}{31}{subsubsection.chXX.4.1.2}
-\contentsline {paragraph}{Lancement des tests sur l'appareil}{31}{subsubsection.chXX.4.1.2}
-\contentsline {paragraph}{Tests unitaires}{31}{figure.caption.30}
-\contentsline {subsection}{\numberline {4.2}\texttt {testrunner}}{32}{subsection.chXX.4.2}
-\contentsline {section}{\numberline {5}Ajout de m\'etriques suppl\'ementaires}{33}{section.chXX.5}
-\contentsline {subsection}{\numberline {5.1}Application \texttt {sondeiOS}}{33}{subsection.chXX.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Principe}{33}{subsubsection.chXX.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}M\'etriques}{33}{subsubsection.chXX.5.1.2}
-\contentsline {subsection}{\numberline {5.2}R\'ecup\'eration des r\'esultats}{33}{subsection.chXX.5.2}
-\contentsline {subsection}{\numberline {5.3}Probl\'ematique du fonctionnement en arri\`ere plan}{35}{subsection.chXX.5.3}
-\contentsline {section}{\numberline {6}Mesure physique}{35}{section.chXX.6}
-\contentsline {paragraph}{Difficult\'es rencontr\'ees}{35}{section.chXX.6}
-\contentsline {chapter}{T\^aches suppl\'ementaires}{37}{chapter*.34}
-\contentsline {section}{\numberline {1}Benchmark web Android : mesure de r\'ef\'erence}{37}{section.chXXX.1}
-\contentsline {section}{\numberline {2}Calibration \textsc {Samsung Galaxy S9}}{38}{section.chXXX.2}
-\contentsline {chapter}{Conclusion}{39}{chapter*.36}
-\contentsline {section}{\numberline {1}Bilan des t\^aches r\'ealis\'ees}{39}{section.conclusion.1}
-\contentsline {section}{\numberline {2}Difficult\'es rencontr\'ees}{39}{section.conclusion.2}
-\contentsline {section}{\numberline {3}Bilan personnel}{39}{section.conclusion.3}
-\contentsline {chapter}{\numberline {A}Tableau de bord : exemple d'analyse du site de l'\'Ecole Centrale de Nantes}{40}{appendix.A}
-\contentsline {chapter}{\numberline {B}Int\'egration de la mesure physique dans \texttt {testrunner}}{42}{appendix.B}
-\contentsline {chapter}{\numberline {C}Scripts de tests automatis\'es sur iOS}{45}{appendix.C}
-\contentsline {section}{\numberline {1}Benchmark web}{45}{section.anX.1}
-\contentsline {section}{\numberline {2}Benchmark d'application}{47}{section.anX.2}
-\contentsline {chapter}{\numberline {D}Rapport de calibration du Samsung Galaxy S9}{49}{appendix.D}
-\contentsline {chapter}{Bibliographie}{52}{appendix*.40}
+\contentsline {chapter}{Introduction}{6}{chapter*.5}
+\contentsline {chapter}{Pr\'esentation de l'entreprise}{7}{chapter*.6}
+\contentsline {chapter}{Cadre g\'en\'eral}{8}{chapter*.7}
+\contentsline {section}{\numberline {1}\'Eco-conception logicielle}{8}{section..section.1}
+\contentsline {paragraph}{Exemples d'application}{8}{section..section.1}
+\contentsline {section}{\numberline {2}Pr\'esentation de l'outil \emph {Greenspector}{}}{9}{section..section.2}
+\contentsline {subsection}{\numberline {2.1}Architecture}{9}{subsection..section.2.1}
+\contentsline {subsection}{\numberline {2.2}Intelligence}{11}{subsection..section.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}R\'ef\'erentiel de r\`egles et de mesures}{11}{subsubsection..section.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Moteur d'analyse}{11}{subsubsection..section.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Interface utilisateur}{11}{subsubsection..section.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.4}Tests automatis\'es}{12}{subsubsection..section.2.2.4}
+\contentsline {paragraph}{Benchmark web}{12}{subsubsection..section.2.2.4}
+\contentsline {paragraph}{Benchmark apk}{13}{subsubsection..section.2.2.4}
+\contentsline {paragraph}{Tests custom}{13}{subsubsection..section.2.2.4}
+\contentsline {section}{\numberline {3}Travail demand\'e}{13}{section..section.3}
+\contentsline {subsection}{\numberline {3.1}Dispositif de mesure physique de consommation d'\'energie}{13}{subsection..section.3.1}
+\contentsline {subsection}{\numberline {3.2}\'Etude et d\'eveloppement iOS}{13}{subsection..section.3.2}
+\contentsline {subsection}{\numberline {3.3}T\^aches suppl\'ementaires}{13}{subsection..section.3.3}
+\contentsline {section}{\numberline {4}M\'ethodes de travail}{13}{section..section.4}
+\contentsline {chapter}{Dispositif de mesure physique de consommation d'\'energie sur mobiles Android}{15}{chapter*.10}
+\contentsline {section}{\numberline {1}Introduction : \`a propos de la mesure logicielle de consommation \'energ\'etique}{15}{section.chX.1}
+\contentsline {section}{\numberline {2}Cadre}{16}{section.chX.2}
+\contentsline {subsection}{\numberline {2.1}Pr\'esentation du prototype de sonde physique}{16}{subsection.chX.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Mat\'eriel}{16}{subsubsection.chX.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Programme \texttt {Arduino}}{17}{subsubsection.chX.2.1.2}
+\contentsline {subsection}{\numberline {2.2}Projets impact\'es, langages de programmation}{18}{subsection.chX.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}\texttt {Arduino}}{18}{subsubsection.chX.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}\texttt {go-testapi}}{18}{subsubsection.chX.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}\texttt {testrunner}}{18}{subsubsection.chX.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.4}\texttt {test-bench-launcher-android}}{18}{subsubsection.chX.2.2.4}
+\contentsline {subsection}{\numberline {2.3}Sp\'ecification}{18}{subsection.chX.2.3}
+\contentsline {section}{\numberline {3}Impl\'ementation du module de mesure physique}{19}{section.chX.3}
+\contentsline {subsection}{\numberline {3.1}\texttt {go-testapi}}{19}{subsection.chX.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Package \texttt {hardware}}{19}{subsubsection.chX.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Impl\'ementation du module}{19}{subsubsection.chX.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}R\'ecup\'eration des r\'esultats}{21}{subsubsection.chX.3.1.3}
+\contentsline {subsection}{\numberline {3.2}\texttt {testrunner}}{23}{subsection.chX.3.2}
+\contentsline {section}{\numberline {4}Adaptation du dispositif}{24}{section.chX.4}
+\contentsline {section}{\numberline {5}Analyse des r\'esultats}{25}{section.chX.5}
+\contentsline {subsection}{\numberline {5.1}Premi\`eres mesures}{25}{subsection.chX.5.1}
+\contentsline {subsection}{\numberline {5.2}Analyse des mesures brutes}{26}{subsection.chX.5.2}
+\contentsline {subsection}{\numberline {5.3}Analyse des mesures sur l'interface Greenspector}{27}{subsection.chX.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Comportement de la sonde logicielle}{27}{subsubsection.chX.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Comportement et fiabilit\'e de la sonde physique}{28}{subsubsection.chX.5.3.2}
+\contentsline {paragraph}{Affichage des mesures}{28}{subsubsection.chX.5.3.2}
+\contentsline {paragraph}{Comportement de la sonde physique}{29}{figure.caption.29}
+\contentsline {subsection}{\numberline {5.4}Conclusion.s}{30}{subsection.chX.5.4}
+\contentsline {chapter}{\'Etude de faisabilit\'e iOS}{31}{chapter*.32}
+\contentsline {section}{\numberline {1}Introduction}{31}{section.chXX.1}
+\contentsline {section}{\numberline {2}Cadre}{31}{section.chXX.2}
+\contentsline {subsection}{\numberline {2.1}Appareil}{31}{subsection.chXX.2.1}
+\contentsline {subsection}{\numberline {2.2}Sonde physique}{31}{subsection.chXX.2.2}
+\contentsline {subsection}{\numberline {2.3}Technologies utilis\'ees}{31}{subsection.chXX.2.3}
+\contentsline {section}{\numberline {3}Tests automatis\'es}{31}{section.chXX.3}
+\contentsline {subsection}{\numberline {3.1}Premiers essais : \texttt {libimobiledevice} et \texttt {ios-deploy}}{32}{subsection.chXX.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}\texttt {ios-deploy}}{32}{subsubsection.chXX.3.1.1}
+\contentsline {paragraph}{Avantages}{32}{figure.caption.33}
+\contentsline {paragraph}{Points blocants}{33}{figure.caption.33}
+\contentsline {subsubsection}{\numberline {3.1.2}\texttt {libimobiledevice}}{33}{subsubsection.chXX.3.1.2}
+\contentsline {paragraph}{Avantage}{33}{subsubsection.chXX.3.1.2}
+\contentsline {paragraph}{Points blocants}{33}{subsubsection.chXX.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Vers la solution : \texttt {WebDriverAgent}}{33}{subsection.chXX.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}\texttt {WebDriverAgent}}{33}{subsubsection.chXX.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Fonctionnement}{34}{subsubsection.chXX.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Prise en main}{34}{subsubsection.chXX.3.2.3}
+\contentsline {subsection}{\numberline {3.3}\'Ecriture de scripts de benchmark}{35}{subsection.chXX.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Benchmark de site web}{35}{subsubsection.chXX.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Benchmark d'application}{35}{subsubsection.chXX.3.3.2}
+\contentsline {section}{\numberline {4}Impl\'ementation dans \texttt {go-testapi} et \texttt {testrunner}}{36}{section.chXX.4}
+\contentsline {subsection}{\numberline {4.1}\texttt {go-testapi}}{36}{subsection.chXX.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Package \texttt {device}}{36}{subsubsection.chXX.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Autres entit\'es du package \texttt {ios}}{38}{subsubsection.chXX.4.1.2}
+\contentsline {paragraph}{Lancement des tests sur l'appareil}{38}{subsubsection.chXX.4.1.2}
+\contentsline {paragraph}{Tests unitaires}{38}{figure.caption.38}
+\contentsline {subsection}{\numberline {4.2}\texttt {testrunner}}{39}{subsection.chXX.4.2}
+\contentsline {section}{\numberline {5}Ajout de m\'etriques suppl\'ementaires}{40}{section.chXX.5}
+\contentsline {subsection}{\numberline {5.1}Application \texttt {sondeiOS}}{40}{subsection.chXX.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Principe}{40}{subsubsection.chXX.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}M\'etriques}{40}{subsubsection.chXX.5.1.2}
+\contentsline {subsection}{\numberline {5.2}R\'ecup\'eration des r\'esultats}{40}{subsection.chXX.5.2}
+\contentsline {subsection}{\numberline {5.3}Probl\'ematique du fonctionnement en arri\`ere plan}{42}{subsection.chXX.5.3}
+\contentsline {section}{\numberline {6}Mesure physique}{42}{section.chXX.6}
+\contentsline {paragraph}{Difficult\'es rencontr\'ees}{42}{section.chXX.6}
+\contentsline {chapter}{T\^aches suppl\'ementaires}{44}{chapter*.42}
+\contentsline {section}{\numberline {1}Benchmark web Android : mesure de r\'ef\'erence}{44}{section.chXXX.1}
+\contentsline {section}{\numberline {2}Calibration \textsc {Samsung Galaxy S9}}{45}{section.chXXX.2}
+\contentsline {chapter}{Conclusion}{46}{chapter*.44}
+\contentsline {section}{\numberline {1}Bilan des t\^aches r\'ealis\'ees}{46}{section.conclusion.1}
+\contentsline {section}{\numberline {2}Difficult\'es rencontr\'ees}{46}{section.conclusion.2}
+\contentsline {section}{\numberline {3}Bilan personnel}{46}{section.conclusion.3}
+\contentsline {chapter}{\numberline {A}Tableau de bord : exemple d'analyse du site de l'\'Ecole Centrale de Nantes}{48}{appendix.A}
+\contentsline {chapter}{\numberline {B}Int\'egration de la mesure physique dans \texttt {testrunner}}{50}{appendix.B}
+\contentsline {chapter}{\numberline {C}Scripts de tests automatis\'es sur iOS}{53}{appendix.C}
+\contentsline {section}{\numberline {1}Benchmark web}{53}{section.anX.1}
+\contentsline {section}{\numberline {2}Benchmark d'application}{55}{section.anX.2}
+\contentsline {chapter}{\numberline {D}Rapport de calibration du Samsung Galaxy S9}{57}{appendix.D}
+\contentsline {chapter}{Bibliographie}{60}{appendix*.48}
